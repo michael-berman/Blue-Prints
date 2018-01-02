@@ -18,7 +18,8 @@ class Api::SessionsController < ApplicationController
       logout
       render "api/users/show" #TODO: render the homepage once it is up
     else
-      render json: ["Nobody signed in"], status: 404 #TODO can't logout at all if not logged in
+      render json: ["Nobody signed in"], status: 404 #TODO can't logout
+      # at all if not logged in
     end
   end
 end
