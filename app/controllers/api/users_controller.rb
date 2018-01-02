@@ -1,24 +1,20 @@
 class Api::UsersController < ApplicationController
-  def create
-    @user = User.find_by_credentials(
-      params[:user][:username],
-      params[:user][:password])
 
-    if @user
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
       login(@user)
-      render "api/users/show" # TODO: Render the homepage once it is up
+      render "api/users/show"
     else
-      render json: ["Invalid username/password combination"], status: 401
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
-  def destroy
-    @user = current_user
-    if @user
-      logout
-      render "api/users/show" #TODO: render the homepage once it is up
-    else
-      render json: ["Nobody signed in"], status: 404 #TODO can't logout at all if not logged in
-    end
+
+
+  private
+  def user_params
+    params.require(:user).permit(:username, :password)
   end
 end
