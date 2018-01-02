@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -9,7 +10,7 @@ class SessionForm extends React.Component {
       this.state = { email: "", username: "", password: "" };
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderSignup = this.renderSignup.bind(this);
+    this.renderEmail = this.renderEmail.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.navLink = this.navLink.bind(this);
   }
@@ -31,6 +32,7 @@ class SessionForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const user = this.state;
+
     this.props.submitForm(user);
   }
 
@@ -40,7 +42,7 @@ class SessionForm extends React.Component {
     }
   }
 
-  renderSignup(){
+  renderEmail(){
     if (this.props.formType === 'signup'){
       <input type="text" value={this.state.email} onChange={this.update('email')} />
     } else {
@@ -49,15 +51,18 @@ class SessionForm extends React.Component {
   }
 
   renderErrors(){
-    return(
-      <ul className="session-error-container">
-        {this.props.errors.map((error), i => (
+    if (this.props.errors.length > 0) {
+      const errors = this.props.errors.map((error, i) => (
           <li key={`error-${i}`} className="session-error-item">
             {error}
           </li>
-        ))}
-      </ul>
-    );
+        ))
+      return(
+        <ul className="session-error-container">
+          {errors}
+        </ul>
+      );
+    }
   }
 
   render(){
@@ -68,8 +73,8 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           {this.renderEmail()}
           <input type="text" value={this.state.username} onChange={this.update('username')} />
-          <input type="text" value={this.state.password} onChange={this.update('password')} />
-          <button type="submit" value={this.props.formType}/>
+          <input type="password" value={this.state.password} onChange={this.update('password')} />
+          <button type="submit">{this.props.formType}</button>
         </form>
         {this.navLink()}
       </div>

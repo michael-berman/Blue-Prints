@@ -8,22 +8,24 @@ export const receiveCurrentUser = currentUser => ({
   currentUser
 });
 
-export const receiveSessionErrors = errors => ({
-  type: RECEIVE_SESSION_ERRORS,
-  errors
-});
-
+export const receiveSessionErrors = errors => {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: errors.responseJSON
+  };
+}
 export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user).then(user => {
     return receiveCurrentUser(user);
-  }, err => (dispatch(receiveSessionErrors(err.responseJson))
+  }, err => (dispatch(receiveSessionErrors(err))
   ));
 };
 
 export const login = user => dispatch => {
+  
   return SessionAPIUtil.login(user).then(user => {
     return receiveCurrentUser(user);
-  }, err => (dispatch(receiveSessionErrors(err.responseJson))
+  }, err => (dispatch(receiveSessionErrors(err))
   ));
 };
 
