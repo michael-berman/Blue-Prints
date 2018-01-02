@@ -32,8 +32,8 @@ class SessionForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const user = this.state;
-
     this.props.submitForm(user);
+
   }
 
   update(field){
@@ -74,7 +74,7 @@ class SessionForm extends React.Component {
           {this.renderEmail()}
           <input type="text" value={this.state.username} onChange={this.update('username')} />
           <input type="password" value={this.state.password} onChange={this.update('password')} />
-          <button type="submit">{this.props.formType}</button>
+          <input type="submit" className="session-form-submit-button" value={this.props.formType} />
         </form>
         {this.navLink()}
       </div>

@@ -16,15 +16,15 @@ export const receiveSessionErrors = errors => {
 }
 export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user).then(user => {
-    return receiveCurrentUser(user);
+    return dispatch(receiveCurrentUser(user));
   }, err => (dispatch(receiveSessionErrors(err))
   ));
 };
 
 export const login = user => dispatch => {
-  
+
   return SessionAPIUtil.login(user).then(user => {
-    return receiveCurrentUser(user);
+    return dispatch(receiveCurrentUser(user));
   }, err => (dispatch(receiveSessionErrors(err))
   ));
 };
