@@ -8,6 +8,7 @@
 #  session_token   :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  email           :string
 #
 
 class User < ApplicationRecord
@@ -17,6 +18,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true}
 
   after_initialize :ensure_session_token
+
+  has_many :projects,
+    class_name: 'Project',
+    foreign_key: :author_id
 
   #TODO have associations for projects, comments, favorites
 
