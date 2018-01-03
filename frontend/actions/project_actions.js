@@ -19,14 +19,14 @@ export const receiveProject = project => {
   };
 };
 
-export const removeProject = project => {
+export const removeProject = projectId => {
   return {
     type: REMOVE_PROJECT,
     projectId
   };
 };
 
-export const receiveProjectErrors = errors = {
+export const receiveProjectErrors = errors => {
   return {
     type: RECEIVE_PROJECT_ERRORS,
     errors: errors.responseJSON
@@ -34,7 +34,7 @@ export const receiveProjectErrors = errors = {
 };
 
 export const fetchProjects = () => dispatch => {
-  return ProjectAPIUtil.fetchProjects().then((projects) => {
+  ProjectAPIUtil.fetchProjects().then((projects) => {
     return dispatch(receiveProjects(projects))
   }, err => (dispatch(receiveProjectErrors(err))));
 };
