@@ -13,7 +13,7 @@
 class User < ApplicationRecord
   validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
-  validates :email, :email_format => {:message => 'Enter a valid email'}
+  validates :email, :email_format => {:message => 'is an invalid email'}
   validates :password, length: { minimum: 6, allow_nil: true}
 
   after_initialize :ensure_session_token

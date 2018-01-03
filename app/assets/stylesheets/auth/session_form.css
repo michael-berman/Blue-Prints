@@ -40,7 +40,7 @@
 
 .session-form-container {
   width: 325px;
-  height: 250px;
+  height: 350px;
   margin: 100px 50px;
   box-shadow: 1px -1px 8px 0px black;
   border-radius: 10px;
@@ -65,7 +65,7 @@
   width: 325px;
 }
 
-.login-form-box input{
+.session-form-input{
   display: block;
   margin: auto;
   width: 250px;
@@ -74,7 +74,7 @@
   margin-bottom: 20px;
 }
 
-#session-form-submit-button {
+.session-form-submit-button {
   background-color: #4165A5;
   border-radius: 10px;
   width: 165px;
@@ -83,10 +83,11 @@
   font-size: 20px;
   line-height: 5px;
   color: white;
+  margin: auto 0;
 }
 
 
-#session-form-submit-button:hover {
+.session-form-submit-button:hover {
   cursor: pointer;
   background-color: #213F9B;
 }
