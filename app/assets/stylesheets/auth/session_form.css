@@ -13,6 +13,7 @@
   position: relative;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  padding: 10px 0;
 }
 
 .session-page {
