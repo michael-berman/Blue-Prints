@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { logout } from './actions/session_actions';
-// import {}
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
@@ -16,8 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
-  
 
   window.logout = logout;
   window.dispatch = store.dispatch;
