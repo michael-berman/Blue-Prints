@@ -11,8 +11,9 @@ const mapStatetoProps = (state) => {
 };
 
 const mapDispatchtoProps = (dispatch, { location }) => {
-  const formType = location.pathname.slice(1);
-  const processForm = (formType === 'login') ? login : signup;
+  const locationString = location.pathname.slice(1);
+  const formType = locationString.charAt(0).toUpperCase() + locationString.slice(1);
+  const processForm = (formType === 'Login') ? login : signup;
   return {
     submitForm: user => dispatch(processForm(user)),
     clearErrors: () => dispatch(receiveCurrentUser(null)),

@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
   }
 
   navLink(){
-    if (this.props.formType === 'signup') {
+    if (this.props.formType === 'Signup') {
       return (
               <span className="session-login-link">
                 <p>Already a member? <Link to='/login'> Login</Link> </p>
@@ -45,10 +45,10 @@ class SessionForm extends React.Component {
   }
 
   renderDemo(){
-    if (this.props.formType === 'login'){
+    if (this.props.formType === 'Login'){
       return (
         <input type="submit" className="session-form-submit-button"
-          onClick={this.demoLogin} value="demo login"/>
+          onClick={this.demoLogin} value="Demo Login"/>
       )
     } else {
       return null;
@@ -62,7 +62,7 @@ class SessionForm extends React.Component {
   }
 
   renderEmail(){
-    if (this.props.formType === 'signup'){
+    if (this.props.formType === 'Signup'){
       return (
         <input type="text" value={this.state.email}
           onChange={this.update('email')}
@@ -114,7 +114,6 @@ class SessionForm extends React.Component {
                   {this.renderDemo()}
                 </form>
 
-
               <div className="session-form-footer">
                 {this.navLink()}
               </div>
@@ -122,7 +121,7 @@ class SessionForm extends React.Component {
             </section>
 
             <div className="welcome-form-container">
-              <p>Welcome to Blue Prints</p><br />
+              <p>Welcome to Blue Prints!</p><br />
               <p>Enjoy all the wonderful blue prints that are made
                 available by the community!</p>
             </div>

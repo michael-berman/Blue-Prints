@@ -1,8 +1,8 @@
 .session-wrapper {
   width: 1000px;
   padding: 0;
-  border-radius: 15px;
-  border: 1px solid rgba(119, 130, 135, 0.4);
+  // border-radius: 15px;
+  // border: 1px solid rgba(119, 130, 135, 0.4);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -12,14 +12,14 @@
   background-color: #d4e1e7;
   width: 100%;
   position: relative;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  // border-top-left-radius: 15px;
+  // border-top-right-radius: 15px;
   padding: 10px 0;
 }
 
 .session-header {
   display: inline-block;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Rubik', sans-serif;
   font-size: 36px;
   font-weight: 400;
   height: 36px;
@@ -33,14 +33,15 @@
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-around;
+  align-items: center;
 }
-
 
 .session-form-container {
   width: 325px;
   box-shadow: 1px -1px 8px 0px black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #D3E1E7;
   display: flex;
   flex-direction: column;
@@ -69,11 +70,13 @@
   height: 28px;
   border-radius: 5px;
   margin-bottom: 20px;
+  border: none;
+  font-size: 16px;
 }
 
 .session-form-submit-button {
   background-color: #4165A5;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 44px;
   border: none;
   font-size: 20px;
@@ -93,6 +96,7 @@
   width: 60%;
   margin: 5px 35px;
   a {
+    font-family: serif;
     text-decoration: none;
     color: #545454;
   }
@@ -103,7 +107,7 @@
 
 .welcome-form-container {
   text-align: center;
-  width: 300px;
+  width: 400px;
   color: #D3E1E7;
   font-size: 35px;
   font-weight: bold;
@@ -112,5 +116,5 @@
 }
 
 .welcome-form-container {
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Rubik', sans-serif;
 }
