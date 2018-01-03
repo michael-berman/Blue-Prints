@@ -14,6 +14,7 @@ class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.navLink = this.navLink.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.renderDemo = this.renderDemo.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -37,7 +38,7 @@ class SessionForm extends React.Component {
   }
 
   demoLogin(){
-    const user = {};
+    const user = {username: "hunter12", password: "hunter12"}
     this.props.submitForm(user).then(() => this.props.history.push('/'));
   }
 
@@ -45,7 +46,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'login'){
       return (
         <input type="submit" className="session-form-submit-button"
-          onClick={this.demoLogin()} />
+          onClick={this.demoLogin} />
       )
     } else {
       return null;
