@@ -1,14 +1,111 @@
-.login-form-wrapper {
+.session-wrapper {
+  background-color: #b2b2d8;
+  position: relative;
+  width: 1000px;
+  padding: 0;
+  border-radius: 15px;
+  border: 1px solid rgba(119, 130, 135, 0.4);
+  margin: 0 auto;
+}
+
+.session-header-container {
+  background-color: #d4e1e7;
+  width: 100%;
+  position: relative;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.session-page {
+  justify-content: space-between;
+  width: 850;
+  margin: 0 auto;
+}
+
+.session-header {
+  display: inline-block;
+  font-family: 'Indie Flower', cursive;
+  font-size: 36px;
+  font-weight: 400;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 20px;
+}
+
+.session-row {
   display: flex;
-  border: 1px solid black;
+  padding: 40px;
+}
+
+.session-form-container {
+  width: 325px;
+  margin: 0 auto;
+  box-shadow: 1px -1px 8px 0px black;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.session-form-body {
+  padding-top: 30px;
+}
+
+.session-error-container {
+  width: 250px;
+  margin: 0 auto;
+  list-style: none;
+  color: red;
+  font-weight: 500;
+  padding-bottom: 10px;
+  padding-left: 0;
 }
 
 .login-form-box {
-  display: block;
-  border: 1px solid black;
+  width: 325px;
 }
 
-.login-form-container {
-  border: 1px solid black;
+.login-form-box input{
+  display: block;
+  margin: auto;
+  width: 250px;
+  height: 18px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
 
+#session-form-submit-button {
+  background-color: #4c4ca6;
+  border-radius: 10px;
+  width: 165px;
+  height: 35px;
+  border: none;
+  font-size: 20px;
+  line-height: 5px;
+}
+
+
+#session-form-submit-button:hover {
+  cursor: pointer;
+  background-color: #323299;
+}
+
+.session-form-footer {
+  width: 100%;
+  margin: 10px 35px;
+}
+
+.session-form-footer a {
+  text-decoration: none;
+}
+
+.session-form-footer a:hover {
+  text-decoration: underline;
+}
+
+.welcome-form-container {
+  text-align: center;
+  width: 300px;
+}
+
+.welcome-form-container {
+  font-family: 'Indie Flower', cursive;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -45,7 +45,9 @@ class SessionForm extends React.Component {
   renderEmail(){
     if (this.props.formType === 'signup'){
       return (
-        <input type="text" value={this.state.email} onChange={this.update('email')} />
+        <input type="text" value={this.state.email}
+          onChange={this.update('email')}
+          placeholder="Email"/>
       )
     } else {
       return null;
@@ -69,28 +71,51 @@ class SessionForm extends React.Component {
 
   render(){
     return (
-      <div className="login-form-wrapper">
-        <div className="auth-container-body" >
-          <h1 className="login-form-header" >{this.props.formType}</h1>
-          <div className="login-form-container">
-            {this.renderErrors()}
-            <form onSubmit={this.handleSubmit} className="login-form-box">
-              {this.renderEmail()}
-              <input type="text" value={this.state.username} onChange={this.update('username')} />
-              <input type="password" value={this.state.password} onChange={this.update('password')} />
-              <input type="submit" className="session-form-submit-button" value={this.props.formType} />
-            </form>
+      <div className="session-wrapper">
+
+        <div className="session-header-container">
+          <h1 className="session-header" ><strong>{this.props.formType}</strong></h1>
+        </div>
+
+        <div className="session-page">
+          <div className="session-row">
+
+            <div className="session-form-container">
+
+              <div className="session-form-body">
+
+                {this.renderErrors()}
+
+                <form onSubmit={this.handleSubmit} className="login-form-box">
+                  {this.renderEmail()}
+                  <input type="text" value={this.state.username}
+                    onChange={this.update('username')}
+                    placeholder="Username"/>
+                  <input type="password" value={this.state.password}
+                    onChange={this.update('password')}
+                    placeholder="Password"/>
+                  <input type="submit" id="session-form-submit-button" value={this.props.formType} />
+                </form>
+
+              </div>
+
+              <div className="session-form-footer">
+                {this.navLink()}
+              </div>
+            </div>
+
+            <div className="welcome-form-container">
+              <p>Welcome to Blue Prints</p><br />
+              <p>Enjoy all the wonderful blue prints that are made
+                available by the community!</p>
+            </div>
+
           </div>
         </div>
-        <div className="welcome-form-container">
-          <p>Welcome to Blue Prints</p><br />
-          <p>Enjoy all the wonderful blue prints that are available by
-          the community!</p>
-        </div>
-        {this.navLink()}
       </div>
     )
   }
 }
+
 
 export default withRouter(SessionForm);
