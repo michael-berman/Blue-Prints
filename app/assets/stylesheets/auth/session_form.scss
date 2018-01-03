@@ -42,14 +42,16 @@
 .session-form-container {
   width: 325px;
   height: 350px;
-  margin: 100px 50px;
+  position: relative;
+  top: 100px;
+  left: 50px;
   box-shadow: 1px -1px 8px 0px black;
   border-radius: 10px;
   background-color: #D3E1E7;
 }
 
 .session-form-body {
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .session-error-container {
@@ -95,9 +97,13 @@
 
 .session-form-footer {
   width: 100%;
-  margin: 10px 35px;
+  // margin: 10px 35px;
+  position: relative;
+  top: 75px;
+  left: 40px;
   a {
     text-decoration: none;
+    color: #545454;
   }
   a:hover {
     text-decoration: underline;
@@ -107,10 +113,14 @@
 .welcome-form-container {
   text-align: center;
   width: 300px;
-  margin: 105px auto;
+  min-height: 400px;
+  // margin: 105px auto;
   color: #D3E1E7;
   font-size: 30px;
   font-weight: bold;
+  position: relative;
+  top: 110px;
+  left: 200px;
 }
 
 .welcome-form-container {

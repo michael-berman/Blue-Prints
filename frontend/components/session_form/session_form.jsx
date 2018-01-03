@@ -17,17 +17,19 @@ class SessionForm extends React.Component {
     this.renderDemo = this.renderDemo.bind(this);
   }
 
-  componentWillReceiveProps(nextProps){
-    if (nextProps.loggedIn) {
-      this.props.history.push('/');
-    }
+  componentDidMount(){
+    this.props.clearErrors();
   }
 
   navLink(){
-    if (this.props.formType === 'login') {
-      return <Link to='/signup'>Sign Up</Link>
+    if (this.props.formType === 'signup') {
+      return (
+              <span className="session-login-link">
+                <p>Already a member? <Link to='/login'> Login</Link> </p>
+              </span>
+            )
     } else {
-      return <Link to='/login'>Login</Link>
+      return <Link to='/signup'>Sign Up</Link>
     }
   }
 
