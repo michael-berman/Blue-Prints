@@ -1,5 +1,4 @@
 .session-wrapper {
-  background-color: #b2b2d8;
   position: relative;
   width: 1000px;
   padding: 0;
@@ -18,8 +17,10 @@
 
 .session-page {
   justify-content: space-between;
-  width: 850;
-  margin: 0 auto;
+  height: 850px;
+  background-image: url("https://i.imgur.com/CQDaigx.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .session-header {
@@ -39,9 +40,11 @@
 
 .session-form-container {
   width: 325px;
-  margin: 0 auto;
+  height: 400px;
+  margin: 100px 50px;
   box-shadow: 1px -1px 8px 0px black;
-  border-radius: 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   background-color: white;
 }
 
