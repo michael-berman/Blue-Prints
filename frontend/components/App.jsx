@@ -6,11 +6,11 @@ import HomePageContainer from './home_page/home_page_container';
 
 const App = () => {
   return (
-    <body>
+    <div>
       <Route exact path='/' component={HomePageContainer}/>
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />
-    </body>
+    </div>
   )
 };
 

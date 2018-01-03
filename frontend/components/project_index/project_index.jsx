@@ -8,7 +8,7 @@ const ProjectIndex = (props) => {
     )
   });
   return(
-    <ul className="project-index=list">
+    <ul className="project-index-list">
       {projects}
     </ul>
   )
