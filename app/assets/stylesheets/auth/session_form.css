@@ -25,7 +25,7 @@
 
 .session-header {
   display: inline-block;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Fredericka the Great', cursive;
   font-size: 36px;
   font-weight: 400;
   height: 36px;
@@ -114,5 +114,5 @@
 }
 
 .welcome-form-container {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Fredericka the Great', cursive;
 }
