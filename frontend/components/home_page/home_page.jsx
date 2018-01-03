@@ -12,7 +12,7 @@ class HomePage extends React.Component {
 
   render(){
     return (
-      <main>
+      <main className="homepage-wrapper">
         <button onClick={this.props.logout}>Logout</button>
         <ProjectIndex projects={this.props.projects} />
       </main>
