@@ -79,9 +79,7 @@ class SessionForm extends React.Component {
 
         <div className="session-page">
           <div className="session-row">
-
             <div className="session-form-container">
-
               <div className="session-form-body">
 
                 {this.renderErrors()}

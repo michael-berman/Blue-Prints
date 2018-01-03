@@ -13,18 +13,25 @@
 class User < ApplicationRecord
   validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
+  validate :ensure_valid_email
   validates :password, length: { minimum: 6, allow_nil: true}
 
   after_initialize :ensure_session_token
 
   #TODO have associations for projects, comments, favorites
 
+  def :ensure_valid_email
+  unless Regexp.new(value_regex)
+    errors.add(:value_regex, "not a valid regular expression")
+  end
+end
+
   attr_reader :password
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
 
     return nil unless user
-    
+
     user.is_password?(password) ? user : nil
   end
 
