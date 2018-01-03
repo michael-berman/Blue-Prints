@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
   }
 
   demoLogin(){
-    const user = {username: "hunter12", password: "hunter12"}
+    const user = {username: "guest demo", password: "hunter12"}
     this.props.submitForm(user).then(() => this.props.history.push('/'));
   }
 
