@@ -96,10 +96,8 @@ class SessionForm extends React.Component {
           <h1 className="session-header" ><strong>{this.props.formType}</strong></h1>
         </div>
 
-        <div className="session-page">
-          <div className="session-row">
-            <div className="session-form-container">
-              <div className="session-form-body">
+        <article className="session-page">
+            <section className="session-form-container">
 
                 {this.renderErrors()}
 
@@ -116,12 +114,12 @@ class SessionForm extends React.Component {
                   {this.renderDemo()}
                 </form>
 
-              </div>
 
               <div className="session-form-footer">
                 {this.navLink()}
               </div>
-            </div>
+
+            </section>
 
             <div className="welcome-form-container">
               <p>Welcome to Blue Prints</p><br />
@@ -129,9 +127,9 @@ class SessionForm extends React.Component {
                 available by the community!</p>
             </div>
 
-          </div>
-        </div>
-      </div>
+
+        </article>
+    </div>
     )
   }
 }
