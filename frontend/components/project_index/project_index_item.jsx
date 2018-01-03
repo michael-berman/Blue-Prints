@@ -3,8 +3,10 @@ import { withRouter } from 'react-router-dom';
 
 const ProjectIndexItem = (props) => {
   return (
-
+    <li>
+      {props.project.title}
+    </li>
   )
 }
 
-export default ProjectIndexItem;
+export default withRouter(ProjectIndexItem);
