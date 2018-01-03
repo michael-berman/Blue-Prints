@@ -11,10 +11,10 @@ class HomePage extends React.Component {
   }
 
   render(){
-
     return (
       <main>
-        <ProjectIndex props={props} />
+        <button onClick={this.props.logout}>Logout</button>
+        <ProjectIndex projects={this.props.projects} />
       </main>
     )
   }

@@ -7,6 +7,7 @@ class ProjectIndex extends React.Component {
   }
 
   render(){
+    debugger
     const projects = this.props.projects.map((project, idx) => {
       return (
         <ProjectIndexItem project={project} key={idx} />
