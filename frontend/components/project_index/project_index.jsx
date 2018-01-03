@@ -6,10 +6,6 @@ class ProjectIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
-    this.props.fetchProjects();
-  }
-
   render(){
     const projects = this.props.projects.map((project, idx) => {
       return (
