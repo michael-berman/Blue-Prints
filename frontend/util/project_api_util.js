@@ -16,12 +16,13 @@ export const fetchProject = id => {
 export const createProject = project => {
   return $.ajax({
     method: 'post',
-    url: 'api/projects'
+    url: 'api/projects',
+    data: { project }
   });
 };
 export const deleteProject = id => {
   return $.ajax({
-    method: 'post',
+    method: 'delete',
     url: `api/projects/${id}`
   });
 };
