@@ -122,7 +122,7 @@ class SessionForm extends React.Component {
             </div>
 
             <div className="welcome-form-container">
-              <p>Welcome to Blue Prints</p>
+              <p>Welcome to Blue Prints</p><br />
               <p>Enjoy all the wonderful blue prints that are made
                 available by the community!</p>
             </div>

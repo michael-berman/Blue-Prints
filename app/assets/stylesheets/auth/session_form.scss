@@ -70,7 +70,7 @@
   display: block;
   margin: auto;
   width: 250px;
-  height: 18px;
+  height: 28px;
   border-radius: 5px;
   margin-bottom: 20px;
 }
@@ -78,13 +78,13 @@
 .session-form-submit-button {
   background-color: #4165A5;
   border-radius: 10px;
-  width: 165px;
-  height: 35px;
+  height: 44px;
   border: none;
   font-size: 20px;
   line-height: 5px;
   color: white;
-  margin: 10px 75px;
+  margin: 10px 35px;
+  width: 256px;
 }
 
 
@@ -96,20 +96,18 @@
 .session-form-footer {
   width: 100%;
   margin: 10px 35px;
-}
-
-.session-form-footer a {
-  text-decoration: none;
-}
-
-.session-form-footer a:hover {
-  text-decoration: underline;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .welcome-form-container {
   text-align: center;
   width: 300px;
-  margin: 70px 50px;
+  margin: 105px auto;
   color: #D3E1E7;
   font-size: 30px;
   font-weight: bold;
