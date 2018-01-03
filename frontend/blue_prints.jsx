@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { logout } from './actions/session_actions';
-import * as ProjectAPIUtil from './util/project_api_util';
+// import {}
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
@@ -17,10 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  window.fetchProjects = ProjectAPIUtil.fetchProjects;
-  window.fetchProject = ProjectAPIUtil.fetchProject;
-  window.deleteProject = ProjectAPIUtil.deleteProject;
-  window.createProject = ProjectAPIUtil.createProject;
+  
 
   window.logout = logout;
   window.dispatch = store.dispatch;
