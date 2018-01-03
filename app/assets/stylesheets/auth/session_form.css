@@ -44,7 +44,7 @@
   margin: 100px 50px;
   box-shadow: 1px -1px 8px 0px black;
   border-radius: 10px;
-  background-color: white;
+  background-color: #D3E1E7;
 }
 
 .session-form-body {
@@ -83,13 +83,13 @@
   font-size: 20px;
   line-height: 5px;
   color: white;
-  margin: auto 0;
+  margin: 10px 75px;
 }
 
 
 .session-form-submit-button:hover {
   cursor: pointer;
-  background-color: #213F9B;
+  background-color: #212E3D;
 }
 
 .session-form-footer {
@@ -109,7 +109,7 @@
   text-align: center;
   width: 300px;
   margin: 70px 50px;
-  color: white;
+  color: #D3E1E7;
   font-size: 30px;
   font-weight: bold;
 }

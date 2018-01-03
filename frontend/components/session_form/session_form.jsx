@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'login'){
       return (
         <input type="submit" className="session-form-submit-button"
-          onClick={this.demoLogin} />
+          onClick={this.demoLogin} value="demo login"/>
       )
     } else {
       return null;
