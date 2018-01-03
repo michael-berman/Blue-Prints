@@ -75,19 +75,20 @@
 }
 
 #session-form-submit-button {
-  background-color: #4c4ca6;
+  background-color: #4165A5;
   border-radius: 10px;
   width: 165px;
   height: 35px;
   border: none;
   font-size: 20px;
   line-height: 5px;
+  color: white;
 }
 
 
 #session-form-submit-button:hover {
   cursor: pointer;
-  background-color: #323299;
+  background-color: #213F9B;
 }
 
 .session-form-footer {
@@ -106,8 +107,10 @@
 .welcome-form-container {
   text-align: center;
   width: 300px;
-  margin: 100px 50px;
-  color: #d3d3d3;
+  margin: 70px 50px;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .welcome-form-container {
