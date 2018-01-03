@@ -18,7 +18,7 @@
 .session-page {
   justify-content: space-between;
   height: 850px;
-  background-image: url("https://i.imgur.com/CQDaigx.jpg");
+  background-image: url("https://i.imgur.com/mRpRjji.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -108,7 +108,7 @@
   text-align: center;
   width: 300px;
   margin: 70px 50px;
-  color: black;
+  color: white;
   font-size: 30px;
   font-weight: bold;
 }
