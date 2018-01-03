@@ -3,8 +3,9 @@ import { withRouter } from 'react-router-dom';
 
 const ProjectIndexItem = (props) => {
   return (
-    <li>
+    <li className="project-index-item">
       {props.project.title}
+      <p>by {props.project.author.username}</p>
     </li>
   )
 }
