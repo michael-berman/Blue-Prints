@@ -6,7 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> projects
 User.destroy_all
 Project.destroy_all
 
@@ -17,3 +20,6 @@ u3 = User.create!({email: 'starwars@example.com', username: 'starwars', password
 p1 = Project.create!({ title: "how to build a house", body: "This is a guide to build a house", author_id: u1.id })
 p1 = Project.create!({ title: "how to build a shed", body: "This is a guide to build a shed", author_id: u2.id })
 p1 = Project.create!({ title: "how to build the death star", body: "This is a guide to build the death star", author_id: u3.id })
+p1 = Project.create!({ title: "how to build a car", body: "This is a guide to build a car", author_id: u1.id })
+p1 = Project.create!({ title: "how to build a desk", body: "This is a guide to build a desk", author_id: u2.id })
+p1 = Project.create!({ title: "how to build the garage", body: "This is a guide to build the garage", author_id: u3.id })
