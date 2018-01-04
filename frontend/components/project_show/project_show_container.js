@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 
 import ProjectShow from './project_show';
-import  { fetchProject } from '../../actions/projects_actions';
+import  { fetchProject } from '../../actions/project_actions';
 
 const mapStatetoProps = (state, ownProps) => {
   return {
-    project: state.entities.props[ownProps.match.params.projectId]
+    project: state.entities.projects[ownProps.match.params.projectId]
   };
 };
 
