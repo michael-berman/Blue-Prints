@@ -19,7 +19,6 @@ class HomePage extends React.Component {
   render(){
     return (
       <main className="homepage-wrapper">
-        <button onClick={this.handleLogout}>Logout</button>
       </main>
     )
   }
