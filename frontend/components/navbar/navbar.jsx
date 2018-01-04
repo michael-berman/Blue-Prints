@@ -1,28 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavBarDropDown from './navbar_dropdown';
+import NavBarDropdown from './navbar_dropdown';
 
-const sessionLinks = () => (
-    <nav className="login-signup-navlinks">
-      <Link to="/login">Login</Link>
-      <span className="nav-pipe">|</span>
-      <Link to="/signup">Sign up</Link>
-    </nav>
-);
 
-const personalAvatar = (currentUser, logout) => (
-  <header className="header-group">
-    <h2 className="header-name">{currentUser.username}</h2>
-  </header>
-)
+class NavBar extends React.Component{
+  constructor(props){
+    super(props);
+  }
 
-const NavBar = ({currentUser, logout}) =>{
-  return (
-    <section className="nav-bar">
-      <h1>Blue Prints</h1>
-      {currentUser ? personalAvatar(currentUser, logout) : sessionLinks()}
-    </section>
-  )
+  sessionLinks(){
+    if(this.props.currentUser){
+      <NavBarDropdown currentUser={this.props.currentUser}
+      logout={this.props.logout} />
+    } else {
+      return (
+        <nav className="login-signup-navlinks">
+          <Link to="/login">Login</Link>
+          <span className="nav-pipe">|</span>
+          <Link to="/signup">Sign up</Link>
+        </nav>
+      )
+    }
+  }
+
+  render() {
+    return (
+      <section className="nav-bar">
+        <h1>Blue Prints</h1>
+        {this.sessionLinks()}
+      </section>
+    )
+  }
 };
 
 export default NavBar;
