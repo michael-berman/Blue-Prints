@@ -12,7 +12,6 @@ const ProjectsReducer = (state = {}, action) => {
       newState = merge({}, action.projects)
       return newState;
     case RECEIVE_PROJECT:
-    debugger
       let newProject = {[action.project.id]: action.project};
       newState = merge({}, state, newProject);
       return newState;

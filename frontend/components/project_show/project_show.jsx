@@ -6,7 +6,6 @@ class ProjectShow extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     this.props.fetchProject(this.props.match.params.projectId);
   }
 
@@ -24,10 +23,11 @@ class ProjectShow extends React.Component {
   }
 
   render(){
-    debugger
     return(
       <article className="project-show-wrapper">
-        {this.renderHeader()}
+        <div className="project-show-container">
+          {this.renderHeader()}
+        </div>
       </article>
     )
   }
