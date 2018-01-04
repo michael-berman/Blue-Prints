@@ -28,7 +28,12 @@ class NavBar extends React.Component{
   render() {
     return (
       <section className="nav-bar">
-        <h1>Blue Prints</h1>
+        <Link to="/" >
+          <header className="nav-bar-logo" >
+            <img src="https://i.imgur.com/z6QvKJq.png" />
+            <h1>Blue Prints</h1>
+          </header>
+        </Link>
         {this.sessionLinks()}
       </section>
     )

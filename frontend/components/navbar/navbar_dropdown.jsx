@@ -29,7 +29,6 @@ class NavBarDropdown extends React.Component {
   }
 
   render(){
-    debugger
     return (
       <div>
         <nav className="dropdown-btn" onClick={this.toggleMenu}>
