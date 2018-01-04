@@ -1,0 +1,27 @@
+.nav-bar{
+  padding: 30px;
+  height: 78px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  display: flex;
+  font-family: 'Rubik', sans-serif;
+  background-color: #e6e6e6;
+  align-items: center;
+  h1 {
+    color: #000080;
+    font-size: 30px;
+  }
+  a {
+    text-decoration: none;
+    color: #545454;
+  }
+}
+
+
+
+
+.nav-pipe {
+  padding: 7px;
+  font-size: 20px;
+
+}

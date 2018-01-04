@@ -19,8 +19,6 @@ class HomePage extends React.Component {
   render(){
     return (
       <main className="homepage-wrapper">
-        <Link to='/signup'>Signup</Link><br />
-        <Link to='/login'>Login</Link><br />
         <button onClick={this.handleLogout}>Logout</button>
       </main>
     )

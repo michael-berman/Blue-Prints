@@ -91,6 +91,7 @@ class SessionForm extends React.Component {
   render(){
     const formButton = (this.props.formType === "Signup") ? "Sign Up" : "Login"
     return (
+      <div className="session-outer-wrapper" >
       <div className="session-wrapper">
 
         <div className="session-header-container">
@@ -130,6 +131,7 @@ class SessionForm extends React.Component {
 
         </article>
     </div>
+  </div>
     )
   }
 }

@@ -1,3 +1,9 @@
+.session-outer-wrapper {
+  background-color: #bfbfbf;
+  // margin-top: 20px;
+  padding-top: 20px;
+}
+
 .session-wrapper {
   width: 1000px;
   padding: 0;
@@ -9,11 +15,11 @@
 }
 
 .session-header-container {
-  background-color: #d4e1e7;
+  background-color: #e6e6e6;
   width: 100%;
   position: relative;
-  // border-top-left-radius: 15px;
-  // border-top-right-radius: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   padding: 10px 0;
 }
 
@@ -42,7 +48,7 @@
   width: 325px;
   box-shadow: 1px -1px 8px 0px black;
   border-radius: 5px;
-  background-color: #D3E1E7;
+  background-color: #e6e6e6;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -72,6 +78,7 @@
   margin-bottom: 20px;
   border: none;
   font-size: 16px;
+  padding-left: 5px;
 }
 
 .session-form-submit-button {
@@ -108,7 +115,7 @@
 .welcome-form-container {
   text-align: center;
   width: 400px;
-  color: #D3E1E7;
+  color: #e6e6e6;
   font-size: 35px;
   font-weight: bold;
   margin: 200px -25px;
