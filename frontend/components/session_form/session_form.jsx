@@ -89,6 +89,7 @@ class SessionForm extends React.Component {
   }
 
   render(){
+    const formButton = (this.props.formType === "Signup") ? "Sign Up" : "Login"
     return (
       <div className="session-wrapper">
 
@@ -110,7 +111,7 @@ class SessionForm extends React.Component {
                     onChange={this.update('password')}
                     placeholder="Password" className="session-form-input"/>
                   <input type="submit" className="session-form-submit-button"
-                    value={this.props.formType} onClick={this.handleSubmit}/>
+                    value={formButton} onClick={this.handleSubmit}/>
                   {this.renderDemo()}
                 </form>
 
