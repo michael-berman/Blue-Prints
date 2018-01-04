@@ -14,9 +14,14 @@ class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.navLink = this.navLink.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.clearErrors = this.clearErrors.bind(this);
   }
 
   componentDidMount(){
+    this.props.clearSessionErrors();
+  }
+
+  clearErrors(){
     this.props.clearSessionErrors();
   }
 
@@ -24,11 +29,11 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'Signup') {
       return (
               <span className="session-login-link">
-                <p>Already a member? <Link to='/login'> Login</Link> </p>
+                <p onClick={this.clearErrors}>Already a member? <Link to='/login'> Login</Link> </p>
               </span>
             )
     } else {
-      return <Link to='/signup'>Sign Up</Link>
+      return <Link to='/signup' onClick={this.clearErrors}>Sign Up</Link>
     }
   }
 
