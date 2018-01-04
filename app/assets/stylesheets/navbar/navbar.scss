@@ -20,10 +20,27 @@
 .nav-pipe {
   padding: 7px;
   font-size: 20px;
-
+  font-weight: bold;
 }
 
-.dropdown-btn img {
-  width: 20px;
-  height: 20px;
+.dropdown-btn {
+  align-items: center;
+  img{
+    width: 20px;
+    height: 20px;
+  }
+  span{
+    margin: auto;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dropdown-menu {
+  padding: 20px;
+  position: fixed;
+  background-color: white;
+  z-index: 1;
+
 }

@@ -10,8 +10,10 @@ class NavBar extends React.Component{
 
   sessionLinks(){
     if(this.props.currentUser){
-      <NavBarDropdown currentUser={this.props.currentUser}
-      logout={this.props.logout} />
+      return (
+        <NavBarDropdown currentUser={this.props.currentUser}
+          logout={this.props.logout} />
+      )
     } else {
       return (
         <nav className="login-signup-navlinks">
