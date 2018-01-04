@@ -19,6 +19,11 @@ class HomePage extends React.Component {
   render(){
     return (
       <main className="homepage-wrapper">
+        <article className="homepage-image">
+          <span className="homepage-header">
+            <h1>Let's Build a Blue Print!</h1>
+          </span>
+        </article>
       </main>
     )
   }
