@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
     const user = {username: "guest demo", password: "hunter12"}
     this.setState(user);
     setTimeout(() => {
-      this.props.submitForm(user).then(() => {
+      this.props.login(user).then(() => {
         this.props.history.push('/')})}, 300);
   }
 
@@ -97,7 +97,9 @@ class SessionForm extends React.Component {
                 onClick={this.demoLogin} value="Demo Login"/>
 
               <div className="session-form-divider">
+                <span className="left-divider"></span>
                 <p>OR</p>
+                <span className="right-divider"></span>
               </div>
 
                 {this.renderErrors()}
