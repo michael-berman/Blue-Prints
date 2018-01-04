@@ -7,17 +7,22 @@
 .project-index-list {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   box-sizing: border-box;
   padding: 30px;
   justify-content: space-between;
+  padding: 0 60px;
+  margin-left: 13px;
 }
 
 .project-index-item-container {
+  margin-top: 30px;
   width: 305px;
   a {
-    background-color: blue;
+    background-color: #000066;
   }
   border: 1px solid black;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
