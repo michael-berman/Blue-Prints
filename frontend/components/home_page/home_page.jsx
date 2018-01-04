@@ -16,19 +16,27 @@ class HomePage extends React.Component {
     this.props.logout();
   }
 
+  renderHomepage(){
+    return(
+      <article className="homepage-image">
+        <span className="homepage-header">
+          <h1>Let's Build a Blue Print!</h1>
+        </span>
+      </article>
+    )
+  }
+
   render(){
     return (
       <main className="homepage-wrapper">
-        <article className="homepage-image">
-          <span className="homepage-header">
-            <h1>Let's Build a Blue Print!</h1>
-          </span>
-        </article>
+        {this.renderHomepage()}
+        <div className="projects-wrapper">
+          <ProjectIndex projects={this.props.projects} />
+        </div>
       </main>
     )
   }
 
 }
-// <ProjectIndex projects={this.props.projects} />
 
 export default HomePage;
