@@ -44,16 +44,28 @@
   align-items: center;
 }
 
+.session-form-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .session-form-container {
   width: 325px;
   box-shadow: 1px -1px 8px 0px black;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   background-color: #e6e6e6;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 40%;
   margin: 200px 25px;
+}
+
+.session-form-divider {
+  font-size: 14px;
+  text-align: center;
+  color: #e6e6e6;
 }
 
 .session-error-container {
@@ -93,15 +105,39 @@
   width: 256px;
 }
 
-
 .session-form-submit-button:hover {
   cursor: pointer;
-  background-color: #212E3D;
+  background-color: #3a5a92;
+}
+
+.session-form-submit-demo {
+  background-color: #31b0d5;
+  border-radius: 5px;
+  height: 44px;
+  border: none;
+  font-size: 20px;
+  line-height: 5px;
+  color: white;
+  margin: 20px 35px;
+  width: 256px;
+  &:hover {
+    cursor: pointer;
+    background-color: #2b9fc2;
+  }
 }
 
 .session-form-footer {
-  width: 60%;
-  margin: 5px 35px;
+
+  width: 325px;
+  padding: 15px 40px;
+  background-color: #cccccc;
+  box-sizing: border-box;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative;
+  bottom: 200px;
+  left: 25px;
+
   a {
     font-family: serif;
     text-decoration: none;

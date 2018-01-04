@@ -14,7 +14,6 @@ class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.navLink = this.navLink.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
-    this.renderDemo = this.renderDemo.bind(this);
   }
 
   componentDidMount(){
@@ -45,17 +44,6 @@ class SessionForm extends React.Component {
     setTimeout(() => {
       this.props.submitForm(user).then(() => {
         this.props.history.push('/')})}, 300);
-  }
-
-  renderDemo(){
-    if (this.props.formType === 'Login'){
-      return (
-        <input type="submit" className="session-form-submit-button"
-          onClick={this.demoLogin} value="Demo Login"/>
-      )
-    } else {
-      return null;
-    }
   }
 
   update(field){
@@ -102,7 +90,15 @@ class SessionForm extends React.Component {
         </div>
 
         <article className="session-page">
+          <div className="session-form-column" >
             <section className="session-form-container">
+
+              <input type="submit" className="session-form-submit-demo"
+                onClick={this.demoLogin} value="Demo Login"/>
+
+              <div className="session-form-divider">
+                <p>OR</p>
+              </div>
 
                 {this.renderErrors()}
 
@@ -116,14 +112,14 @@ class SessionForm extends React.Component {
                     placeholder="Password" className="session-form-input"/>
                   <input type="submit" className="session-form-submit-button"
                     value={formButton} onClick={this.handleSubmit}/>
-                  {this.renderDemo()}
                 </form>
 
-              <div className="session-form-footer">
-                {this.navLink()}
-              </div>
 
             </section>
+            <div className="session-form-footer">
+              {this.navLink()}
+            </div>
+          </div>
 
             <div className="welcome-form-container">
               <p>Welcome to Blue Prints!</p><br />
