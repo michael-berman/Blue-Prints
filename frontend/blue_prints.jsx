@@ -16,9 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  window.logout = logout;
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
-
   ReactDOM.render(<Root store={store}/>, root);
 });
