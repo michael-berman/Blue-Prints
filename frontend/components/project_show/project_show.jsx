@@ -47,7 +47,12 @@ class ProjectShow extends React.Component {
     if(this.props.project){
       return (
         <article className="project-show-body">
-          {this.props.project.body}
+          <div className="blue-print-content">
+            {this.props.project.body}
+          </div>
+          <div className="blue-print-sidebar">
+
+          </div>
         </article>
       )
     } else {
