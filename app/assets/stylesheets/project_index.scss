@@ -19,9 +19,6 @@
   margin-top: 30px;
   margin-right: 25px;
   width: 305px;
-  a {
-    background-color: #000066;
-  }
   border: 1px solid black;
   box-sizing: border-box;
   display: flex;
@@ -32,6 +29,7 @@
 .project-index-item-link {
   width: 304px;
   height: 255px;
+  background-color: #000066;
 }
 
 .project-index-item-info {
