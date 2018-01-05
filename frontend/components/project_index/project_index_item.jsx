@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
 const ProjectIndexItem = ({project, idx}) => {
-  debugger
   return (
     <li key={idx} className="project-index-item-container">
       <Link to={`/projects/${project.id}`}
@@ -12,7 +11,7 @@ const ProjectIndexItem = ({project, idx}) => {
             className="project-index-item-title" >
             {project.title}</Link><br />
         <span className="project-index-item-author">
-          <p>by {project.author.username}</p>
+          <p><strong className="project-index-item-by-author">by</strong> {project.author.username}</p>
         </span>
       </div>
     </li>

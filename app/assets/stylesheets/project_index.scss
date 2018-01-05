@@ -15,26 +15,26 @@
 }
 
 .project-index-item-container {
-  flex-flow: flex-start;
   margin-top: 30px;
   margin-right: 25px;
   width: 305px;
-  border: 1px solid black;
+  border: 1px solid rgba(0,0,0,.1);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  z-index: 2;
 }
 
 .project-index-item-link {
-  width: 304px;
+  width: 303px;
   height: 255px;
   background-color: #000066;
 }
 
 .project-index-item-info {
+  box-sizing: border-box;
   padding: 15px;
   background-color: #E6E6E6;
+  width: 100%;
 }
 
 .project-index-item-title {
@@ -42,8 +42,17 @@
   font-weight: bold;
   line-height: 20px;
   color: #333;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.project-index-item-by-author {
+
 }
 
 .project-index-item-author {
   font-size: 14px;
+
 }
