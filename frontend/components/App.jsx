@@ -5,6 +5,7 @@ import { AuthRoute } from '../util/route_util';
 import HomePageContainer from './home_page/home_page_container';
 import NavBarContainer from './navbar/navbar_container';
 import ProjectShowContainer from './project_show/project_show_container';
+import ProjectFormContainer from './project_form/project_form_container';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Switch>
         <AuthRoute path='/login' component={SessionFormContainer} />
         <AuthRoute path='/signup' component={SessionFormContainer} />
+        <Route path='/projects/new' component={ProjectFormContainer} />
         <Route path='/projects/:projectId' component={ProjectShowContainer} />
         <Route exact path='/' component={HomePageContainer}/>
       </Switch>

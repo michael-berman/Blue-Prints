@@ -24,7 +24,5 @@ export const fetchSteps = () => dispatch => {
 };
 
 export const createStep = (step) => dispatch => {
-  StepAPIUtil.createStep(step).then( step => {
-    return dispatch(receiveStep(step))
-  });
+  StepAPIUtil.createStep(step)
 };
