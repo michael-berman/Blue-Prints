@@ -11,6 +11,10 @@ class ProjectShow extends React.Component {
     window.addEventListener('scroll', this.handleScroll);
   }
 
+  componentWillMount(){
+    window.scrollTo(0,0);
+  }
+
   componentWillUnmount(){
     let navbar = document.querySelector(".project-show-navbar-fixed");
     if (navbar){

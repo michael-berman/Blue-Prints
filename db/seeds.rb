@@ -13,9 +13,51 @@ u1 = User.create!({email: 'mike@example.com', username: 'guest demo', password: 
 u2 = User.create!({email: 'hunter12@example.com', username: 'hunter12', password: 'hunter12'})
 u3 = User.create!({email: 'starwars@example.com', username: 'starwars', password: 'starwars'})
 
-p1 = Project.create!({ title: "how to build a house", body: "This is a guide to build a house", author_id: u1.id })
-p1 = Project.create!({ title: "how to build a shed", body: "This is a guide to build a shed", author_id: u2.id })
-p1 = Project.create!({ title: "how to build the death star", body: "This is a guide to build the death star", author_id: u3.id })
-p1 = Project.create!({ title: "how to build a car", body: "This is a guide to build a car", author_id: u1.id })
-p1 = Project.create!({ title: "how to build a desk", body: "This is a guide to build a desk", author_id: u2.id })
-p1 = Project.create!({ title: "how to build the garage", body: "This is a guide to build the garage", author_id: u3.id })
+p1 = Project.create!({ title: "how to build a house", body:
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.", author_id: u1.id })
+p1 = Project.create!({ title: "how to build a shed", body:
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+  culpa qui officia deserunt mollit anim id est laborum.", author_id: u2.id })
+p1 = Project.create!({ title: "how to build the death star", body:
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.", author_id: u3.id })
+p1 = Project.create!({ title: "how to build a car", body:
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.", author_id: u1.id })
+p1 = Project.create!({ title: "how to build a desk", body:
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.", author_id: u2.id })
+p1 = Project.create!({ title: "how to build the garage", body:
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.", author_id: u3.id })
