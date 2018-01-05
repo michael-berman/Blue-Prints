@@ -1,7 +1,8 @@
 class Api::StepsController < ApplicationController
 
   def index
-    @steps = Project.find(params[:id]).steps
+    # @steps = Project.find(params[:id]).steps
+    @steps = Step.all
 
     render :index
   end
@@ -13,6 +14,6 @@ class Api::StepsController < ApplicationController
 
   private
   def step_params
-    params.require(:step).permit(:title, :body)
+    params.require(:step).permit(:title, :body, :project_id)
   end
 end
