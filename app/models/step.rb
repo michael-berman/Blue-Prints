@@ -15,9 +15,11 @@
 #
 
 class Step < ApplicationRecord
-
+  validates :project_id, presence: true 
 
 
   belongs_to :project
+
+  has_many :projects
 
 end
