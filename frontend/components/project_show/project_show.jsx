@@ -3,6 +3,7 @@ import React from 'react';
 class ProjectShow extends React.Component {
   constructor(props){
     super(props);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount(){
