@@ -1,22 +1,20 @@
 # == Schema Information
 #
-# Table name: steps
+# Table name: photos
 #
 #  id                 :integer          not null, primary key
-#  title              :string
-#  body               :text
-#  project_id         :integer
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  step_id            :integer          not null
 #  image_file_name    :string
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 
 require 'test_helper'
 
-class StepTest < ActiveSupport::TestCase
+class PhotoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
