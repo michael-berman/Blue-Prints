@@ -14,7 +14,7 @@ class ProjectForm extends React.Component {
   renderForm(){
     return (
       <form>
-
+        <p>form</p>
       </form>
     )
   }
@@ -22,7 +22,8 @@ class ProjectForm extends React.Component {
   renderNavBar(){
     return(
       <nav className="project-form-navbar">
-        <button onClick={this.handleSubmit}></button>
+        <button onClick={this.handleSubmit}>
+        hello</button>
       </nav>
     )
   }
@@ -36,3 +37,5 @@ class ProjectForm extends React.Component {
     )
   }
 }
+
+export default ProjectForm;

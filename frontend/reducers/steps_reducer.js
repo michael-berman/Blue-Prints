@@ -12,7 +12,6 @@ const StepsReducer = (state = {}, action) => {
       newState = merge({}, action.steps)
       return newState;
     case RECEIVE_STEP:
-    debugger
       let newStep = { [action.step.id]: action.step }
       newState = merge({}, state, newStep);
       return newState
