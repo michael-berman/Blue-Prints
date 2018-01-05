@@ -7,6 +7,15 @@ class ProjectShow extends React.Component {
 
   componentDidMount(){
     this.props.fetchProject(this.props.match.params.projectId);
+    window.addEventListener('scroll', this.handleScroll);
+    debugger
+  }
+
+  componentWillUnmount(){
+    let navbar = document.querySelector(".project-show-navbar-fixed");
+    navbar.classList.remove("project-show-navbar-fixed");
+    window.removeEventListener('scroll', this.handleScroll);
+    debugger
   }
 
   renderHeader(){
@@ -29,11 +38,29 @@ class ProjectShow extends React.Component {
     }
   }
 
+  renderBody(){
+    if(this.props.project){
+      return (
+        <article className="project-show-body">
+          {this.props.project.body}
+        </article>
+      )
+    } else {
+      return null;
+    }
+  }
+
+  handleScroll(){
+    let navbar = document.querySelector(".project-show-navbar");
+    navbar.classList.add("project-show-navbar-fixed");
+  }
+
   render(){
     return(
-      <article className="project-show-wrapper">
+      <article className="project-show-wrapper" >
         <div className="project-show-container">
           {this.renderHeader()}
+          {this.renderBody()}
         </div>
       </article>
     )
