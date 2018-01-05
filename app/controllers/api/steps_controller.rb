@@ -3,6 +3,7 @@ class Api::StepsController < ApplicationController
   def index
     # @steps = Project.find(params[:id]).steps
     @steps = Step.all
+    @photos = Photo.all
 
     render :index
   end
