@@ -13,7 +13,9 @@ class ProjectShow extends React.Component {
 
   componentWillUnmount(){
     let navbar = document.querySelector(".project-show-navbar-fixed");
-    navbar.classList.remove("project-show-navbar-fixed");
+    if (navbar){
+      navbar.classList.remove("project-show-navbar-fixed");
+    }
     window.removeEventListener('scroll', this.handleScroll);
   }
 
@@ -50,11 +52,10 @@ class ProjectShow extends React.Component {
   }
 
   handleScroll(){
-    if (window.scrollY > 150){
-      let navbar = document.querySelector(".project-show-navbar");
+    let navbar = document.querySelector(".project-show-navbar");
+    if (window.scrollY > 150 && navbar){
       navbar.classList.add("project-show-navbar-fixed");
-    } else if (window.scrollY < 150){
-      let navbar = document.querySelector(".project-show-navbar");
+    } else if (window.scrollY < 150 && navbar){
       navbar.classList.remove("project-show-navbar-fixed");
     } else {
       return null;
