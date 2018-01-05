@@ -21,7 +21,7 @@ p1 = Project.create!({ title: "how to build a house", body:
     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.", author_id: u1.id })
-p1 = Project.create!({ title: "how to build a shed", body:
+p2 = Project.create!({ title: "how to build a shed", body:
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -29,7 +29,7 @@ p1 = Project.create!({ title: "how to build a shed", body:
   reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
   pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
   culpa qui officia deserunt mollit anim id est laborum.", author_id: u2.id })
-p1 = Project.create!({ title: "how to build the death star", body:
+p3 = Project.create!({ title: "how to build the death star", body:
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -37,7 +37,7 @@ p1 = Project.create!({ title: "how to build the death star", body:
     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.", author_id: u3.id })
-p1 = Project.create!({ title: "how to build a car", body:
+p4 = Project.create!({ title: "how to build a car", body:
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -45,7 +45,7 @@ p1 = Project.create!({ title: "how to build a car", body:
     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.", author_id: u1.id })
-p1 = Project.create!({ title: "how to build a desk", body:
+p5 = Project.create!({ title: "how to build a desk", body:
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -53,7 +53,7 @@ p1 = Project.create!({ title: "how to build a desk", body:
     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.", author_id: u2.id })
-p1 = Project.create!({ title: "how to build the garage", body:
+p6 = Project.create!({ title: "how to build the garage", body:
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -61,3 +61,11 @@ p1 = Project.create!({ title: "how to build the garage", body:
     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.", author_id: u3.id })
+
+
+s1 = Step.create!({ title: "step1", body: "this is the body for step 1",
+  project_id: p1.id})
+s2 = Step.create!({ title: "step2", body: "this is the body for step 2",
+  project_id: p1.id})
+s3 = Step.create!({ title: "step3", body: "this is the body for step 3",
+  project_id: p1.id})

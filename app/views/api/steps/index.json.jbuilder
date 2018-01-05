@@ -1,3 +1,5 @@
-json.steps @steps.each do |step|
-  json.(step.id) json.extract! step, :title, :body
+@steps.each do |step|
+  json.set! step.id do
+    json.partial! 'step', step: step
+  end
 end
