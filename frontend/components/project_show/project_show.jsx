@@ -13,7 +13,15 @@ class ProjectShow extends React.Component {
     if(this.props.project){
       return (
         <nav className="project-show-navbar">
-          <h1>{this.props.project.title} by {this.props.project.author.username}</h1>
+          <h1>
+            <span className="project-show-navbar-header">
+              {this.props.project.title}
+            </span>
+              by
+            <span className="project-show-navbar-author" >
+              {this.props.project.author.username}
+            </span>
+          </h1>
         </nav>
       );
     } else {
@@ -30,6 +38,7 @@ class ProjectShow extends React.Component {
       </article>
     )
   }
+
 }
 
 export default ProjectShow;

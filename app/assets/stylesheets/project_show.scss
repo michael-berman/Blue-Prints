@@ -14,8 +14,16 @@
   background-color: #E6E6E6;
   display: flex;
   align-items: center;
-  h1 {
-    font-size: 20px;
+}
 
-  }
+.project-show-navbar-header {
+  font-size: 20px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.project-show-navbar-author {
+  font-size: 16px;
+  margin-left: 5px;
+  font-weight: bold;
 }
