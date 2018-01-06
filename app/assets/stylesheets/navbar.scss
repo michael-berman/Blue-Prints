@@ -2,7 +2,6 @@
   padding: 30px;
   height: 78px;
   box-sizing: border-box;
-  justify-content: space-between;
   display: flex;
   font-family: 'Rubik', sans-serif;
   background-color: #e6e6e6;
@@ -17,6 +16,10 @@
   }
 }
 
+.nav-bar-home-link {
+  margin-right: 40px;
+}
+
 .nav-bar-logo {
   img {
     width: 90px;
@@ -29,6 +32,14 @@
     margin: auto;
   }
 
+}
+
+.nav-bar-search {
+  margin-right: 15px;
+}
+
+.nav-bar-search-button {
+  background-image: url(https://i.imgur.com/Een5rUD.png);
 }
 
 .nav-pipe {
@@ -53,6 +64,24 @@
     cursor: pointer;
   }
 }
+
+.nav-bar-create-button {
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: black;
+  &:hover {
+    background-color: #d9d9d9;
+  }
+}
+
+.nav-bar-session{
+  margin-left: auto;
+}
+
 
 .dropdown-menu {
   padding: 20px;

@@ -6,9 +6,9 @@ import { createProject } from '../../actions/project_actions';
 import { createStep } from '../../actions/step_actions';
 
 const mapStatetoProps = (state, ownProps) => {
-  debugger
   return {
     currentUser: state.session.currentUser,
+
   };
 };
 

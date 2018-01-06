@@ -28,14 +28,23 @@ class NavBar extends React.Component{
   render() {
     return (
       <section className="nav-bar">
-        <Link to="/" >
+        <Link to="/" className="nav-bar-home-link">
           <header className="nav-bar-logo" >
             <img src="https://i.imgur.com/z6QvKJq.png" />
             <h1>Blue Prints</h1>
           </header>
         </Link>
+        <form className='nav-bar-search'>
+          <input className='nav-bar-search-text' type='text'
+            placeholder="Let's make ..." />
+          <button className="nav-bar-search-button">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </form>
         <button className='nav-bar-create-button'><Link to="/projects/new">Write a Blue Print</Link></button>
-        {this.sessionLinks()}
+        <div className="nav-bar-session">
+          {this.sessionLinks()}
+        </div>
       </section>
     )
   }

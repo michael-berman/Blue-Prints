@@ -1,5 +1,6 @@
 import React from 'react';
 import StepForm from './step_form';
+import { Route } from 'react-router-dom';
 
 class ProjectForm extends React.Component {
   constructor(props){
@@ -39,28 +40,43 @@ class ProjectForm extends React.Component {
     this.setState({ [this.state.amount]: <StepForm createStep={this.props.createStep} />})
   }
 
-  renderStepForm(stepForm){
+  renderStepForm(){
 
   }
 
   renderSteps(){
     debugger
-    const stepForms = Object.values(this.state).map( (stepForm) => {
-      return
+    const stepButtons = Object.values(this.state).map( (stepForm) => {
+      return (
+        <li>
+          <Link to="/projects/new/steps/"></Link>
+        </li>
+      )
     })
     return (
       <div className="steps-container">
-        {steps}
+        <ul>
+          {steps}
+        </ul>
         <button onClick={this.addStep}>Add step</button>
       </div>
     )
+  }
+
+  renderSpecificForm(){
+    if(this.props.match.path === '/projects/new'){
+      return this.renderSteps();
+    } else {
+      return this.renderStepForm();
+    }
   }
 
   render(){
     return (
       <div className="project-form-wrapper">
         {this.renderFormHeader()}
-        {this.renderSteps()}
+        {this.renderSpecificForm()}
+        <Route path='/projects/new/steps/:stepId' component={StepForm} />
       </div>
     )
   }
