@@ -4,15 +4,16 @@ import StepForm from './step_form';
 class ProjectForm extends React.Component {
   constructor(props){
     super(props);
+    this.state = { 1: <StepForm createStep={this.props.createStep} />}
+    this.amount = 1;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-
   }
 
-  renderForm(){
+  renderProjectForm(){
     return (
       <form>
         <p>form</p>
@@ -33,11 +34,33 @@ class ProjectForm extends React.Component {
     )
   }
 
+  addStep(){
+    this.amount += 1;
+    this.setState({ [this.state.amount]: <StepForm createStep={this.props.createStep} />})
+  }
+
+  renderStepForm(stepForm){
+
+  }
+
+  renderSteps(){
+    debugger
+    const stepForms = Object.values(this.state).map( (stepForm) => {
+      return
+    })
+    return (
+      <div className="steps-container">
+        {steps}
+        <button onClick={this.addStep}>Add step</button>
+      </div>
+    )
+  }
+
   render(){
     return (
       <div className="project-form-wrapper">
         {this.renderFormHeader()}
-        {this.renderForm()}
+        {this.renderSteps()}
       </div>
     )
   }

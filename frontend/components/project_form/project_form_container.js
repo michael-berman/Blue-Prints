@@ -5,10 +5,10 @@ import ProjectForm from './project_form';
 import { createProject } from '../../actions/project_actions';
 import { createStep } from '../../actions/step_actions';
 
-const mapStatetoProps = (state) => {
+const mapStatetoProps = (state, ownProps) => {
   debugger
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
   };
 };
 
