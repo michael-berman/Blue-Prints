@@ -1,4 +1,5 @@
 import React from 'react';
+import StepForm from './step_form';
 
 class ProjectForm extends React.Component {
   constructor(props){
@@ -19,11 +20,15 @@ class ProjectForm extends React.Component {
     )
   }
 
-  renderNavBar(){
+  renderFormHeader(){
     return(
       <nav className="project-form-navbar">
-        <button onClick={this.handleSubmit}>
-        hello</button>
+        <div className="project-form-navbar-attachment">
+        </div>
+        <div className="project-form-navbar-buttons">
+          <button onClick={this.handleSubmit}>
+            hello</button>
+        </div>
       </nav>
     )
   }
@@ -31,7 +36,7 @@ class ProjectForm extends React.Component {
   render(){
     return (
       <div className="project-form-wrapper">
-        {this.renderNavBar()}
+        {this.renderFormHeader()}
         {this.renderForm()}
       </div>
     )

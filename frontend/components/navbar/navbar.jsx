@@ -34,6 +34,7 @@ class NavBar extends React.Component{
             <h1>Blue Prints</h1>
           </header>
         </Link>
+        <button className='nav-bar-create-button'><Link to="/projects/new">Write a Blue Print</Link></button>
         {this.sessionLinks()}
       </section>
     )
