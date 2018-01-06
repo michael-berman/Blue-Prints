@@ -38,8 +38,38 @@
   margin-right: 15px;
 }
 
+.nav-bar-search-text {
+  width: 80%;
+  padding: 6px 6px;
+  border-radius: 4px;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  &:focus {
+   outline: 1px solid rgb(94, 158, 214);
+   box-shadow:0 0 10px #9ecaed;
+   border-radius: 4px;
+  }
+}
+
 .nav-bar-search-button {
-  background-image: url(https://i.imgur.com/Een5rUD.png);
+  display: none;
+}
+
+
+.nav-bar-create-button {
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  padding: 7px 12px;
+  font-size: 14px;
+  &:hover {
+    background-color: #d9d9d9;
+  }
+  a{
+    color: #000080;
+  }
 }
 
 .nav-pipe {
@@ -65,18 +95,6 @@
   }
 }
 
-.nav-bar-create-button {
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid #cccccc;
-  cursor: pointer;
-  padding: 6px 12px;
-  font-size: 14px;
-  color: black;
-  &:hover {
-    background-color: #d9d9d9;
-  }
-}
 
 .nav-bar-session{
   margin-left: auto;

@@ -36,9 +36,9 @@ class NavBar extends React.Component{
         </Link>
         <form className='nav-bar-search'>
           <input className='nav-bar-search-text' type='text'
-            placeholder="Let's make ..." />
+            placeholder="Let's Make ..." />
           <button className="nav-bar-search-button">
-            <i class="glyphicon glyphicon-search"></i>
+            <i className="glyphicon glyphicon-search"></i>
           </button>
         </form>
         <button className='nav-bar-create-button'><Link to="/projects/new">Write a Blue Print</Link></button>

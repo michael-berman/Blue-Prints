@@ -20,7 +20,7 @@ class HomePage extends React.Component {
     return(
       <article className="homepage-image">
         <span className="homepage-header">
-          <h1>Let's Build a Blue Print!</h1>
+          <h1>Let's Make a Blue Print!</h1>
         </span>
       </article>
     )
