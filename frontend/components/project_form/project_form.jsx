@@ -1,12 +1,13 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 import StepForm from './step_form';
-import { Route } from 'react-router-dom';
 
 class ProjectForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { 1: <StepForm createStep={this.props.createStep} />}
+    this.state = { 1: { title: "", body: "", }}
     this.amount = 1;
+    this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -14,19 +15,12 @@ class ProjectForm extends React.Component {
     e.preventDefault();
   }
 
-  renderProjectForm(){
-    return (
-      <form>
-        <p>form</p>
-      </form>
-    )
-  }
-
   renderFormHeader(){
     return(
       <nav className="project-form-navbar">
-        <div className="project-form-navbar-attachment">
-        </div>
+        <button className="project-form-navbar-attachment">
+          Click to add images
+        </button>
         <div className="project-form-navbar-buttons">
           <button onClick={this.handleSubmit}>
             hello</button>
@@ -37,26 +31,25 @@ class ProjectForm extends React.Component {
 
   addStep(){
     this.amount += 1;
-    this.setState({ [this.state.amount]: <StepForm createStep={this.props.createStep} />})
+    this.setState({ [this.amount]: { title: "", body: "", }})
   }
 
-  renderStepForm(){
-
+  update(field){
   }
 
   renderSteps(){
-    debugger
-    const stepButtons = Object.values(this.state).map( (stepForm) => {
+    const stepButtons = Object.keys(this.state).map( (stepId) => {
       return (
-        <li>
-          <Link to="/projects/new/steps/"></Link>
+        <li key={parseInt(stepId)} className='project-form-step-links'>
+          <Link to={`/projects/new/steps/${parseInt(stepId)}`}></Link>
         </li>
       )
     })
+
     return (
       <div className="steps-container">
         <ul>
-          {steps}
+          {stepButtons}
         </ul>
         <button onClick={this.addStep}>Add step</button>
       </div>
@@ -67,7 +60,7 @@ class ProjectForm extends React.Component {
     if(this.props.match.path === '/projects/new'){
       return this.renderSteps();
     } else {
-      return this.renderStepForm();
+      return <StepForm step={this.state} />;
     }
   }
 
@@ -76,7 +69,7 @@ class ProjectForm extends React.Component {
       <div className="project-form-wrapper">
         {this.renderFormHeader()}
         {this.renderSpecificForm()}
-        <Route path='/projects/new/steps/:stepId' component={StepForm} />
+        <Route path="/projects/new/steps/:stepId" />
       </div>
     )
   }

@@ -1,0 +1,33 @@
+.project-form-wrapper {
+  width: 1016px;
+  margin: 50px auto;
+  border: 1px solid rgba(119,130,135,.4);
+  border-radius: 10px;
+}
+
+.project-form-navbar {
+  background-color: #F6F6F6;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.project-form-navbar-attachment {
+  height: 137px;
+  text-align: center;
+  border: 1px solid #dedede;
+  width: 98%;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #eee;
+  color: #AAA;
+  font-size: 20px;
+  box-shadow: inset 0 0 3px 3px #dfdfdf;
+  border-radius: 10px;
+  &:focus{
+    outline: none;
+  }
+}
+
+.project-form-navbar-buttons {
+  height: 45px;
+}
