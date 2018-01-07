@@ -36,6 +36,7 @@
 
 .nav-bar-search {
   margin-right: 15px;
+
 }
 
 .nav-bar-search-text {
@@ -46,9 +47,9 @@
   border: 1px solid #ccc;
   font-size: 16px;
   &:focus {
-   outline: 1px solid rgb(94, 158, 214);
-   box-shadow:0 0 10px #9ecaed;
-   border-radius: 4px;
+    border-color: rgba(82,168,236,0.8);
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(82,168,236,0.6);
   }
 }
 

@@ -77,7 +77,6 @@ class ProjectForm extends React.Component {
   }
 
   update(stepId, step){
-    debugger
     let newState = merge({},
                     this.state,
                     { steps:
