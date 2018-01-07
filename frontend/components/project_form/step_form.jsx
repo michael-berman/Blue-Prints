@@ -1,23 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class StepForm extends React.Component {
   constructor(props){
     super(props);
     if (this.props.step.title === "(click to edit)" ){
-      this.state = {
-                    title:
-                      `Step ${this.props.stepId}:Type your title ...`,
-                    body: ""
-                  }
+      this.state = { title:"", body: "" }
     } else {
       this.state = this.props.step;
     }
     this.updateStep = this.updateStep.bind(this);
+    this.sendSteptoProject = this.sendSteptoProject.bind(this);
   }
 
   updateStep(field){
     return e => this.setState({[field]: e.target.value})
+  }
+
+  sendSteptoProject(e){
+    e.preventDefault();
+    this.props.handleStep(this.props.stepId, this.state);
+    this.props.history.push('/projects/new');
+  }
+
+  renderPlaceholders(){
+    if (this.state.title === ""){
+      document.querySelector('step-form-title').placeholder =
+        `Step ${this.props.stepId}: Type your title ...`;
+    } else {
+      return null;
+    }
   }
 
   render (){
@@ -34,14 +46,19 @@ class StepForm extends React.Component {
             onChange={this.updateStep('body')}
             className='step-form-body'
             /><br />
-          <Link to="/projects/new"
-            className='step-form-back-button'
-            onClick={this.props.update(this.props.stepId, this.state)}
-            >Back to Steps</Link>
+          <button onClick={this.sendSteptoProject}
+            className='step-form-back-button'>
+            Back to Steps
+          </button>
         </form>
+        {this.renderPlaceholders()}
     </div>
     )
   }
 }
 
-export default StepForm;
+// <Link to="/projects/new"
+//   className='step-form-back-button' Back to Steps
+//   onClick={this.props.handleStep(this.props.stepId, this.state)}
+//   >Back to Steps</Link>
+export default withRouter(StepForm);

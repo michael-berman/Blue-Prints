@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 import StepForm from './step_form';
@@ -15,7 +15,7 @@ class ProjectForm extends React.Component {
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-    this.update = this.update.bind(this);
+    this.handleStep = this.handleStep.bind(this);
   }
 
   componentDidMount(){
@@ -76,16 +76,12 @@ class ProjectForm extends React.Component {
     this.setState(newState);
   }
 
-  update(stepId, step){
-    let newState = merge({},
+  handleStep(stepId, step){
+    this.setState(merge({},
                     this.state,
                     { steps:
                       {[stepId]: step }
-                    });
-    return e =>
-      this.setState({
-        newState
-      })
+                    }));
   }
 
   renderSteps(){
@@ -122,7 +118,7 @@ class ProjectForm extends React.Component {
     } else {
       let path = this.props.location.pathname;
       let stepId = path.slice(path.length - 1);
-      return <StepForm stepId={stepId} update={this.update}
+      return <StepForm stepId={stepId} handleStep={this.handleStep}
         step={this.state.steps[stepId]} />;
     }
   }
@@ -142,4 +138,4 @@ class ProjectForm extends React.Component {
   }
 }
 
-export default ProjectForm;
+export default withRouter(ProjectForm);
