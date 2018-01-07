@@ -11,6 +11,7 @@ class StepForm extends React.Component {
     }
     this.updateStep = this.updateStep.bind(this);
     this.sendSteptoProject = this.sendSteptoProject.bind(this);
+    this.renderPlaceholders = this.renderPlaceholders.bind(this);
   }
 
   updateStep(field){
@@ -24,15 +25,16 @@ class StepForm extends React.Component {
   }
 
   renderPlaceholders(){
-    if (this.state.title === ""){
-      document.querySelector('step-form-title').placeholder =
-        `Step ${this.props.stepId}: Type your title ...`;
+    let titleInput = document.querySelector('.step-form-title');
+    if (this.state.title === "" && titleInput){
+      titleInput.placeholder = `Step ${this.props.stepId}: Type your title ...`;
     } else {
       return null;
     }
   }
 
   render (){
+    debugger
     return (
       <div className='step-form-wrapper'>
         <div className='step-form-attachments'>
@@ -51,7 +53,6 @@ class StepForm extends React.Component {
             Back to Steps
           </button>
         </form>
-        {this.renderPlaceholders()}
     </div>
     )
   }

@@ -84,6 +84,10 @@ class ProjectForm extends React.Component {
                     }));
   }
 
+  scrollUp(){
+    window.scrollTo(0,130);
+  }
+
   renderSteps(){
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
       let step = (parseInt(stepId) === 0) ? "Intro" : `Step ${stepId}`
@@ -94,6 +98,7 @@ class ProjectForm extends React.Component {
             Drag Images From Top Bar
           </div>
           <Link to={`/projects/new/steps/${stepNum}`}
+            onClick={this.scrollUp}
             className='project-form-step-link'>
             {step}: {this.state.steps[stepId].title}
           </Link>
