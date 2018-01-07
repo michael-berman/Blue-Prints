@@ -6,6 +6,7 @@ import HomePageContainer from './home_page/home_page_container';
 import NavBarContainer from './navbar/navbar_container';
 import ProjectShowContainer from './project_show/project_show_container';
 import ProjectFormContainer from './project_form/project_form_container';
+import Footer from './footer/footer';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/projects/:projectId' component={ProjectShowContainer} />
         <Route exact path='/' component={HomePageContainer}/>
       </Switch>
+      <Footer />
     </div>
   )
 };
