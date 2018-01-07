@@ -8,7 +8,6 @@ import { createStep } from '../../actions/step_actions';
 const mapStatetoProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
-
   };
 };
 

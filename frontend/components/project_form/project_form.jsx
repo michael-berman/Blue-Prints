@@ -10,7 +10,7 @@ class ProjectForm extends React.Component {
     super(props);
     this.state = { steps:
                     { 0: { title: "sample", body: "body", }},
-                    amount: 1 }
+                    amount: 1}
     this.amount = 1;
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -75,8 +75,16 @@ class ProjectForm extends React.Component {
     this.setState(newState);
   }
 
-  update(field){
-
+  update(stepId, step){
+    let newState = merge({},
+                    this.state,
+                    { steps:
+                      {[stepId]: step }
+                    });
+    return e =>
+      this.setState({
+        newState
+      })
   }
 
   renderSteps(){
@@ -108,10 +116,14 @@ class ProjectForm extends React.Component {
   }
 
   renderSpecificForm(){
-    if(this.props.match.path === '/projects/new'){
+    debugger
+    if(this.props.location.pathname === '/projects/new'){
       return this.renderSteps();
     } else {
-      return <StepForm step={this.state} />;
+      let path = this.props.location.pathname;
+      let stepId = path.slice(path.length - 1);
+      return <StepForm stepId={stepId} update={this.update}
+        step={this.state.steps[stepId]} />;
     }
   }
 
