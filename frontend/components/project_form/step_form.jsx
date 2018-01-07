@@ -35,6 +35,7 @@ class StepForm extends React.Component {
             className='step-form-body'
             /><br />
           <Link to="/projects/new"
+            className='step-form-back-button'
             onClick={this.props.update(this.props.stepId, this.state)}
             >Back to Steps</Link>
         </form>
