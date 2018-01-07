@@ -30,9 +30,9 @@ class ProjectForm extends React.Component {
 
   handleScroll(){
     let formHeader = document.querySelector(".project-form-navbar");
-    if (window.scrollY > 120 && formHeader){
+    if (window.scrollY > 118 && formHeader){
       formHeader.classList.add("project-form-navbar-fixed");
-    } else if (window.scrollY < 120 && formHeader){
+    } else if (window.scrollY < 118 && formHeader){
       formHeader.classList.remove("project-form-navbar-fixed");
     } else {
       return null;
@@ -84,7 +84,8 @@ class ProjectForm extends React.Component {
         <ul>
           {stepButtons}
         </ul>
-        <button onClick={this.addStep}>Add step</button>
+        <button className="project-form-steps-add-button"
+          onClick={this.addStep}>Add step</button>
       </div>
     )
   }
