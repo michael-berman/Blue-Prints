@@ -1,14 +1,16 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import merge from 'lodash/merge';
+
 import StepForm from './step_form';
+import ProjectFormAddDropdown from './project_form_dropdown';
 
 class ProjectForm extends React.Component {
   constructor(props){
     super(props);
     this.state = { steps:
-                    { 1: { title: "sample", body: "body", } },
-                    toggled: false,
-                    amount }
+                    { 1: { title: "sample", body: "body", }},
+                    amount: 1 }
     this.amount = 1;
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,12 +48,6 @@ class ProjectForm extends React.Component {
     e.preventDefault();
   }
 
-  toggleDropdown(){
-    return(){
-
-    }
-  }
-
   renderFormHeader(){
     return(
       <nav className="project-form-navbar">
@@ -59,10 +55,7 @@ class ProjectForm extends React.Component {
           <span className="plus-icon">+</span>Click to Add Images
         </button>
         <div className="project-form-navbar-buttons-menu">
-          <button
-            className='project-form-navbar-button add'
-            onClick={this.toggleDropdown}>
-            + Add <span className="caret"></span></button>
+          <ProjectFormAddDropdown addStep={this.addStep} />
           <button onClick={this.handleSubmit}
             className='project-form-navbar-button submit'>
             Publish
@@ -74,10 +67,16 @@ class ProjectForm extends React.Component {
 
   addStep(){
     this.state.amount += 1;
-    this.setState({ [this.state.amount]: { title: "", body: "", }})
+    let newState = merge({},
+                    this.state,
+                    { steps:
+                      {[this.state.amount]: { title: "(click to edit)", body: "", }}
+                    });
+    this.setState(newState);
   }
 
   update(field){
+
   }
 
   renderSteps(){
@@ -90,7 +89,7 @@ class ProjectForm extends React.Component {
           </div>
           <Link to={`/projects/new/steps/${parseInt(stepId)}`}
             className='project-form-step-link'>
-            {step}: {this.state[stepId].title}
+            {step}: {this.state.steps[stepId].title}
           </Link>
         </li>
       )
