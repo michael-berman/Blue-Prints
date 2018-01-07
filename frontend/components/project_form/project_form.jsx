@@ -15,6 +15,7 @@ class ProjectForm extends React.Component {
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.update = this.update.bind(this);
   }
 
   componentDidMount(){
@@ -70,12 +71,13 @@ class ProjectForm extends React.Component {
     let newState = merge({},
                     this.state,
                     { steps:
-                      {[this.state.amount]: { title: "(click to edit)", body: "", }}
+                      {[this.state.amount - 1]: { title: "(click to edit)", body: "", }}
                     });
     this.setState(newState);
   }
 
   update(stepId, step){
+    debugger
     let newState = merge({},
                     this.state,
                     { steps:
@@ -89,8 +91,8 @@ class ProjectForm extends React.Component {
 
   renderSteps(){
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
-      let step = (parseInt(stepId) === 0) ? "Intro" : `Step ${stepId - 1}`
-      let stepNum = (parseInt(stepId) === 0) ? 0 : parseInt(stepId) - 1;
+      let step = (parseInt(stepId) === 0) ? "Intro" : `Step ${stepId}`
+      let stepNum = (parseInt(stepId) === 0) ? 0 : parseInt(stepId);
       return (
         <li key={stepNum} className='project-form-step'>
           <div className='project-form-step-images'>
@@ -121,7 +123,6 @@ class ProjectForm extends React.Component {
     } else {
       let path = this.props.location.pathname;
       let stepId = path.slice(path.length - 1);
-      debugger
       return <StepForm stepId={stepId} update={this.update}
         step={this.state.steps[stepId]} />;
     }
