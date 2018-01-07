@@ -5,7 +5,10 @@ import StepForm from './step_form';
 class ProjectForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { 1: { title: "", body: "", }}
+    this.state = { steps:
+                    { 1: { title: "sample", body: "body", } },
+                    toggled: false,
+                    amount }
     this.amount = 1;
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,6 +46,12 @@ class ProjectForm extends React.Component {
     e.preventDefault();
   }
 
+  toggleDropdown(){
+    return(){
+
+    }
+  }
+
   renderFormHeader(){
     return(
       <nav className="project-form-navbar">
@@ -51,7 +60,8 @@ class ProjectForm extends React.Component {
         </button>
         <div className="project-form-navbar-buttons-menu">
           <button
-            className='project-form-navbar-button add'>
+            className='project-form-navbar-button add'
+            onClick={this.toggleDropdown}>
             + Add <span className="caret"></span></button>
           <button onClick={this.handleSubmit}
             className='project-form-navbar-button submit'>
@@ -63,25 +73,32 @@ class ProjectForm extends React.Component {
   }
 
   addStep(){
-    this.amount += 1;
-    this.setState({ [this.amount]: { title: "", body: "", }})
+    this.state.amount += 1;
+    this.setState({ [this.state.amount]: { title: "", body: "", }})
   }
 
   update(field){
   }
 
   renderSteps(){
-    const stepButtons = Object.keys(this.state).map( (stepId) => {
+    const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
+      let step = (parseInt(stepId) === 1) ? "Intro" : `Step ${stepId - 1}`
       return (
-        <li key={parseInt(stepId)} className='project-form-step-links'>
-          <Link to={`/projects/new/steps/${parseInt(stepId)}`}></Link>
+        <li key={parseInt(stepId)} className='project-form-step'>
+          <div className='project-form-step-images'>
+            Drag Images From Top Bar
+          </div>
+          <Link to={`/projects/new/steps/${parseInt(stepId)}`}
+            className='project-form-step-link'>
+            {step}: {this.state[stepId].title}
+          </Link>
         </li>
       )
     })
 
     return (
       <div className="steps-container">
-        <ul>
+        <ul className="project-form-step-list">
           {stepButtons}
         </ul>
         <button className="project-form-steps-add-button"

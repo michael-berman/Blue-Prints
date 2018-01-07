@@ -7,6 +7,7 @@
   margin: 0 auto;
   border: 1px solid rgba(119,130,135,.4);
   border-radius: 10px;
+  background-color: white;
 }
 
 .project-form-navbar {
@@ -100,4 +101,62 @@
 .project-form-body {
   background-color: white;
   min-height: 500px;
+}
+
+.project-form-step-list {
+  width: 96%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.project-form-step {
+  list-style: none;
+  background-color: #F6F6F6;
+  width: 100%;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  height: 150px;
+  margin-top: 20px;
+  display: flex;
+  border: 1px solid #ddd;
+}
+
+.project-form-step-images {
+  padding: 52px 165px;
+  margin-top: 10px;
+  align-self: center;
+  background-color: white;
+  margin-left: 15px;
+  font-size: 22px;
+  color: #AAA;
+  border-radius: 10px;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.15);
+  border: 1px solid #dedede;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.project-form-step-link {
+  text-decoration: none;
+  padding: 70px 26px;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  padding-right: 250px;
+}
+
+.project-form-steps-add-button {
+  background-color: #F6F6F6;
+  border-radius: 4px;
+  padding: 13px 20px;
+  font-size: 18px;
+  margin: 15px auto;
+  display: block;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #EEEEEE;
+  }
 }
