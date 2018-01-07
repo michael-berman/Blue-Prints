@@ -90,7 +90,7 @@ class ProjectForm extends React.Component {
   renderSteps(){
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
       let step = (parseInt(stepId) === 0) ? "Intro" : `Step ${stepId - 1}`
-      let stepNum = (parseInt(stepId) === 0) ? 0 : parseInt(stepId) - 1
+      let stepNum = (parseInt(stepId) === 0) ? 0 : parseInt(stepId) - 1;
       return (
         <li key={stepNum} className='project-form-step'>
           <div className='project-form-step-images'>
@@ -116,12 +116,12 @@ class ProjectForm extends React.Component {
   }
 
   renderSpecificForm(){
-    debugger
     if(this.props.location.pathname === '/projects/new'){
       return this.renderSteps();
     } else {
       let path = this.props.location.pathname;
       let stepId = path.slice(path.length - 1);
+      debugger
       return <StepForm stepId={stepId} update={this.update}
         step={this.state.steps[stepId]} />;
     }
