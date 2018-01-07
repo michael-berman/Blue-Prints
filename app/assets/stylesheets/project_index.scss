@@ -1,5 +1,4 @@
 .projects-wrapper {
-  margin-left: 5px;
   width: 100%;
   background-color: #BFBFBF;
 }
@@ -10,13 +9,12 @@
   flex-wrap: wrap;
   box-sizing: border-box;
   padding: 30px;
-  padding: 0 140px;
+  padding: 0 60px;
   margin: 0 auto;
 }
 
 .project-index-item-container {
-  margin-top: 30px;
-  margin-right: 25px;
+  margin: 15px 12px;
   width: 305px;
   border: 1px solid rgba(0,0,0,.1);
   box-sizing: border-box;

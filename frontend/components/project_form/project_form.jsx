@@ -9,7 +9,7 @@ class ProjectForm extends React.Component {
   constructor(props){
     super(props);
     this.state = { steps:
-                    { 1: { title: "sample", body: "body", }},
+                    { 0: { title: "sample", body: "body", }},
                     amount: 1 }
     this.amount = 1;
     this.addStep = this.addStep.bind(this);
@@ -81,13 +81,14 @@ class ProjectForm extends React.Component {
 
   renderSteps(){
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
-      let step = (parseInt(stepId) === 1) ? "Intro" : `Step ${stepId - 1}`
+      let step = (parseInt(stepId) === 0) ? "Intro" : `Step ${stepId - 1}`
+      let stepNum = (parseInt(stepId) === 0) ? 0 : parseInt(stepId) - 1
       return (
-        <li key={parseInt(stepId)} className='project-form-step'>
+        <li key={stepNum} className='project-form-step'>
           <div className='project-form-step-images'>
             Drag Images From Top Bar
           </div>
-          <Link to={`/projects/new/steps/${parseInt(stepId)}`}
+          <Link to={`/projects/new/steps/${stepNum}`}
             className='project-form-step-link'>
             {step}: {this.state.steps[stepId].title}
           </Link>
