@@ -19,11 +19,16 @@ class ProjectForm extends React.Component {
     return(
       <nav className="project-form-navbar">
         <button className="project-form-navbar-attachment">
-          Click to add images
+          <span className="plus-icon">+</span>Click to Add Images
         </button>
-        <div className="project-form-navbar-buttons">
-          <button onClick={this.handleSubmit}>
-            hello</button>
+        <div className="project-form-navbar-buttons-menu">
+          <button
+            className='project-form-navbar-button add'>
+            + Add <span className="caret"></span></button>
+          <button onClick={this.handleSubmit}
+            className='project-form-navbar-button submit'>
+            publish
+          </button>
         </div>
       </nav>
     )
@@ -66,10 +71,12 @@ class ProjectForm extends React.Component {
 
   render(){
     return (
-      <div className="project-form-wrapper">
-        {this.renderFormHeader()}
-        {this.renderSpecificForm()}
-        <Route path="/projects/new/steps/:stepId" />
+      <div className="project-form-wrapper" >
+        <div className="project-form-container">
+          {this.renderFormHeader()}
+          {this.renderSpecificForm()}
+          <Route path="/projects/new/steps/:stepId" />
+        </div>
       </div>
     )
   }

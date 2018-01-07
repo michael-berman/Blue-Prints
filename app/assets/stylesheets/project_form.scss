@@ -1,6 +1,10 @@
-.project-form-wrapper {
+.project-form-wrapper{
+  background-color: #BFBFBF;
+  padding-top: 50px;
+}
+.project-form-container {
   width: 1016px;
-  margin: 50px auto;
+  margin: 0 auto;
   border: 1px solid rgba(119,130,135,.4);
   border-radius: 10px;
 }
@@ -9,6 +13,7 @@
   background-color: #F6F6F6;
   width: 100%;
   border-radius: 10px 10px 0 0;
+  padding-bottom: 10px;
 }
 
 .project-form-navbar-attachment {
@@ -27,7 +32,41 @@
     outline: none;
   }
 }
+.plus-icon{
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: 10px;
+  position: relative;
+  top: 3px;
+}
 
-.project-form-navbar-buttons {
+.project-form-navbar-buttons-menu {
   height: 45px;
+  justify-content: space-between;
+  display: flex;
+  margin: 0px 13px;
+}
+
+.caret {
+  margin-top: 5px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid #000;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+.project-form-navbar-button {
+  border-radius: 4px;
+  padding: 10px 20px;
+  &:focus {
+    outline: none;
+  }
+  &:hover{
+    cursor: pointer;
+
+  }
 }
