@@ -69,6 +69,9 @@
   a{
     color: #000080;
   }
+  &:focus{
+    outline: none;
+  }
 }
 
 .nav-pipe {
