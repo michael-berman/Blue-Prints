@@ -9,13 +9,14 @@ class SessionForm extends React.Component {
     } else {
       this.state = { email: "", username: "", password: "" };
     }
-    
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderEmail = this.renderEmail.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.navLink = this.navLink.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
+    this.toggleLoginStyle = this.toggleLoginStyle.bind(this);
   }
 
   componentDidMount(){
@@ -85,7 +86,17 @@ class SessionForm extends React.Component {
     }
   }
 
+  toggleLoginStyle(){
+    let loginColumn = document.querySelector(".session-form-column");
+    if(this.props.match.path === '/login' && loginColumn){
+      loginColumn.classList.add("login-form-column");
+    } else if(this.props.match.path === '/signup' && loginColumn) {
+      loginColumn.classList.remove("login-form-column");
+    }
+  }
+
   render(){
+    this.toggleLoginStyle();
     const formButton = (this.props.formType === "Signup") ? "Sign Up" : "Login"
     return (
       <div className="session-outer-wrapper" >
