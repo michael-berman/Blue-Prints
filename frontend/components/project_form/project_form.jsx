@@ -9,6 +9,34 @@ class ProjectForm extends React.Component {
     this.amount = 1;
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillMount(){
+    window.scrollTo(0,0);
+  }
+
+  componentWillUnmount(){
+    let formHeader = document.querySelector(".project-form-navbar-fixed");
+    if (formHeader){
+      formHeader.classList.remove("project-form-navbar-fixed");
+    }
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(){
+    let formHeader = document.querySelector(".project-form-navbar");
+    if (window.scrollY > 120 && formHeader){
+      formHeader.classList.add("project-form-navbar-fixed");
+    } else if (window.scrollY < 120 && formHeader){
+      formHeader.classList.remove("project-form-navbar-fixed");
+    } else {
+      return null;
+    }
   }
 
   handleSubmit(e){
@@ -27,7 +55,7 @@ class ProjectForm extends React.Component {
             + Add <span className="caret"></span></button>
           <button onClick={this.handleSubmit}
             className='project-form-navbar-button submit'>
-            publish
+            Publish
           </button>
         </div>
       </nav>
@@ -74,7 +102,9 @@ class ProjectForm extends React.Component {
       <div className="project-form-wrapper" >
         <div className="project-form-container">
           {this.renderFormHeader()}
-          {this.renderSpecificForm()}
+          <div className="project-form-body">
+            {this.renderSpecificForm()}
+          </div>
           <Route path="/projects/new/steps/:stepId" />
         </div>
       </div>

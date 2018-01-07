@@ -1,6 +1,6 @@
 .project-form-wrapper{
   background-color: #BFBFBF;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 .project-form-container {
   width: 1016px;
@@ -15,6 +15,7 @@
   border-radius: 10px 10px 0 0;
   padding-bottom: 10px;
 }
+
 
 .project-form-navbar-attachment {
   height: 137px;
@@ -32,6 +33,15 @@
     outline: none;
   }
 }
+
+.project-form-navbar-fixed {
+  position: sticky;
+  top: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
 .plus-icon{
   font-size: 40px;
   font-weight: bold;
@@ -41,14 +51,14 @@
 }
 
 .project-form-navbar-buttons-menu {
-  height: 45px;
+  height: 35px;
   justify-content: space-between;
   display: flex;
   margin: 0px 13px;
 }
 
 .caret {
-  margin-top: 5px;
+  margin-top: 7px;
   display: inline-block;
   width: 0;
   height: 0;
@@ -61,12 +71,33 @@
 
 .project-form-navbar-button {
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 0px 15px;
+  font-size: 14px;
   &:focus {
     outline: none;
   }
   &:hover{
     cursor: pointer;
-
   }
+}
+
+.submit {
+  background-color: #4165A5;
+  color: white;
+  &:hover{
+    background-color: #3a5a92;
+  }
+}
+
+.add {
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  &:hover {
+    background-color: #EEEEEE;
+  }
+}
+
+.project-form-body {
+  background-color: white;
+  min-height: 500px;
 }
