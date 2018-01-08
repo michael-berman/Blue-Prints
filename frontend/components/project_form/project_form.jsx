@@ -9,12 +9,12 @@ class ProjectForm extends React.Component {
   constructor(props){
     super(props);
     this.state = { steps:
-                    { 0: { title: "sample", body: "body", }},
+                    { 0:
+                      { title: "(click to edit)", body: "body",
+                        imageFile: null, imageUrl: null }},
                     amount: 1,
-                    imageFile: null,
-                    imageUrl: null
+                    mainImage: {imageFile: null, imageUrl: null},
                   }
-    this.amount = 1;
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
@@ -60,7 +60,7 @@ class ProjectForm extends React.Component {
         <form className="project-form-navbar-attachment">
           <input type='file'
             onChange={this.updateFileMain}/>
-          <div className='plus-icon'>Click to Main Images</div>
+          <div className='plus-icon'>Click for Main Images</div>
         </form>
         <div className="project-form-navbar-buttons-menu">
           <ProjectFormAddDropdown addStep={this.addStep}
@@ -97,7 +97,7 @@ class ProjectForm extends React.Component {
   }
 
   updateFileStep(stepId){
-
+    debugger
   }
 
   renderSteps(){
@@ -109,8 +109,8 @@ class ProjectForm extends React.Component {
           <div className='project-form-step-images'>
             <form className="">
               <input type='file'
-                onChange={this.updateFileStep({stepId})}/>
-              <div className='step-icon'>Click to Step Images</div>
+                onChange={this.updateFileStep(stepId)}/>
+              <div className='step-icon'>Click for Step Images</div>
             </form>
           </div>
           <Link to={`/projects/new/steps/${stepNum}`}

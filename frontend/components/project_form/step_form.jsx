@@ -4,14 +4,13 @@ import { Link, withRouter } from 'react-router-dom';
 class StepForm extends React.Component {
   constructor(props){
     super(props);
-    if (this.props.step.title === "(click to edit)" ){
-      this.state = { title:"", body: "" }
+    if (this.props.step.title === "(click to edit)"){
+      this.state = { title: "", body: "" }
     } else {
       this.state = this.props.step;
     }
     this.updateStep = this.updateStep.bind(this);
     this.sendSteptoProject = this.sendSteptoProject.bind(this);
-    this.renderPlaceholders = this.renderPlaceholders.bind(this);
   }
 
   updateStep(field){
@@ -22,15 +21,6 @@ class StepForm extends React.Component {
     e.preventDefault();
     this.props.handleStep(this.props.stepId, this.state);
     this.props.history.push('/projects/new');
-  }
-
-  renderPlaceholders(){
-    let titleInput = document.querySelector('.step-form-title');
-    if (this.state.title === "" && titleInput){
-      titleInput.placeholder = `Step ${this.props.stepId}: Type your title ...`;
-    } else {
-      return null;
-    }
   }
 
   render (){
