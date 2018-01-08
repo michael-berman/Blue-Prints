@@ -3,12 +3,13 @@
   height: 900px;
   padding: 70px 100px;
   position: relative;
+  padding-bottom: 150px;
 }
 
 .project-show-navbar {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 34px;
+  padding: 34px 0px;
   background-color: #E6E6E6;
   display: flex;
   align-items: center;
@@ -16,8 +17,11 @@
   z-index: 2;
   color: #8c8c8c;
   font-family: Arial,sans-serif;
-  width: 75.2%;
+  width: 80%;
   margin: 0 auto;
+  h1 {
+    margin-left: 30px;
+  }
 }
 
 .project-show-navbar-fixed {
@@ -52,6 +56,8 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .blue-print-content {
