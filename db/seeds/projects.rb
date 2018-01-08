@@ -66,5 +66,29 @@ STEP_2_TOOL_PICS = [
 ]
 
 STEP_3_CONTRUCT_PICS = [
-
+  'photos/images/step-3-constructing-pics/step-3-building-pics/adi-goldstein-257316.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/agence-producteurs-locaux-damien-kuhn-97731.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/alex-radelich-318997.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/annie-gray-382969.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/christopher-burns-368617.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/evan-clark-114123.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/frank-mckenna-132740.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/greyson-joralemon-482882.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/h-e-n-g-s-t-r-e-a-m-180108.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/igor-ovsyannykov-217309.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/igor-ovsyannykov-219666.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/igor-ovsyannykov-252356.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/igor-ovsyannykov-342517.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/igor-ovsyannykov-474439.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/kelvyn-ornettte-sol-marte-451894.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/m0851-55542.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/maique-madeira-256088.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/manki-kim-431572.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/max-larochelle-404405.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/max-larochelle-443117.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/mh-tri-259076.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/mirco-bazzani-355521.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/nathan-lemon-77062.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/nicolas-hoizey-455603.jpg',
+  'photos/images/step-3-constructing-pics/step-3-building-pics/zhipeng-ya-345515.jpg'
 ]
