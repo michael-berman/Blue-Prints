@@ -10,12 +10,16 @@ class ProjectForm extends React.Component {
     super(props);
     this.state = { steps:
                     { 0: { title: "sample", body: "body", }},
-                    amount: 1}
+                    amount: 1,
+                    imageFile: null,
+                    imageUrl: null
+                  }
     this.amount = 1;
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleStep = this.handleStep.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   componentDidMount(){
@@ -52,11 +56,14 @@ class ProjectForm extends React.Component {
   renderFormHeader(){
     return(
       <nav className="project-form-navbar">
-        <button className="project-form-navbar-attachment">
-          <span className="plus-icon">+</span>Click to Add Images
-        </button>
+        <form className="project-form-navbar-attachment">
+          <input type='file'
+            onChange={this.updateFile}/>
+          <div className='plus-icon'>Click to Add Images</div>
+        </form>
         <div className="project-form-navbar-buttons-menu">
-          <ProjectFormAddDropdown addStep={this.addStep} />
+          <ProjectFormAddDropdown addStep={this.addStep}
+            updateFile={this.updateFile}/>
           <button onClick={this.handleSubmit}
             className='project-form-navbar-button submit'>
             Publish
@@ -117,6 +124,9 @@ class ProjectForm extends React.Component {
     )
   }
 
+  updateFile(){
+  }
+
   renderSpecificForm(){
     if(this.props.location.pathname === '/projects/new'){
       return this.renderSteps();
@@ -127,6 +137,7 @@ class ProjectForm extends React.Component {
         step={this.state.steps[stepId]} />;
     }
   }
+
 
   render(){
     return (

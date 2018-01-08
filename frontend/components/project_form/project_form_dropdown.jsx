@@ -22,8 +22,14 @@ class ProjectFormAddDropdown extends React.Component {
     } else {
       return (
         <ul className="dropdown-list-add">
-          <li onClick={this.props.addStep}>Step</li>
-          <li>Photos</li>
+          <li className='drop-list-add-steps'
+            onClick={this.props.addStep}>Step</li>
+          <li className="drop-list-add-photos">
+            <form>
+            <span className="drop-list-add-photos"
+              >Photos</span>
+            <input type="file" />
+          </form></li>
         </ul>
       )
     }
