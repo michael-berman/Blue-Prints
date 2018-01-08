@@ -59,7 +59,7 @@ class ProjectForm extends React.Component {
         <form className="project-form-navbar-attachment">
           <input type='file'
             onChange={this.updateFile}/>
-          <div className='plus-icon'>Click to Add Images</div>
+          <div className='plus-icon'>Click to Main Images</div>
         </form>
         <div className="project-form-navbar-buttons-menu">
           <ProjectFormAddDropdown addStep={this.addStep}
@@ -102,7 +102,11 @@ class ProjectForm extends React.Component {
       return (
         <li key={stepNum} className='project-form-step'>
           <div className='project-form-step-images'>
-            Drag Images From Top Bar
+            <form className="">
+              <input type='file'
+                onChange={this.updateFile}/>
+              <div className='step-icon'>Click to Step Images</div>
+            </form>
           </div>
           <Link to={`/projects/new/steps/${stepNum}`}
             onClick={this.scrollUp}
