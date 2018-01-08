@@ -11,7 +11,9 @@ class ProjectForm extends React.Component {
     this.state = { steps:
                     { 0:
                       { title: "(click to edit)", body: "body",
-                        imageFile: null, imageUrl: null
+                        images: { 0:
+                                  { imageFile: null, imageUrl: null }
+                                }
                       }
                     },
                     amount: 1,
@@ -59,22 +61,35 @@ class ProjectForm extends React.Component {
     const formData = new FormData();
     if (file) formData.append("project[main_image]", file);
 
-    this.props.createProject()
 
   }
 
-  updateFileMain(e){
+  updateFileMain(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      debugger
-      return (
-        this.setState({
-          mainImage: { imageFile: file, imageUrl: fileReader.result}
-        })
-      )
+
+    const setStater = () => {
+      this.setState({
+        mainImage: { imageFile: file, imageUrl: fileReader.result }
+      })
     }
-    debugger
+
+    // fileReader.onloadend = () => {
+    //   this.setState({
+    //     mainImage: { imageFile: file, imageUrl: fileReader.result}
+    //   })
+    // }
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+      // fileReader.onloadend();
+    }
+
+    if (fileReader.readyState === 1) {
+      setStater();
+    }
+
+
   }
 
   renderFormHeader(){
@@ -119,7 +134,8 @@ class ProjectForm extends React.Component {
     window.scrollTo(0,130);
   }
 
-  updateFileStep(stepId){
+  updateFileStep(e, stepId){
+
   }
 
   renderSteps(){

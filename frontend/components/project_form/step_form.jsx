@@ -24,7 +24,7 @@ class StepForm extends React.Component {
   }
 
   render (){
-    debugger
+    
     return (
       <div className='step-form-wrapper'>
         <div className='step-form-attachments'>

@@ -13,7 +13,7 @@
 class Project < ApplicationRecord
   validates :title, :author_id, presence: true
 
-  accepts_nested_attributes_for :steps, :photos
+  # accepts_nested_attributes_for :steps, :photos
 
   belongs_to :author,
     class_name: 'User',
