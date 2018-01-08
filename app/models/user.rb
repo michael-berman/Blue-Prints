@@ -11,6 +11,8 @@
 #  email           :string
 #
 
+
+
 class User < ApplicationRecord
   validates :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
@@ -22,8 +24,6 @@ class User < ApplicationRecord
   has_many :projects,
     class_name: 'Project',
     foreign_key: :author_id
-
-  #TODO have associations for projects, comments, favorites
 
 
   attr_reader :password
