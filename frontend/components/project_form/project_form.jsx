@@ -88,7 +88,7 @@ class ProjectForm extends React.Component {
       return (
         <div>
           <img className='main-image-attachment'
-            src={`${this.state.mainImage.imageUrl}`} />
+            src={`${this.state.mainImage.imageURL}`} />
         </div>
       )
     } else {

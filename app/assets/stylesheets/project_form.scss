@@ -238,12 +238,18 @@
   max-height: 120px;
   align-self: center;
   margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 }
 
 .preview-step-image-list {
   display: flex;
   max-height: 0;
   margin: 10px 5px 8px 10px;
+  align-items: center;
+  position: relative;
+  top: 57px;
 }
 
 .step-icon {

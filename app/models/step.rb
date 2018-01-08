@@ -17,6 +17,8 @@
 class Step < ApplicationRecord
   validates :project_id, presence: true
 
+  accepts_nested_attributes_for :photos
+
   belongs_to :project
 
   has_many :photos
