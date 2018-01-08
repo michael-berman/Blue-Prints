@@ -23,6 +23,8 @@ class ProjectForm extends React.Component {
     this.handleStep = this.handleStep.bind(this);
     this.updateFileMain = this.updateFileMain.bind(this);
     this.updateFileStep = this.updateFileStep.bind(this);
+    this.previewStepImages = this.previewStepImages.bind(this);
+    this.previewMainImageAttachments = this.previewMainImageAttachments.bind(this);
 
   }
 
@@ -86,7 +88,7 @@ class ProjectForm extends React.Component {
   previewMainImageAttachments(){
     if (this.state.mainImage.imageURL){
       return (
-        <div>
+        <div className='main-image-attachment-container'>
           <img className='main-image-attachment'
             src={`${this.state.mainImage.imageURL}`} />
         </div>
@@ -123,7 +125,11 @@ class ProjectForm extends React.Component {
     let newState = merge({},
                     this.state,
                     { steps:
-                      {[this.state.amount - 1]: { title: "(click to edit)", body: "", }}
+                      {[this.state.amount - 1]: {
+                                                  title: "(click to edit)",
+                                                  body: "",
+                                                  images: {}
+                                                  }}
                     });
     this.setState(newState);
   }
@@ -144,7 +150,7 @@ class ProjectForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
 
-    const pathname = e.target.parentElement.parentElement.parentElement.children[1].href
+    const pathname = e.target.parentElement.parentElement.parentElement.children[1].href;
     const stepId = pathname.slice(pathname.length - 1);
     const step = this.state.steps[stepId].images;
     let amount;

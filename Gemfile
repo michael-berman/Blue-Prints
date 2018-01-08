@@ -33,6 +33,7 @@ gem 'validates_email_format_of'
 gem 'aws-sdk', '< 3.0'
 gem 'paperclip', '~> 5.0.0'
 gem 'figaro'
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
