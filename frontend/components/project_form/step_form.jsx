@@ -24,11 +24,10 @@ class StepForm extends React.Component {
   }
 
   render (){
-    
+
     return (
       <div className='step-form-wrapper'>
         <div className='step-form-attachments'>
-          <h1>Drag Images From Top Bar</h1>
         </div>
         <form className="step-form-container">
           <input type='text' value={this.state.title}
@@ -50,8 +49,4 @@ class StepForm extends React.Component {
   }
 }
 
-// <Link to="/projects/new"
-//   className='step-form-back-button' Back to Steps
-//   onClick={this.props.handleStep(this.props.stepId, this.state)}
-//   >Back to Steps</Link>
 export default withRouter(StepForm);

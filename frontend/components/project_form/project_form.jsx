@@ -12,12 +12,12 @@ class ProjectForm extends React.Component {
                     { 0:
                       { title: "(click to edit)", body: "body",
                         images: { 0:
-                                  { imageFile: null, imageUrl: null }
+                                  { imageFile: null, imageURL: null }
                                 }
                       }
                     },
                     amount: 1,
-                    mainImage: {imageFile: null, imageUrl: null},
+                    mainImage: {imageFile: null, imageURL: null},
                   }
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -134,8 +134,23 @@ class ProjectForm extends React.Component {
     window.scrollTo(0,130);
   }
 
-  updateFileStep(e, stepId){
+  updateFileStep(e){
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
 
+    const pathname = e.target.parentElement.parentElement.parentElement.children[1].href
+    const stepId = pathname.slice(pathname.length - 1);
+
+  }
+
+  renderStepImages(stepId){
+    if (this.state.steps[stepId].images[0].imageURL){
+      return null
+    } else {
+      return (
+        <div className='step-icon'>Click for Step Images</div>
+      )
+    }
   }
 
   renderSteps(){
@@ -147,8 +162,8 @@ class ProjectForm extends React.Component {
           <div className='project-form-step-images'>
             <form className="">
               <input type='file'
-                onChange={this.updateFileStep(stepId)}/>
-              <div className='step-icon'>Click for Step Images</div>
+                onChange={this.updateFileStep}/>
+              {this.renderStepImages(stepNum)}
             </form>
           </div>
           <Link to={`/projects/new/steps/${stepNum}`}
