@@ -19,7 +19,8 @@ class ProjectForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleStep = this.handleStep.bind(this);
-    this.updateFile = this.updateFile.bind(this);
+    this.updateFileMain = this.updateFileMain.bind(this);
+    this.updateFileStep = this.updateFileStep.bind(this);
   }
 
   componentDidMount(){
@@ -58,12 +59,12 @@ class ProjectForm extends React.Component {
       <nav className="project-form-navbar">
         <form className="project-form-navbar-attachment">
           <input type='file'
-            onChange={this.updateFile}/>
+            onChange={this.updateFileMain}/>
           <div className='plus-icon'>Click to Main Images</div>
         </form>
         <div className="project-form-navbar-buttons-menu">
           <ProjectFormAddDropdown addStep={this.addStep}
-            updateFile={this.updateFile}/>
+            updateFileMain={this.updateFileMain}/>
           <button onClick={this.handleSubmit}
             className='project-form-navbar-button submit'>
             Publish
@@ -95,6 +96,10 @@ class ProjectForm extends React.Component {
     window.scrollTo(0,130);
   }
 
+  updateFileStep(stepId){
+
+  }
+
   renderSteps(){
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
       let step = (parseInt(stepId) === 0) ? "Intro" : `Step ${stepId}`
@@ -104,7 +109,7 @@ class ProjectForm extends React.Component {
           <div className='project-form-step-images'>
             <form className="">
               <input type='file'
-                onChange={this.updateFile}/>
+                onChange={this.updateFileStep({stepId})}/>
               <div className='step-icon'>Click to Step Images</div>
             </form>
           </div>
@@ -128,7 +133,7 @@ class ProjectForm extends React.Component {
     )
   }
 
-  updateFile(){
+  updateFileMain(){
   }
 
   renderSpecificForm(){
