@@ -92,3 +92,11 @@ STEP_3_CONTRUCT_PICS = [
   'photos/images/step-3-constructing-pics/step-3-building-pics/nicolas-hoizey-455603.jpg',
   'photos/images/step-3-constructing-pics/step-3-building-pics/zhipeng-ya-345515.jpg'
 ]
+
+Project.destroy_all
+Step.destroy_all
+users = User.all
+
+15.times do
+
+end
