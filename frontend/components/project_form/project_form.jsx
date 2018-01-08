@@ -11,9 +11,7 @@ class ProjectForm extends React.Component {
     this.state = { steps:
                     { 0:
                       { title: "(click to edit)", body: "body",
-                        images: { 0:
-                                  { imageFile: null, imageURL: null }
-                                }
+                        images: {  }
                       }
                     },
                     amount: 1,
@@ -25,6 +23,7 @@ class ProjectForm extends React.Component {
     this.handleStep = this.handleStep.bind(this);
     this.updateFileMain = this.updateFileMain.bind(this);
     this.updateFileStep = this.updateFileStep.bind(this);
+
   }
 
   componentDidMount(){
@@ -69,9 +68,8 @@ class ProjectForm extends React.Component {
     const fileReader = new FileReader();
 
     const setStater = () => {
-      debugger
       this.setState({
-        mainImage: { imageFile: file, imageUrl: fileReader.result }
+        mainImage: { imageFile: file, imageURL: fileReader.result }
       })
     }
 
@@ -83,7 +81,21 @@ class ProjectForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
 
+  }
 
+  previewMainImageAttachments(){
+    if (this.state.mainImage.imageURL){
+      return (
+        <div>
+          <img className='main-image-attachment'
+            src={`${this.state.mainImage.imageUrl}`} />
+        </div>
+      )
+    } else {
+      return (
+        <div className='plus-icon'>Click for Main Images</div>
+      )
+    }
   }
 
   renderFormHeader(){
@@ -92,7 +104,7 @@ class ProjectForm extends React.Component {
         <form className="project-form-navbar-attachment">
           <input type='file'
             onChange={this.updateFileMain}/>
-          <div className='plus-icon'>Click for Main Images</div>
+          {this.previewMainImageAttachments()}
         </form>
         <div className="project-form-navbar-buttons-menu">
           <ProjectFormAddDropdown addStep={this.addStep}
@@ -134,14 +146,55 @@ class ProjectForm extends React.Component {
 
     const pathname = e.target.parentElement.parentElement.parentElement.children[1].href
     const stepId = pathname.slice(pathname.length - 1);
+    const step = this.state.steps[stepId].images;
+    let amount;
+    if (step){
+      amount = Object.values(step).length;
+    } else {
+      amount = 0;
+    }
 
-    
+    fileReader.onloadend = () => {
+      this.setState(merge({},
+                        this.state,
+                        {
+                          steps:
+                          {
+                            [stepId]: {
+                                images: { [amount + 1]: {
+                                                      imageFile: file,
+                                                      imageURL: fileReader.result
+                                                    }
+                                }
+                            }
+                          }
+                        }
+                      )
+      )
+    }
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
 
   }
 
-  renderStepImages(stepId){
-    if (this.state.steps[stepId].images[0].imageURL){
-      return null
+  previewStepImages(stepId){
+    let images = Object.values(this.state.steps[stepId].images);
+    if (images.length > 0){
+      const imagePreviews = images.map( (image, idx) => {
+        return (
+          <li key={idx}>
+            <img className="preview-step-image"
+              src={`${image.imageURL}`} />
+          </li>
+        )
+      })
+      return(
+        <ul className="preview-step-image-list">
+          {imagePreviews}
+        </ul>
+      )
     } else {
       return (
         <div className='step-icon'>Click for Step Images</div>
@@ -157,9 +210,9 @@ class ProjectForm extends React.Component {
         <li key={stepNum} className='project-form-step'>
           <div className='project-form-step-images'>
             <form className="">
+              {this.previewStepImages(stepId)}
               <input type='file'
                 onChange={this.updateFileStep}/>
-              <div className='step-icon'>Click for Step Images</div>
             </form>
           </div>
           <Link to={`/projects/new/steps/${stepNum}`}

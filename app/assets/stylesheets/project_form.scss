@@ -50,6 +50,12 @@
   }
 }
 
+.main-image-attachment {
+  height: 140px;
+  position: relative;
+  right: 550px;
+}
+
 .project-form-navbar-fixed {
   position: sticky;
   top: 0;
@@ -225,13 +231,27 @@
   }
 }
 
+.preview-step-image {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 120px;
+  max-height: 120px;
+  align-self: center;
+  margin-right: 10px;
+}
+
+.preview-step-image-list {
+  display: flex;
+  max-height: 0;
+  margin: 10px 5px 8px 10px;
+}
+
 .step-icon {
   font-size: 25px;
   position: relative;
-  bottom: 10px;
   z-index: 1;
-  bottom: 55px;
   left: 142px;
+  top: 55px;
   &:hover {
     cursor: pointer;
   }
