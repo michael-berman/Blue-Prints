@@ -69,24 +69,18 @@ class ProjectForm extends React.Component {
     const fileReader = new FileReader();
 
     const setStater = () => {
+      debugger
       this.setState({
         mainImage: { imageFile: file, imageUrl: fileReader.result }
       })
     }
 
-    // fileReader.onloadend = () => {
-    //   this.setState({
-    //     mainImage: { imageFile: file, imageUrl: fileReader.result}
-    //   })
-    // }
+    fileReader.onloadend = () => {
+      setStater();
+    }
 
     if (file) {
       fileReader.readAsDataURL(file);
-      // fileReader.onloadend();
-    }
-
-    if (fileReader.readyState === 1) {
-      setStater();
     }
 
 
@@ -141,6 +135,8 @@ class ProjectForm extends React.Component {
     const pathname = e.target.parentElement.parentElement.parentElement.children[1].href
     const stepId = pathname.slice(pathname.length - 1);
 
+    
+
   }
 
   renderStepImages(stepId){
@@ -163,7 +159,7 @@ class ProjectForm extends React.Component {
             <form className="">
               <input type='file'
                 onChange={this.updateFileStep}/>
-              {this.renderStepImages(stepNum)}
+              <div className='step-icon'>Click for Step Images</div>
             </form>
           </div>
           <Link to={`/projects/new/steps/${stepNum}`}
