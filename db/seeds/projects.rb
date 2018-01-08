@@ -45,7 +45,24 @@ STEP_1_DESIGN_PICS = [
 ]
 
 STEP_2_TOOL_PICS = [
-
+  'photos/images/step-2-tool-pics/step-2-tool-pics/annie-gray-382969.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/barn-images-12223.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/crown-agency-478899.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/elliott-stallion-481648.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/george-pastushok-383925.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/greyson-joralemon-482879.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/greyson-joralemon-482880.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/hal-gatewood-336681.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/hunter-haley-424256.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/igor-ovsyannykov-252342.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/igor-ovsyannykov-267689.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/lemur-360642.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/matt-artz-353290.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/neonbrand-357018.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/silvia-brazzoduro-431498.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/taduuda-76960.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/taduuda-76964.jpg',
+  'photos/images/step-2-tool-pics/step-2-tool-pics/todd-quackenbush-701.jpg'
 ]
 
 STEP_3_CONTRUCT_PICS = [
