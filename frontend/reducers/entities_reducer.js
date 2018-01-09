@@ -4,6 +4,5 @@ import projects from './projects_reducer';
 import steps from './steps_reducer';
 
 export default combineReducers({
-  projects,
-  steps
+  projects
 });
