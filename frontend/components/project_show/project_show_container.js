@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import ProjectShow from './project_show';
 import  { fetchProject } from '../../actions/project_actions';
+import { createComment } from '../../actions/comment_actions';
 
 const mapStatetoProps = (state, ownProps) => {
   return {
@@ -11,7 +12,8 @@ const mapStatetoProps = (state, ownProps) => {
 
 const mapDispatchtoProps = (dispatch) => {
   return {
-    fetchProject: (projectId) => dispatch(fetchProject(projectId))
+    fetchProject: (projectId) => dispatch(fetchProject(projectId)),
+    createComment: (comment) =>  dispatch(createComment(comment))
   };
 };
 

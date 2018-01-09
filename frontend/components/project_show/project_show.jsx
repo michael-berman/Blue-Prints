@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentFormShow from './comment_form_show';
 
 class ProjectShow extends React.Component {
   constructor(props) {
@@ -122,13 +123,26 @@ class ProjectShow extends React.Component {
     }
   }
 
+  renderCommentFormShow(){
+    if (this.props.project) {
+      return (
+        <div>
+          <CommentFormShow createComment={this.props.createComment}
+            projectId={this.props.project.id}/>
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return(
       <article className="project-show-wrapper" onScroll={this.handleScroll}>
         <div className="project-show-container">
           {this.renderHeader()}
           {this.renderBody()}
-          
+          {this.renderCommentFormShow()}
         </div>
       </article>
     )

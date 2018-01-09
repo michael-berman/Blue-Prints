@@ -3,6 +3,9 @@ import React from 'react';
 class CommentFormShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { body: "", projectId: this.props.projectId }
+    this.updateComment = this.updateComment.bind(this);
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
   }
 
   renderComments(){
@@ -25,11 +28,22 @@ class CommentFormShow extends React.Component {
     }
   }
 
+  updateComment(field){
+    return e => this.setState({ [field]: e.target.value })
+  }
+
+  handleCommentSubmit(e){
+    debugger
+    this.props.createComment(this.state);
+  }
+
   render(){
     return (
       <div className="comments-wrapper">
-        <form className="comments-form-container" >
-          <textarea className="comments-form-input" />
+        <form className="comments-form-container"
+          onSubmit={() => this.handleCommentSubmit()}>
+          <textarea className="comments-form-input"
+            onChange={this.updateComment('body')}/>
           <button>Post Comment</button>
         </form>
         {this.renderComments()}

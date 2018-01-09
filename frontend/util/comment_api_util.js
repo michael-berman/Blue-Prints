@@ -1,9 +1,9 @@
-export const createComment = comment => {
+export const createComment = (comment, projectId) => {
   return (
     $.ajax({
       method: 'post',
-      url: 'api/projects/:project_id/comments',
-      data: { comment }
+      url: `api/projects/${projectId}/comments`,
+      data: { comment: { body: comment } }
     })
   )
 }
