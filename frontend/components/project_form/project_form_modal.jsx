@@ -15,7 +15,8 @@ class ProjectFormModal extends React.Component {
     return (
       <div>
         <div className='modal-background faded-background'></div>
-        <div className='project-form-modal-container'>
+        <div
+          className='project-form-modal-container animated slideInDown'>
           <div className='project-form-modal-header'>
             <img src="/images/create-intro-header.png" />
           </div>

@@ -81,7 +81,7 @@ class ProjectForm extends React.Component {
       })
 
     })
-debugger
+
     this.props.createProject(formData).then( data =>
       this.props.history.push(`/projects/${data.project.id}`));
 
@@ -283,14 +283,23 @@ debugger
 
   renderTitleModal(){
     let modalBackground = document.querySelector('.modal-background');
+    let modal = document.querySelector('.project-form-modal-container');
     if (this.state.title === "") {
       return (
         <ProjectFormModal
           updateProjectTitle={this.updateProjectTitle} />
       )
     } else if (modalBackground){
+
+      modal.classList.remove("slideInDown");
+      modal.classList.add("fadeOutUp");
       modalBackground.classList.remove('faded-background');
-      return null;
+
+      return (
+        <ProjectFormModal
+          updateProjectTitle={this.updateProjectTitle} />
+      )
+
     } else {
       return null;
     }
