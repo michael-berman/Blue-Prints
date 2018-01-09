@@ -100,51 +100,49 @@ STEP_3_CONTRUCT_PICS = [
 users = User.all
 
 
-# (MAIN_PICS).each do |main_pic|
+(MAIN_PICS[0..7]).each do |main_pic|
   project = Project.create!({ title: Faker::Lorem.sentence(4),
                     author_id: users.sample.id})
 
   # step 0 creation
   step0 = Step.create!({title: Faker::Lorem.sentence(4),
-                  body: Faker::Lorem.paragraph(2),
+                  body: Faker::Lorem.paragraphs(2).join(" "),
                   project_id: project.id})
   #photos for step 0
-  # (rand(3) + 1).times do
   p = Photo.new({ step_id: step0.id})
-  p.image = open(MAIN_PICS[0])
+  p.image = open(MAIN_PICS.sample)
   p.save!
-  # end
 
   # step 1 creation
   step1 = Step.create!({title: Faker::Lorem.sentence(4),
-                  body: Faker::Lorem.paragraph(2),
+                  body: Faker::Lorem.paragraphs(2).join(" "),
                   project_id: project.id})
-  #photos for step 1
-  # (rand(3) + 1).times do
-  p = Photo.new({ step_id: step1.id})
-  p.image = open(STEP_1_DESIGN_PICS.sample)
-  p.save!
-  # end
+  # photos for step 1
+  (rand(2) + 1).times do
+    p = Photo.new({ step_id: step1.id})
+    p.image = open(STEP_1_DESIGN_PICS.sample)
+    p.save!
+  end
   #
   # # step 2 creation
-  # step2 = Step.create!({title: Faker::Lorem.sentence(4),
-  #                 body: Faker::Lorem.sentence(rand(3) + 1),
-  #                 project_id: project.id})
-  # #photos for step 3
-  # # (rand(3) + 1).times do
-  #   p = Photo.new({ step_id: step2.id})
-  #   p.image = open(STEP_2_TOOL_PICS.sample)
-  #   p.save!
-  # # end
+  step2 = Step.create!({title: Faker::Lorem.sentence(4),
+                  body: Faker::Lorem.paragraphs(2).join(" "),
+                  project_id: project.id})
+  #photos for step 3
+  (rand(2) + 1).times do
+    p = Photo.new({ step_id: step2.id})
+    p.image = open(STEP_2_TOOL_PICS.sample)
+    p.save!
+  end
 
   # # step 3 creation
-  # step3 = Step.create!({title: Faker::Lorem.sentence(4),
-  #                 body: Faker::Lorem.sentence(rand(3) + 1),
-  #                 project_id: project.id})
-  # #photos for step 4
-  # (rand(3) + 1).times do
-  #   p = Photo.new({ step_id: step3.id})
-  #   p.image = open(STEP_3_CONTRUCT_PICS.sample)
-  #   p.save!
-  # end
-# end
+  step3 = Step.create!({title: Faker::Lorem.sentence(4),
+                  body: Faker::Lorem.paragraphs(2).join(" "),
+                  project_id: project.id})
+  #photos for step 4
+  (rand(2) + 1).times do
+    p = Photo.new({ step_id: step3.id})
+    p.image = open(STEP_3_CONTRUCT_PICS.sample)
+    p.save!
+  end
+end
