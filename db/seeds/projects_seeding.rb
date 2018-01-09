@@ -101,17 +101,13 @@ users = User.all
 
 
 (MAIN_PICS[0..7]).each do |main_pic|
-  project = Project.create!({ title: Faker::Lorem.sentence(4),
-                    author_id: users.sample.id})
+  project = Project.new({ title: Faker::Lorem.sentence(4),
+                    author_id: users.sample.id,
+                    image: open(MAIN_PICS.sample)})
 
-  # step 0 creation
-  step0 = Step.create!({title: Faker::Lorem.sentence(4),
-                  body: Faker::Lorem.paragraphs(2).join(" "),
-                  project_id: project.id})
   #photos for step 0
-  p = Photo.new({ step_id: step0.id})
-  p.image = open(MAIN_PICS.sample)
-  p.save!
+  project.image = open(MAIN_PICS.sample)
+  project.save!
 
   # step 1 creation
   step1 = Step.create!({title: Faker::Lorem.sentence(4),

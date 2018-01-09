@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 const ProjectIndex = (props) => {
   const projects = props.projects.map((project, idx) => {
+    debugger
     return (
       <ProjectIndexItem project={project} key={idx} />
     )

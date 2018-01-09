@@ -8,10 +8,11 @@ class Api::ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    debugger
     @project.author_id = current_user.id
 
     if @project.save
+      @steps = @project.steps
+      @photos = @project.photos
       render :show
     else
       debugger

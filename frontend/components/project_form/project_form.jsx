@@ -81,10 +81,9 @@ class ProjectForm extends React.Component {
       })
 
     })
-
+debugger
     this.props.createProject(formData).then( data =>
-      this.props.router.push(`/projects/${dat.project.id}`));
-
+      this.props.history.push(`/projects/${data.project.id}`));
 
   }
 

@@ -35,7 +35,6 @@ export const receiveProjectErrors = errors => {
 };
 
 export const fetchProjects = () => dispatch => {
-
   ProjectAPIUtil.fetchProjects().then((projects) => {
     return dispatch(receiveProjects(projects))
   }, err => (dispatch(receiveProjectErrors(err))));
@@ -48,7 +47,6 @@ export const fetchProject = (projectId) => dispatch => {
 };
 
 export const createProject = (project) => dispatch => {
-  debugger
   return ProjectAPIUtil.createProject(project).then((project) => {
     return dispatch(receiveProject(project))
   }, err => (dispatch(receiveProjectErrors(err))));

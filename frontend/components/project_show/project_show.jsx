@@ -81,6 +81,13 @@ class ProjectShow extends React.Component {
       return (
         <div className="project-show-steps-wrapper">
           {renderedSteps}
+          <h1 className="project-show-step-title">
+            Finished Blue Print:
+          </h1>
+          <div className="project-show-images-container">
+            <img className="project-show-step-image"
+             src={this.props.project.image_url} />
+          </div>
         </div>
       )
     } else {
@@ -96,7 +103,6 @@ class ProjectShow extends React.Component {
             {this.renderSteps()}
           </div>
           <div className="blue-print-sidebar">
-
           </div>
         </article>
       )
