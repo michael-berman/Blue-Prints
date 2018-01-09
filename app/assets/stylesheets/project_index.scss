@@ -26,6 +26,11 @@
   width: 303px;
   height: 255px;
   background-color: #000066;
+  overflow: hidden;
+  img {
+    min-width: 100%;
+    object-fit: contain;
+  }
 }
 
 .project-index-item-info {
@@ -33,6 +38,7 @@
   padding: 15px;
   background-color: #E6E6E6;
   width: 100%;
+  min-height: 104px;
 }
 
 .project-index-item-title {

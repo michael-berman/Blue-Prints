@@ -5,7 +5,9 @@ const ProjectIndexItem = ({project, idx}) => {
   return (
     <li key={idx} className="project-index-item-container">
       <Link to={`/projects/${project.id}`}
-        className="project-index-item-link" ></Link>
+        className="project-index-item-link" >
+        <img src={project.image_url} />
+      </Link>
       <div className="project-index-item-info">
           <Link to={`/projects/${project.id}`}
             className="project-index-item-title" >

@@ -4,6 +4,6 @@ json.steps @steps.each do |step|
   json.title step.title
   json.body step.body
   json.photos step.photos.each do |photo|
-      json.image_url asset_path(photo.image.url(:thumb))
+    json.image_url asset_path(photo.image.url(:thumb))
   end
 end
