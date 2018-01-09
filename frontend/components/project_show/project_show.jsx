@@ -128,6 +128,7 @@ class ProjectShow extends React.Component {
         <div className="project-show-container">
           {this.renderHeader()}
           {this.renderBody()}
+          
         </div>
       </article>
     )
