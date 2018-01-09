@@ -64,8 +64,27 @@ class ProjectForm extends React.Component {
     const file = this.state.coverImage.imageFile;
 
     const formData = new FormData();
-    if (file) formData.append("project[cover_image]", file);
-    debugger
+    formData.append("project[title]", this.state.title)
+    if (file) {
+      formData.append("project[image]", file);
+    }
+
+    const steps = Object.values(this.state.steps);
+    steps.forEach( step => {
+
+      formData.append("project[steps_attributes][][title]", step.title);
+      formData.append("project[steps_attributes][][body]", step.body);
+
+      Object.values(step.images).forEach( photo => {
+
+        formData.append("project[steps_attributes][][photos_attributes][][image]", photo.imageFile)
+      })
+
+    })
+
+    this.props.createProject(formData).then( data =>
+      this.props.router.push(`/projects/${dat.project.id}`));
+
 
   }
 
@@ -264,15 +283,16 @@ class ProjectForm extends React.Component {
   }
 
   renderTitleModal(){
-    const body = document.getElementById('root');
+    let modalBackground = document.querySelector('.modal-background');
     if (this.state.title === "") {
-      body.classList.add('blur-background');
       return (
         <ProjectFormModal
           updateProjectTitle={this.updateProjectTitle} />
       )
+    } else if (modalBackground){
+      modalBackground.classList.remove('faded-background');
+      return null;
     } else {
-      body.classList.remove('blur-background');
       return null;
     }
   }

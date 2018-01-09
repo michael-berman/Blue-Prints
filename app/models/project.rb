@@ -16,19 +16,18 @@
 class Project < ApplicationRecord
   validates :title, :author_id, presence: true
 
-  # accepts_nested_attributes_for :steps
+  has_many :steps, inverse_of: :project
 
-  has_attached_file :cover_image, styles: { thumb: '300x300>'}
-  validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
+  has_attached_file :image, styles: { thumb: '300x300>'}
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,
     class_name: 'User',
     foreign_key: :author_id
 
-  has_many :steps, inverse_of: :project
-
   has_many :photos,
     through: :steps,
     source: :photos
 
+  accepts_nested_attributes_for :steps
 end

@@ -17,7 +17,6 @@ export const createProject = formData => {
   return $.ajax({
     method: 'post',
     url: 'api/projects',
-    data: { project },
     processData: false,
     contentType: false,
     dataType: 'json',

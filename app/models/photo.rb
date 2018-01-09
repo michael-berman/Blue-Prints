@@ -13,12 +13,12 @@
 #
 
 class Photo < ApplicationRecord
-  validates :step_id, null: false
+  # validates :step_id, null: false
 
   has_attached_file :image, styles: {
                                 avatar: '100x100#',
                                 thumb: '300x300>'}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  belongs_to :step
+  belongs_to :step, inverse_of: :photos
 end

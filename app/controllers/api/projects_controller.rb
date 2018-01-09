@@ -8,11 +8,13 @@ class Api::ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    debugger
     @project.author_id = current_user.id
 
     if @project.save
       render :show
     else
+      debugger
       render json: @project.errors.full_messages
     end
   end
@@ -31,8 +33,8 @@ class Api::ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:title, :body,
-      steps_attributes: [:title, :body, :project_id],
-      photos_attributes: [:image, :step_id])
+    params.require(:project).permit(:title, :body, :image,
+      steps_attributes: [:title, :body, :project_id,
+        photos_attributes: [:image, :step_id]])
   end
 end

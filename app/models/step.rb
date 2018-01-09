@@ -15,12 +15,12 @@
 #
 
 class Step < ApplicationRecord
-  validates :project_id, presence: true
+  # validates :project_id, presence: true
 
-  # accepts_nested_attributes_for :photos
 
-  belongs_to :project
+  belongs_to :project, inverse_of: :steps
 
-  has_many :photos
+  has_many :photos, inverse_of: :step
+  accepts_nested_attributes_for :photos
 
 end

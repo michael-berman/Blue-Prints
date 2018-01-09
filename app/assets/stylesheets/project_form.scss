@@ -1,4 +1,12 @@
-.blur-background {
+.faded-background {
+  z-index: 5;
+  position: fixed;
+  background: black;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .project-form-wrapper{
