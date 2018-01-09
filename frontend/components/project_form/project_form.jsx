@@ -4,11 +4,14 @@ import merge from 'lodash/merge';
 
 import StepForm from './step_form';
 import ProjectFormAddDropdown from './project_form_dropdown';
+import ProjectFormModal from './project_form_modal';
 
 class ProjectForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { steps:
+    this.state = {
+                title: "",
+                steps:
                     { 0:
                       { title: "(click to edit)", body: "body",
                         images: {  }
@@ -25,7 +28,8 @@ class ProjectForm extends React.Component {
     this.updateFileStep = this.updateFileStep.bind(this);
     this.previewStepImages = this.previewStepImages.bind(this);
     this.previewMainImageAttachments = this.previewMainImageAttachments.bind(this);
-
+    this.renderTitleModal = this.renderTitleModal.bind(this);
+    this.updateProjectTitle = this.updateProjectTitle.bind(this);
   }
 
   componentDidMount(){
@@ -252,10 +256,31 @@ class ProjectForm extends React.Component {
     }
   }
 
+  updateProjectTitle(title){
+    this.setState(merge({},
+                    this.state,
+                    { title: title })
+                  );
+  }
+
+  renderTitleModal(){
+    if (this.state.title === "") {
+      return (
+        <ProjectFormModal
+          updateProjectTitle={this.updateProjectTitle} />
+      )
+    } else {
+      return null;
+    }
+  }
+
 
   render(){
     return (
       <div className="project-form-wrapper" >
+        <div className="project-form-modal-wrapper">
+          {this.renderTitleModal()}
+        </div>
         <div className="project-form-container">
           {this.renderFormHeader()}
           <div className="project-form-body">

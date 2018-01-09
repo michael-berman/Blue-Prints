@@ -1,3 +1,6 @@
+.opacity-background {
+}
+
 .project-form-wrapper{
   background-color: #BFBFBF;
   padding: 40px 0;
@@ -301,4 +304,23 @@
     background-color: #EEEEEE;
     cursor: pointer;
   }
+}
+
+.project-form-modal-wrapper {
+  margin-left: 520px;
+}
+
+.project-form-modal-container {
+  height: 350px;
+  width: 400px;
+  background: white;
+  height: 410px;
+  z-index: 5;
+  border-radius: 6px;
+  opacity: 1;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.3);
+  transition: opacity .3s linear,top .3s ease-out;
+  position: fixed;
+  z-index: 2500;
 }
