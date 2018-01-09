@@ -98,8 +98,8 @@ Step.destroy_all
 users = User.all
 
 (MAIN_PICS).each do |main_pic|
-  Project.create!(#ruby stuff)
-  
+  Project.create!(
+
   Step.create!(#mainStep)
   Step.create!(#step1)
   Step.create!(#step2)
