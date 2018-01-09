@@ -11,12 +11,10 @@ class CommentFormShow extends React.Component {
 
   renderComments(){
     const comments = this.props.comments;
-    debugger
     if (comments.length > 0) {
       const renderedComments = comments.map( (comment, idx) => {
-        debugger
         return (
-          <li className="comment-list-item" >
+          <li key={idx} className="comment-list-item" >
             <h3 className="comment-list-item-header">
               {comment.author}
             </h3>
@@ -26,7 +24,6 @@ class CommentFormShow extends React.Component {
           </li>
         )
       })
-      debugger
       return (
         <ul className="comment-list">
           {renderedComments}
@@ -42,19 +39,23 @@ class CommentFormShow extends React.Component {
   }
 
   handleCommentSubmit(e){
-    this.props.createComment(this.state).then;
+    debugger
+    this.props.createComment(this.state).then( () =>
+      this.props.history.push(`/projects/${this.props.projectId}`));
   }
 
   render(){
     return (
       <div className="comments-wrapper">
-        <h1 ></h1>
+        <h1 className='project-show-step-title comment-header'>Comments</h1>
+      <div className="comments-form-wrapper">
         <form className="comments-form-container"
           onSubmit={() => this.handleCommentSubmit()}>
           <textarea className="comments-form-input"
             onChange={this.updateComment('body')}/>
-          <button>Post Comment</button>
+          <button className="comments-form-button">Post Comment</button>
         </form>
+      </div>
         {this.renderComments()}
       </div>
     )

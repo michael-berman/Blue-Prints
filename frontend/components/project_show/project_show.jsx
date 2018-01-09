@@ -102,6 +102,7 @@ class ProjectShow extends React.Component {
         <article className="project-show-body">
           <div className="blue-print-content">
             {this.renderSteps()}
+            {this.renderCommentFormShow()}
           </div>
           <div className="blue-print-sidebar">
           </div>
@@ -129,7 +130,8 @@ class ProjectShow extends React.Component {
         <div>
           <CommentFormShow createComment={this.props.createComment}
             projectId={this.props.project.id}
-            comments={this.props.project.comments}/>
+            comments={this.props.project.comments}
+            history={this.props.history}/>
         </div>
       )
     } else {
@@ -143,7 +145,6 @@ class ProjectShow extends React.Component {
         <div className="project-show-container">
           {this.renderHeader()}
           {this.renderBody()}
-          {this.renderCommentFormShow()}
         </div>
       </article>
     )
