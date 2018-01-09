@@ -15,11 +15,13 @@ class ProjectFormModal extends React.Component {
     return (
       <div className='project-form-modal-container'>
         <div className='project-form-modal-header'>
-          <img src="app/assets/images"
+          <img src="/images/create-intro-header.png" />
         </div>
         <div className='project-form-modal-body'>
-          <form onSubmit={() => this.props.updateProjectTitle(this.state.title)}>
-            <input type='text' onChange={this.update('title')}/>
+          <form onSubmit={() => this.props.updateProjectTitle(this.state.title)}
+            className='project-form-modal-form'>
+            <input type='text' onChange={this.update('title')}
+              className='project-form-modal-input'/><br />
             <button className='project-form-modal-button'>
               Start Blue Print
             </button>

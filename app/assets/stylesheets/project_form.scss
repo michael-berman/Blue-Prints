@@ -1,4 +1,4 @@
-.opacity-background {
+.blur-background {
 }
 
 .project-form-wrapper{
@@ -307,12 +307,12 @@
 }
 
 .project-form-modal-wrapper {
-  margin-left: 520px;
+  margin-left: 500px;
 }
 
 .project-form-modal-container {
-  height: 350px;
-  width: 400px;
+  max-height: 350px;
+  width: 455px;
   background: white;
   height: 410px;
   z-index: 5;
@@ -323,4 +323,46 @@
   transition: opacity .3s linear,top .3s ease-out;
   position: fixed;
   z-index: 2500;
+  top: 20%;
+  img {
+    width: 100%;
+  }
+}
+
+.project-form-modal-form {
+  margin: 0 auto;
+}
+
+.project-form-modal-input {
+  margin: 32px 42px;
+  padding: 10px;
+  border: 0;
+  border-bottom: solid 1px #c9c9c9;
+  transition: border .3s;
+  border-radius: 0;
+  font-size: 18px;
+  width: 350px;
+  color: #aaa;
+  &:focus {
+    border-bottom: solid 1px #969696;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.project-form-modal-button {
+  background-color: #4165A5;
+  border-radius: 5px;
+  height: 44px;
+  border: none;
+  font-size: 20px;
+  line-height: 5px;
+  color: white;
+  margin: 0 98px;
+  margin-bottom: 20px;
+  width: 256px;
+  &:hover {
+    cursor: pointer;
+    background-color: #3a5a92;
+  }
 }

@@ -65,7 +65,7 @@ class ProjectForm extends React.Component {
 
     const formData = new FormData();
     if (file) formData.append("project[main_image]", file);
-
+    debugger
 
   }
 
@@ -264,12 +264,15 @@ class ProjectForm extends React.Component {
   }
 
   renderTitleModal(){
+    const body = document.getElementById('root');
     if (this.state.title === "") {
+      body.classList.add('blur-background');
       return (
         <ProjectFormModal
           updateProjectTitle={this.updateProjectTitle} />
       )
     } else {
+      body.classList.remove('blur-background');
       return null;
     }
   }
