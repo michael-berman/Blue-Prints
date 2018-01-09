@@ -15,7 +15,6 @@ class Api::ProjectsController < ApplicationController
       @photos = @project.photos
       render :show
     else
-      debugger
       render json: @project.errors.full_messages
     end
   end
@@ -24,7 +23,7 @@ class Api::ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @steps = @project.steps
     @photos = @project.photos
-
+    @comments = @project.comments
   end
 
   def destroy
