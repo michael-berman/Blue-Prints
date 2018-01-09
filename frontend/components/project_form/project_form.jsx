@@ -18,7 +18,7 @@ class ProjectForm extends React.Component {
                       }
                     },
                     amount: 1,
-                    mainImage: {imageFile: null, imageURL: null},
+                    coverImage: {imageFile: null, imageURL: null},
                   }
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,10 +61,10 @@ class ProjectForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    const file = this.state.mainImage.imageFile;
+    const file = this.state.coverImage.imageFile;
 
     const formData = new FormData();
-    if (file) formData.append("project[main_image]", file);
+    if (file) formData.append("project[cover_image]", file);
     debugger
 
   }
@@ -75,7 +75,7 @@ class ProjectForm extends React.Component {
 
     const setStater = () => {
       this.setState({
-        mainImage: { imageFile: file, imageURL: fileReader.result }
+        coverImage: { imageFile: file, imageURL: fileReader.result }
       })
     }
 
@@ -90,11 +90,11 @@ class ProjectForm extends React.Component {
   }
 
   previewMainImageAttachments(){
-    if (this.state.mainImage.imageURL){
+    if (this.state.coverImage.imageURL){
       return (
         <div className='main-image-attachment-container'>
           <img className='main-image-attachment'
-            src={`${this.state.mainImage.imageURL}`} />
+            src={`${this.state.coverImage.imageURL}`} />
         </div>
       )
     } else {
