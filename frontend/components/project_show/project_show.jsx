@@ -128,7 +128,8 @@ class ProjectShow extends React.Component {
       return (
         <div>
           <CommentFormShow createComment={this.props.createComment}
-            projectId={this.props.project.id}/>
+            projectId={this.props.project.id}
+            comments={this.props.project.comments}/>
         </div>
       )
     } else {

@@ -7,3 +7,8 @@ json.steps @steps.each do |step|
     json.image_url asset_path(photo.image.url(:thumb))
   end
 end
+
+json.comments @comments.each do |comment|
+  json.body comment.body
+  json.author comment.author.username
+end

@@ -6,12 +6,15 @@ class CommentFormShow extends React.Component {
     this.state = { body: "", projectId: this.props.projectId }
     this.updateComment = this.updateComment.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.renderComments = this.renderComments.bind(this);
   }
 
   renderComments(){
     const comments = this.props.comments;
-    if (comments > 0) {
-      comments.map( (comment, idx) => {
+    debugger
+    if (comments.length > 0) {
+      const renderedComments = comments.map( (comment, idx) => {
+        debugger
         return (
           <li className="comment-list-item" >
             <h3 className="comment-list-item-header">
@@ -23,6 +26,12 @@ class CommentFormShow extends React.Component {
           </li>
         )
       })
+      debugger
+      return (
+        <ul className="comment-list">
+          {renderedComments}
+        </ul>
+      )
     } else {
       return null;
     }
@@ -33,13 +42,13 @@ class CommentFormShow extends React.Component {
   }
 
   handleCommentSubmit(e){
-    debugger
-    this.props.createComment(this.state);
+    this.props.createComment(this.state).then;
   }
 
   render(){
     return (
       <div className="comments-wrapper">
+        <h1 ></h1>
         <form className="comments-form-container"
           onSubmit={() => this.handleCommentSubmit()}>
           <textarea className="comments-form-input"
