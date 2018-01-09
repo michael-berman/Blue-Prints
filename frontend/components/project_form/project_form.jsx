@@ -269,8 +269,10 @@ class ProjectForm extends React.Component {
     } else {
       let path = this.props.location.pathname;
       let stepId = path.slice(path.length - 1);
+      debugger
       return <StepForm stepId={stepId} handleStep={this.handleStep}
-        step={this.state.steps[stepId]} />;
+        step={this.state.steps[stepId]}
+        images={this.state.steps[stepId].images}/>;
     }
   }
 

@@ -23,11 +23,33 @@ class StepForm extends React.Component {
     this.props.history.push('/projects/new');
   }
 
+  previewStepImages(stepId){
+    let images = Object.values(this.props.images);
+    if (images.length > 0){
+      const imagePreviews = images.map( (image, idx) => {
+        return (
+          <li key={idx}>
+            <img className="preview-step-image"
+              src={`${image.imageURL}`} />
+          </li>
+        )
+      })
+      return(
+        <ul className="preview-step-image-list">
+          {imagePreviews}
+        </ul>
+      )
+    } else {
+      return null;
+    }
+  }
+
   render (){
 
     return (
       <div className='step-form-wrapper'>
         <div className='step-form-attachments'>
+          {this.previewStepImages()}
         </div>
         <form className="step-form-container">
           <input type='text' value={this.state.title}
