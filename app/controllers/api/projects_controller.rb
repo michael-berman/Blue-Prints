@@ -1,7 +1,7 @@
 class Api::ProjectsController < ApplicationController
 
   def index
-    
+
     @projects = Project.all
     render :index
   end
@@ -19,6 +19,9 @@ class Api::ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @steps = @project.steps
+    @photos = @project.photos
+
   end
 
   def destroy

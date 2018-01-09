@@ -22,7 +22,6 @@ MALE__PROFILE_PICTURES = [
 ]
 
 # TODO: add background pics to each user
-
 User.create!({email: 'mike@example.com', username: 'guest demo', password: 'hunter12'})
 
 20.times do

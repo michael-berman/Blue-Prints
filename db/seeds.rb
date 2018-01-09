@@ -7,9 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 Project.destroy_all
+Step.destroy_all
+
 
 require_relative './seeds/user_seeding.rb'
 require_relative './seeds/projects_seeding'
-
-
-u1 = User.create!({email: "mike@example.com", username: "guest demo", password: "hunter12"})

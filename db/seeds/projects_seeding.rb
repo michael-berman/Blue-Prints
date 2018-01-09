@@ -97,28 +97,27 @@ STEP_3_CONTRUCT_PICS = [
 #   ''
 # ]
 
-Project.destroy_all
-Step.destroy_all
 users = User.all
 
-(MAIN_PICS).each do |main_pic|
+
+# (MAIN_PICS).each do |main_pic|
   project = Project.create!({ title: Faker::Lorem.sentence(4),
                     author_id: users.sample.id})
 
   # step 0 creation
   step0 = Step.create!({title: Faker::Lorem.sentence(4),
-                  body: Faker::Lorem.sentence(rand(3) + 1),
+                  body: Faker::Lorem.paragraph(2),
                   project_id: project.id})
   #photos for step 0
   # (rand(3) + 1).times do
   p = Photo.new({ step_id: step0.id})
-  p.image = open(main_pic)
+  p.image = open(MAIN_PICS[0])
   p.save!
   # end
 
   # step 1 creation
   step1 = Step.create!({title: Faker::Lorem.sentence(4),
-                  body: Faker::Lorem.sentence(rand(3) + 1),
+                  body: Faker::Lorem.paragraph(2),
                   project_id: project.id})
   #photos for step 1
   # (rand(3) + 1).times do
@@ -148,4 +147,4 @@ users = User.all
   #   p.image = open(STEP_3_CONTRUCT_PICS.sample)
   #   p.save!
   # end
-end
+# end
