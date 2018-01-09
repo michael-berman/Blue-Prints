@@ -1,9 +1,10 @@
 .project-show-container {
   background-color: #BFBFBF;
-  height: 900px;
+  min-height: 900px;
   padding: 70px 100px;
   position: relative;
   padding-bottom: 150px;
+  font-family: sans-serif;
 }
 
 .project-show-navbar {
@@ -64,7 +65,32 @@
   width: 60%;
 }
 
-.blue-print-content {
-  width: 40%;
+.project-show-step-container {
+  list-style: none;
+}
 
+.project-show-step-title {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.project-show-images-container {
+  position: relative;
+  text-align: center;
+  background-color: #E6E6E6;
+  border: 1px solid #ddd;
+  min-height: 110px;
+  min-width: 200px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.project-show-step-body {
+  padding: 20px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  font-size: 17px;
+  line-height: 24px;
+  text-align: justify;
 }

@@ -1,30 +1,30 @@
 import React from 'react';
 
 class ProjectShow extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchProject(this.props.match.params.projectId);
     window.addEventListener('scroll', this.handleScroll);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     window.scrollTo(0,0);
   }
 
   componentWillUnmount(){
     let navbar = document.querySelector(".project-show-navbar-fixed");
-    if (navbar){
+    if (navbar) {
       navbar.classList.remove("project-show-navbar-fixed");
     }
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  renderHeader(){
-    if(this.props.project){
+  renderHeader() {
+    if (this.props.project) {
       return (
         <nav className="project-show-navbar">
           <h1>
@@ -43,8 +43,7 @@ class ProjectShow extends React.Component {
     }
   }
 
-  renderImages(photos){
-    debugger
+  renderImages(photos) {
     const renderedPhotos = photos.map( (photo,idx) => {
       return (
         <li key={idx}>
@@ -60,25 +59,37 @@ class ProjectShow extends React.Component {
     )
   }
 
-  renderSteps(){
+  renderSteps() {
     const allSteps = this.props.project.steps;
-    const renderedSteps = allSteps.map( (step, idx) => {
+    if (allSteps) {
+      const renderedSteps = allSteps.map( (step, idx) => {
+        return (
+          <li key={idx}
+            className="project-show-step-container">
+            <h1 className="project-show-step-title">
+              {`Step ${idx + 1}: ${step.title}`}
+            </h1>
+            <div className="project-show-images-container">
+              {this.renderImages(step.photos)}
+            </div>
+            <div className="project-show-step-body">
+              {step.body}
+            </div>
+          </li>
+        )
+      })
       return (
-        <div className="project-show-step-container">
-          <h1 className="project-show-step-title">
-            {`Step ${idx}: ${step.title}`}
-          </h1>
-          {this.renderImages(step.photos)}
-          <div className="project-show-step-body">
-            {step.body}
-          </div>
+        <div className="project-show-steps-wrapper">
+          {renderedSteps}
         </div>
       )
-    })
+    } else {
+      return null;
+    }
   }
 
-  renderBody(){
-    if(this.props.project){
+  renderBody() {
+    if (this.props.project) {
       return (
         <article className="project-show-body">
           <div className="blue-print-content">
@@ -94,7 +105,7 @@ class ProjectShow extends React.Component {
     }
   }
 
-  handleScroll(){
+  handleScroll() {
     let navbar = document.querySelector(".project-show-navbar");
     if (window.scrollY > 150 && navbar){
       navbar.classList.add("project-show-navbar-fixed");
@@ -105,7 +116,7 @@ class ProjectShow extends React.Component {
     }
   }
 
-  render(){
+  render() {
     return(
       <article className="project-show-wrapper" onScroll={this.handleScroll}>
         <div className="project-show-container">
