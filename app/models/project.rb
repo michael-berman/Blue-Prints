@@ -18,7 +18,10 @@ class Project < ApplicationRecord
 
   has_many :steps, inverse_of: :project
 
-  has_attached_file :image, styles: { thumb: '300x300>'}
+  has_attached_file :image, styles: { thumb: '300x300>'},
+    default_style: :thumb,
+    default_url: '/images/default_project_icon.jpg'
+
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,

@@ -8,7 +8,10 @@ json.steps @steps.each do |step|
   end
 end
 
-json.comments @comments.each do |comment|
-  json.body comment.body
-  json.author comment.author.username
+if @comments
+  json.comments @comments.each do |comment|
+    json.body comment.body
+    json.author comment.author.username
+    json.date comment.created_at
+  end
 end

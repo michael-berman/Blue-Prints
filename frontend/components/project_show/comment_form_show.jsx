@@ -11,13 +11,17 @@ class CommentFormShow extends React.Component {
 
   renderComments(){
     const comments = this.props.comments;
-    if (comments.length > 0) {
+    if (comments && comments.length > 0) {
       const renderedComments = comments.map( (comment, idx) => {
+        let date = comment.date.slice(0, 10);
         return (
-          <li key={idx} className="comment-list-item" >
-            <h3 className="comment-list-item-header">
-              {comment.author}
-            </h3>
+          <li key={idx} className="comment-list-item">
+            <div className='comment-list-item-header-container'>
+              <h3 className="comment-list-item-header">
+                {comment.author}
+              </h3>
+              <p className='comment-list-item-date'>{date}</p>
+          </div>
             <p className="comment-list-item-body">
               {comment.body}
             </p>
@@ -39,7 +43,6 @@ class CommentFormShow extends React.Component {
   }
 
   handleCommentSubmit(e){
-    debugger
     this.props.createComment(this.state).then( () =>
       this.props.history.push(`/projects/${this.props.projectId}`));
   }
@@ -52,7 +55,7 @@ class CommentFormShow extends React.Component {
         <form className="comments-form-container"
           onSubmit={() => this.handleCommentSubmit()}>
           <textarea className="comments-form-input"
-            onChange={this.updateComment('body')}/>
+            onChange={this.updateComment('body')}/><br />
           <button className="comments-form-button">Post Comment</button>
         </form>
       </div>
