@@ -35,7 +35,7 @@ class NavBar extends React.Component{
 
   handleSearch(e){
     e.preventDefault();
-    this.props.searchProject(this.state.query).then((projects) => {
+    this.props.searchProject(this.state.query).then(() => {
       this.props.history.push(`/projects/search`)});
   }
 

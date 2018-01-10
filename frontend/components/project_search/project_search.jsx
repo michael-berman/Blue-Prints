@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import ProjectIndexItem from '../project_index/project_index_item';
 
 class ProjectSearch extends React.Component {
@@ -14,7 +14,7 @@ class ProjectSearch extends React.Component {
     if (this.state.length > 0){
       const projects = this.state.map((project, idx) => {
         return (
-          <ProjectIndexItem project={project} key={idx} />
+          <ProjectIndexItem project={project} idx={idx} />
         )
       })
       return (
@@ -31,16 +31,24 @@ class ProjectSearch extends React.Component {
     }
   }
 
-  renderSearchHeader(){
+  handleSearch(){
 
+  }
+
+  renderSearchHeader(){
+    return (
+      <div className="project-search-list-header">
+        Let's make
+        <form onClick={this.handleSearch}>
+
+        </form>
+      </div>
+    )
   }
 
   render(){
     return(
       <div className="project-search-wrapper" >
-        <div className="project-search-list-header">
-          {this.renderSearchHeader()}
-        </div>
         <div className="project-search-list-container">
           {this.renderSteps()}
         </div>
@@ -49,4 +57,4 @@ class ProjectSearch extends React.Component {
   }
 }
 
-export default ProjectSearch;
+export default withRouter(ProjectSearch);
