@@ -13,7 +13,14 @@ const ProjectIndexItem = ({project, idx}) => {
             className="project-index-item-title" >
             {project.title}</Link><br />
         <span className="project-index-item-author">
-          <p><strong className="project-index-item-by-author">by</strong> {project.author.username}</p>
+          <p>
+            <strong className="project-index-item-by-author">by
+              </strong>
+            <Link to={`/users/${project.author.id}`}
+              className="project-index-item-author-link">
+              {project.author.username}
+            </Link>
+          </p>
         </span>
       </div>
     </li>

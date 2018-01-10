@@ -52,10 +52,16 @@
 }
 
 .project-index-item-by-author {
+  font-size: 14px;
+  margin-right: 5px;
 
 }
 
-.project-index-item-author {
+.project-index-item-author-link {
   font-size: 14px;
-
+  text-decoration: none;
+  color: #555;
+  &:hover {
+    text-decoration: underline;
+  }
 }
