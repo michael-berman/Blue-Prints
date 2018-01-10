@@ -43,7 +43,7 @@ class UserShow extends React.Component {
             <div className="user-show-item-info">
               <Link to={`/projects/${project.id}`}
                 className="user-show-item-title" >
-                {project.title}</Link>
+                {project.short_title}</Link>
             </div>
           </li>
         )
