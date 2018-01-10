@@ -19,6 +19,10 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
+  def search
+
+  end
+
   def show
     @project = Project.find(params[:id])
     @steps = @project.steps
