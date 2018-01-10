@@ -11,6 +11,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+
+    if @user
+      @projects = @user.projects
+      render "api/users/profile"
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :username, :password)
