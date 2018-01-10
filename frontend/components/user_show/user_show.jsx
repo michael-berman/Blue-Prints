@@ -34,7 +34,6 @@ class UserShow extends React.Component {
     if (this.props.user){
       let user_projects = Object.values(this.props.user.projects);
       const projects = user_projects.map( (project, idx) => {
-        debugger
         return (
           <li key={idx} className="user-show-project-list-item">
             <Link to={`/projects/${project.id}`}

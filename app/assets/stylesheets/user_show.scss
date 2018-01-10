@@ -54,6 +54,7 @@
   padding: 20px;
   border-radius: 6px;
   border: 1px solid #ddd;
+  margin-bottom: 40px;
   span {
     color: #999;
     font-weight: 700;
@@ -88,5 +89,16 @@
 .user-show-item-info {
   height: 42px;
   padding-bottom: 10px;
-  text-align: left
+  text-align: left;
+  display: flex;
+  padding-left: 15px;
+}
+
+.user-show-item-title {
+  align-self: center;
+  color: black;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
