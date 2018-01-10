@@ -20,6 +20,9 @@ class Api::ProjectsController < ApplicationController
   end
 
   def search
+
+    @projects = Project.where("title LIKE ?", "#{params[:query]}").all
+
     debugger
   end
 

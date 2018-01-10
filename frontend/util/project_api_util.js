@@ -33,6 +33,7 @@ export const deleteProject = id => {
 export const searchProject = query => {
   return $.ajax({
     method: 'get',
-    url: 'api/projects/search'
+    url: 'api/projects/search',
+    data: { query }
   });
 };
