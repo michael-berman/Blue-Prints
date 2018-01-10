@@ -117,7 +117,10 @@ class ProjectForm extends React.Component {
       )
     } else {
       return (
-        <div className='plus-icon'>Click for Main Images</div>
+        <div className='plus-icon'>
+          <i className="fa fa-plus plus-big-icon" aria-hidden="true"></i>
+          Click for Main Images
+        </div>
       )
     }
   }
@@ -225,7 +228,9 @@ class ProjectForm extends React.Component {
       )
     } else {
       return (
-        <div className='step-icon'>Click for Step Images</div>
+        <div className='step-icon'>
+          <i className="fa fa-plus plus-medium-icon " aria-hidden="true"></i>
+          Click for Step Images</div>
       )
     }
   }

@@ -156,6 +156,12 @@
   min-width: 500px;
 }
 
+.plus-big-icon {
+  padding-right: 11px;
+  top: 2px;
+  position: relative;
+}
+
 .project-form-navbar-buttons-menu {
   height: 35px;
   justify-content: space-between;
@@ -195,6 +201,19 @@
   }
 }
 
+.plus-small-icon {
+  position: relative;
+  color: #AAA;
+  right: 2px;
+  -webkit-text-stroke: 1px #F6F6F6;
+}
+
+.caret-small-icon {
+  position: relative;
+  left: 2px;
+  -webkit-text-stroke: 1px #F6F6F6;
+}
+
 .add {
   background-color: transparent;
   border: 1px solid #cccccc;
@@ -202,6 +221,16 @@
   &:hover {
     background-color: #EEEEEE;
   }
+}
+
+.clone-icon {
+  position: relative;
+  right: 4px;
+}
+
+.camera-icon {
+  position: relative;
+  right: 4px;
 }
 
 .project-form-body {
@@ -286,6 +315,12 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.plus-medium-icon {
+  position: relative;
+  right: 6px;
+  -webkit-text-stroke: 1px white;
 }
 
 .project-form-step-link {

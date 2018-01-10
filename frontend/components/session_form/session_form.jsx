@@ -134,10 +134,10 @@ class SessionForm extends React.Component {
                 </form>
 
 
+                <div className="session-form-footer">
+                  {this.navLink()}
+                </div>
             </section>
-            <div className="session-form-footer">
-              {this.navLink()}
-            </div>
           </div>
 
             <div className="welcome-form-container">
