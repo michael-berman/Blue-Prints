@@ -106,9 +106,12 @@
 .dropdown-menu {
   padding: 20px;
   position: fixed;
+  right: 28px;
+  width: 250px;
   background-color: white;
   z-index: 1;
   border-radius: 5px;
+  min-height: 100px;
   li {
     padding: 10px 20px;
     border-radius: 5px;
@@ -116,4 +119,67 @@
   }
   border: 1px solid rgba(0,0,0,.2);
   box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.show-logout-section-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-show-link-nav {
+  width: 150px;
+  padding: 9px 0;
+  position: relative;
+  top: 4px;
+  color: #777;
+  &:hover {
+    color: #333;
+  }
+}
+
+.logout-btn-nav {
+  width: 92px;
+  padding: 8px 12px;
+  background-color: #f6f6f6;
+  border-color: #dedede;
+  color: #333;
+  border-radius: 4px;
+  font-size: 14px;
+  &:hover {
+    cursor: pointer;
+    background-color: #EEEEEE;
+  }
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  border-bottom: 0.5px solid #ddd;
+  position: relative;
+  top: 10px;
+  right: 20px;
+  width: 116%;
+}
+
+.create-btn-nav-container {
+  display: flex;
+}
+
+.create-project-button-nav {
+  position: relative;
+  top: 25px;
+  margin: 0 auto;
+  background-color: #4165A5;
+  border-radius: 5px;
+  height: 44px;
+  border: none;
+  font-size: 20px;
+  line-height: 5px;
+  color: white;
+  width: 256px;
+  &:hover {
+    cursor: pointer;
+    background-color: #3a5a92;
+  }
 }

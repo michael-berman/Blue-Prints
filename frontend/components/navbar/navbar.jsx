@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import NavBarDropdown from './navbar_dropdown';
 
 
@@ -12,7 +12,8 @@ class NavBar extends React.Component{
     if(this.props.currentUser){
       return (
         <NavBarDropdown currentUser={this.props.currentUser}
-          logout={this.props.logout} />
+          logout={this.props.logout}
+          history={this.props.history}/>
       )
     } else {
       return (
@@ -50,4 +51,4 @@ class NavBar extends React.Component{
   }
 };
 
-export default NavBar;
+export default withRouter(NavBar);
