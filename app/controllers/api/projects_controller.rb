@@ -20,7 +20,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def search
-
+    debugger
   end
 
   def show

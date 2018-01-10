@@ -29,3 +29,10 @@ export const deleteProject = id => {
     url: `api/projects/${id}`
   });
 };
+
+export const searchProject = query => {
+  return $.ajax({
+    method: 'get',
+    url: 'api/projects/search'
+  })
+}
