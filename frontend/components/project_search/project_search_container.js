@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import ProjectSearch from './project_search';
 
 const mapStatetoProps = (state, ownProps) => {
+  debugger
   return {
-    projects: state.entities.project
+    projects: state.entities.projects
   }
 }
 
