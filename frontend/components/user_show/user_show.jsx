@@ -21,9 +21,19 @@ class UserShow extends React.Component {
             {this.props.user.username}
           </span>
           <span className="user-show-info">
-            <p>{user.projects_amount} <span>Blue Prints</span></p>
-            <p>{user.comments_amount} <span>Comments</span></p>
-            <p><span>Joined {date}</span></p>
+            <p>
+              <i className="fa fa-clone blue-print-icon" aria-hidden="true"></i>
+              {user.projects_amount} <span>Blue Prints</span>
+          </p>
+            <p>
+              <i className="fa fa-comments fa-lg comments-icon" aria-hidden="true"></i>
+              {user.comments_amount}<span>Comments</span>
+            </p>
+            <p>
+              <i className="fa fa-user-plus user-plus-icon"
+                aria-hidden="true"></i>
+              <span>Joined {date}</span>
+            </p>
           </span>
         </div>
       )

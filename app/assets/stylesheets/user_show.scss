@@ -17,6 +17,24 @@
   flex-direction: column;
 }
 
+.blue-print-icon {
+  position: relative;
+  right: 5px;
+}
+
+.comments-icon {
+  color: #a6c432;
+  -webkit-text-stroke: 1px white;
+  position: relative;
+  right: 5px;
+}
+
+.user-plus-icon {
+  color: #00A1CF;
+  position: relative;
+  right: 5px;
+}
+
 .user-show-author {
   font-size: 24px;
   font-weight: bold;
