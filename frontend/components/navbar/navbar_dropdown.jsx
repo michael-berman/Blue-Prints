@@ -36,6 +36,7 @@ class NavBarDropdown extends React.Component {
       return (
         <nav className="dropdown-menu">
           <div className="show-logout-section-nav" >
+            <i className="fa fa-user-circle fa-lg" aria-hidden="true"></i>
             <Link to={`/users/${this.props.currentUser.id}`}
               className="user-show-link-nav"
               onClick={this.toggleOff}>Profile</Link>

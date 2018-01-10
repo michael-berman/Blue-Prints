@@ -17,7 +17,8 @@ class Photo < ApplicationRecord
 
   has_attached_file :image, styles: {
                                 avatar: '100x100#',
-                                thumb: '300x300>'}
+                                thumb: '300x300>'},
+                            processors: [:thumbnail, :compression]
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :step, inverse_of: :photos
