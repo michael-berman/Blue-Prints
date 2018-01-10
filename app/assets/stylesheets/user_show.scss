@@ -1,0 +1,92 @@
+.user-show-wrapper {
+    background-color: #f6f6f6;
+    width: 100%;
+    min-width: 1016px;
+    min-height: 620px;
+    border: 1px solid rgba(119, 130, 135, .4);
+    margin: 0 auto;
+    position: relative;
+}
+
+.user-show-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 30px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-show-author {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+  right: 13px;
+}
+
+.user-show-info {
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+  padding: 20px 0;
+  margin: 0 auto;
+  p {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+  }
+  span {
+    color: #777;
+    font-weight: 400;
+  }
+}
+
+.user-show-project-container {
+  margin: 0 auto;
+  text-align: center;
+  width: 1020px;
+}
+
+.user-show-project-list {
+  margin-top: 25px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  span {
+    color: #999;
+    font-weight: 700;
+    min-height: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}
+
+.user-show-project-list-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 3px;
+  position: relative;
+  top: 8px;
+}
+
+.user-show-project-list-item {
+  width: 180px;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 6px;
+  img {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+  }
+}
+
+.user-show-item-info {
+  height: 42px;
+  padding-bottom: 10px;
+  text-align: left
+}
