@@ -46,6 +46,10 @@
   margin-left: 6px;
   font-weight: bold;
   color: #6A6A6A;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .project-show-body {

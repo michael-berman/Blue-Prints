@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CommentFormShow from './comment_form_show';
 
 class ProjectShow extends React.Component {
@@ -26,16 +27,18 @@ class ProjectShow extends React.Component {
 
   renderHeader() {
     if (this.props.project) {
+      let project = this.props.project;
       return (
         <nav className="project-show-navbar">
           <h1>
             <span className="project-show-navbar-header">
-              {this.props.project.title}
+              {project.title}
             </span>
               by
-            <span className="project-show-navbar-author" >
-              {this.props.project.author.username}
-            </span>
+            <Link to={`/users/${project.author.id}`}
+              className="project-show-navbar-author">
+              {project.author.username}
+            </Link>
           </h1>
         </nav>
       );
