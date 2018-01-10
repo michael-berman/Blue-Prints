@@ -60,5 +60,5 @@ export const deleteProject = (projectId) => dispatch => {
 
 export const searchProject = (query) => dispatch => {
   return ProjectAPIUtil.searchProject(query).then((projects) => {
-    return dispatch(receiveProjects(projects));
+    return dispatch(receiveProjects(projects))}
 )};

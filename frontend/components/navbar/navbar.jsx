@@ -6,6 +6,9 @@ import NavBarDropdown from './navbar_dropdown';
 class NavBar extends React.Component{
   constructor(props){
     super(props);
+    this.state = { query: "" }
+    this.update = this.update.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   sessionLinks(){
@@ -26,6 +29,15 @@ class NavBar extends React.Component{
     }
   }
 
+  update(field){
+    return e => this.setState( {[field]: e.target.value} )
+  }
+
+  handleSearch(e){
+    e.preventDefault();
+    this.props.searchProject(this.state.query);
+  }
+
   render() {
     return (
       <section className="nav-bar">
@@ -35,9 +47,9 @@ class NavBar extends React.Component{
             <h1>Blue Prints</h1>
           </header>
         </Link>
-        <form className='nav-bar-search'>
+        <form className='nav-bar-search' onSubmit={this.handleSearch}>
           <input className='nav-bar-search-text' type='text'
-            placeholder="Let's Make ..." />
+            placeholder="Let's Make ..." onChange={this.update('query')}/>
           <button className="nav-bar-search-button">
             <i className="fa fa-search fa-lg search-icon" aria-hidden="true"></i>
           </button>

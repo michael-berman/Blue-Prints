@@ -8,6 +8,7 @@ import ProjectShowContainer from './project_show/project_show_container';
 import ProjectFormContainer from './project_form/project_form_container';
 import Footer from './footer/footer';
 import UserShowContainer from './user_show/user_show_container';
+import ProjectSearchContainer from './project_search/project_search_container';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <AuthRoute path='/login' component={SessionFormContainer} />
         <AuthRoute path='/signup' component={SessionFormContainer} />
         <Route path='/projects/new' component={ProjectFormContainer} />
+        <Route path='/projects/search' component={ProjectSearchContainer} />
         <Route path='/projects/:projectId' component={ProjectShowContainer} />
         <Route path='/users/:userId' component={UserShowContainer} />
         <Route exact path='/' component={HomePageContainer}/>
