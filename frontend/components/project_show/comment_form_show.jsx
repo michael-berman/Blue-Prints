@@ -44,7 +44,7 @@ class CommentFormShow extends React.Component {
 
   handleCommentSubmit(e){
     this.props.createComment(this.state).then( () =>
-      this.props.history.push(`/projects/${this.props.projectId}`));
+      window.location.reload());
   }
 
   render(){
