@@ -178,11 +178,31 @@
 
 .comment-error-container {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
+  margin-right: 15px;
   span {
     color: red;
     position: absolute;
     left: 443px;
     bottom: 206px;
+  }
+}
+
+.comments-form-button-with-comment-error {
+  background-color: #4165A5;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 8px 14px;
+  line-height: 20px;
+  box-shadow: none;
+  margin-bottom: 15px;
+  &:focus {
+    outline: none;
+  }
+  &:hover{
+    background-color: #3a5a92;
+    cursor: pointer;
   }
 }

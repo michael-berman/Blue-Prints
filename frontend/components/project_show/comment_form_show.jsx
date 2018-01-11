@@ -49,7 +49,7 @@ class CommentFormShow extends React.Component {
       this.props.createComment(this.state).then( () =>
         window.location.reload());
     } else {
-      this.setState({ errors: "Must be signed in to see a comment"})
+      this.setState({ errors: "Must be signed in to write a comment"})
     }
   }
 
@@ -64,7 +64,7 @@ class CommentFormShow extends React.Component {
       return (
         <div className="comment-error-container">
           <span>{this.state.errors}</span>
-          <button className="comments-form-button with-comment-error">Post Comment</button>
+          <button className="comments-form-button-with-comment-error">Post Comment</button>
         </div>
       )
     }
@@ -79,7 +79,7 @@ class CommentFormShow extends React.Component {
           onSubmit={() => this.handleCommentSubmit()}>
           <textarea className="comments-form-input"
             onChange={this.updateComment('body')}/><br />
-            <button className="comments-form-button">Post Comment</button>
+          {this.renderCommentError()}
         </form>
       </div>
         {this.renderComments()}

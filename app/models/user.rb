@@ -21,6 +21,12 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_attached_file :image, styles: { avatar: '100x100#'},
+    default_style: :avatar,
+    default_url: '/images/default_profile_pic.png'
+
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   has_many :projects,
     class_name: 'Project',
     foreign_key: :author_id
