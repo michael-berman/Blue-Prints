@@ -99,6 +99,13 @@ class ProjectShow extends React.Component {
     }
   }
 
+  renderSidebar(){
+    if (this.props.project) {
+      <div className="project-show-sidebar-container">
+      </div>
+    }
+  }
+
   renderBody() {
     if (this.props.project) {
       return (
@@ -107,7 +114,8 @@ class ProjectShow extends React.Component {
             {this.renderSteps()}
             {this.renderCommentFormShow()}
           </div>
-          <div className="blue-print-sidebar">
+          <div className="blue-print-sidebar-wrapper">
+            {this.renderSidebar()}
           </div>
         </article>
       )

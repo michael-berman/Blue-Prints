@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ProjectShow from './project_show';
 import  { fetchProject } from '../../actions/project_actions';
 import { createComment } from '../../actions/comment_actions';
+import { fetchUser } from '../../actions/user_actions';
 
 const mapStatetoProps = (state, ownProps) => {
   return {

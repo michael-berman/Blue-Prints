@@ -59,7 +59,7 @@ class NavBarDropdown extends React.Component {
     return (
       <div>
         <nav className="dropdown-btn" onClick={this.toggleMenu}>
-          <img src={`${this.props.user.image_url}`}/>
+          <img src={`${this.props.currentUser.image_url}`}/>
           <span>{this.props.currentUser.username}</span>
         </nav>
         {this.dropdownMenu()}

@@ -11,19 +11,12 @@ class NavBar extends React.Component{
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  componentDidMount(){
-    if (this.props.currentUser){
-      this.props.fetchUser(this.props.currentUser.id);
-    }
-  }
-
   sessionLinks(){
-    if(this.props.currentUser && this.props.user){
+    if(this.props.currentUser){
       return (
         <NavBarDropdown currentUser={this.props.currentUser}
           logout={this.props.logout}
-          history={this.props.history}
-          user={this.props.user}/>
+          history={this.props.history}/>
       )
     } else {
       return (
@@ -43,9 +36,8 @@ class NavBar extends React.Component{
   handleSearch(e){
     e.preventDefault();
     this.props.searchProject(this.state.query).then(() => {
-      this.props.history.push(`/projects/search`)}).then( () => {
-        this.setState({ query: "" })
-      });
+      this.setState({ query: "" });
+      this.props.history.push(`/projects/search`)});
   }
 
   render() {
@@ -58,7 +50,7 @@ class NavBar extends React.Component{
           </header>
         </Link>
         <form className='nav-bar-search' onSubmit={this.handleSearch}>
-          <input className='nav-bar-search-text' type='text'
+          <input className='nav-bar-search-text' type='text' value={this.state.query}
             placeholder="Let's Make ..." onChange={this.update('query')}/>
           <button className="nav-bar-search-button">
             <i className="fa fa-search fa-lg search-icon" aria-hidden="true"></i>
