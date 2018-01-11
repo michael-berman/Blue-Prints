@@ -91,7 +91,7 @@ class ProjectForm extends React.Component {
 
     this.setState({ loading: true });
 
-    
+
     this.props.createProject(formData).then( data =>
       this.props.history.push(`/projects/${data.project.id}`));
     } else {
@@ -249,7 +249,7 @@ class ProjectForm extends React.Component {
 
   renderSteps(){
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
-      let step = (parseInt(stepId) === 1) ? "Intro" : `Step ${stepId}`
+      let step = `Step ${stepId}`
       let stepNum = (parseInt(stepId) === 1) ? 1 : parseInt(stepId);
       return (
         <li key={stepNum} className='project-form-step'>
@@ -336,7 +336,7 @@ class ProjectForm extends React.Component {
   }
 
   renderSpinner(){
-    
+
     if (this.state.loading){
       return (
         <div className='loading-wrapper' >
