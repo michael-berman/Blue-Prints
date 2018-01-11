@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
   <div className="footer-wrapper">
-    <a href="www.github.com/michael-berman" >
+    <a href="https://github.com/michael-berman/blue-prints" >
       <img className='github_icon'
          src="/images/github_icon.png">
       </img>
