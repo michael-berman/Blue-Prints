@@ -59,7 +59,7 @@ class CommentFormShow extends React.Component {
   renderCommentError(){
     if (this.state.errors === ""){
       return (
-        <div>
+        <div className="comments-form-btn-container">
           <button className="comments-form-button">Post Comment</button>
         </div>
       )
@@ -78,6 +78,9 @@ class CommentFormShow extends React.Component {
       <div className="comments-wrapper">
         <h1 className='project-show-step-title comment-header'>Comments</h1>
       <div className="comments-form-wrapper">
+        <div className="comments-form-img-container">
+          <img src={this.props.currentUser.image_url} />
+        </div>
         <form className="comments-form-container"
           onSubmit={() => this.handleCommentSubmit()}>
           <textarea className="comments-form-input"
