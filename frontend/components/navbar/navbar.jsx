@@ -39,7 +39,7 @@ class NavBar extends React.Component{
       this.setState({ query: "" });
       this.props.history.push(`/projects/search`)});
   }
-
+  
   render() {
     return (
       <section className="nav-bar">

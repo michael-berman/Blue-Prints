@@ -26,7 +26,7 @@ class ProjectSearch extends React.Component {
       return (
         <div className="no-search-found">
           <Link to="/" >
-            <img src='/images/nav-bar-logo.png' />
+            <img src='/images/search-error-logo.png' />
           </Link>
           <div className="no-search-found-info">
             <span>No Blue Prints Found!</span>
@@ -37,7 +37,7 @@ class ProjectSearch extends React.Component {
       )
     }
   }
-  
+
   renderSearchHeader(){
     let arr = Object.values(this.state);
     let queryString = arr[arr.length - 1];
