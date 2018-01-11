@@ -19,6 +19,7 @@ class ProjectForm extends React.Component {
                     },
                     amount: 1,
                     coverImage: {imageFile: null, imageURL: null},
+                    errors: ""
                   }
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -62,7 +63,12 @@ class ProjectForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const file = this.state.coverImage.imageFile;
+    const stepTitle = this.state.steps[0].title;
+    const stepBody = this.state.steps[0].body;
+    const stepImagesLength = Object.values(this.state.steps[0].images).length;
 
+    if ( stepTitle !== "(click to edit)" && stepBody !== "body" &&
+          stepImagesLength > 0){
     const formData = new FormData();
     formData.append("project[title]", this.state.title)
     if (file) {
@@ -84,7 +90,9 @@ class ProjectForm extends React.Component {
 
     this.props.createProject(formData).then( data =>
       this.props.history.push(`/projects/${data.project.id}`));
-
+    } else {
+      this.setState({ errors: "Please complete at least one step" })
+    }
   }
 
   updateFileMain(e) {
@@ -311,6 +319,18 @@ class ProjectForm extends React.Component {
     }
   }
 
+  renderErrors(){
+    if (this.state.errors === ""){
+      return null;
+    } else {
+      return (
+        <div className="project-form-error-container">
+          {this.state.errors}
+        </div>
+      )
+    }
+  }
+
 
   render(){
     return (
@@ -320,6 +340,7 @@ class ProjectForm extends React.Component {
         </div>
         <div className="project-form-container">
           {this.renderFormHeader()}
+          {this.renderErrors()}
           <div className="project-form-body">
             {this.renderSpecificForm()}
           </div>
