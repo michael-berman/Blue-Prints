@@ -101,8 +101,22 @@ class ProjectShow extends React.Component {
 
   renderSidebar(){
     if (this.props.project) {
-      <div className="project-show-sidebar-container">
-      </div>
+      let date = this.props.project.created_at.slice(0, 10);
+      return (
+        <div className="project-show-sidebar-container">
+          <div className="project-show-sidebar-header">
+            About this Blue Print
+          </div>
+          <div className="project-show-sidebar-info" >
+            <img src={this.props.project.profile_pic} />
+            <div className="project-show-sidebar-writing">
+              <p><span>Posted:</span> <i>{date}</i></ p><br />
+              <p><span>Created by:</span>
+                <i>{` ${this.props.project.author.username}`}</i></p>
+            </div>
+          </div>
+        </div>
+      )
     }
   }
 
@@ -114,7 +128,7 @@ class ProjectShow extends React.Component {
             {this.renderSteps()}
             {this.renderCommentFormShow()}
           </div>
-          <div className="blue-print-sidebar-wrapper">
+          <div className="project-show-sidebar-wrapper">
             {this.renderSidebar()}
           </div>
         </article>
