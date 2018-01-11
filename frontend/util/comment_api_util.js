@@ -7,3 +7,12 @@ export const createComment = (comment, projectId) => {
     })
   )
 }
+
+export const deleteComment = (commentId) => {
+  return (
+    $.ajax({
+      method: 'delete',
+      url: `api/comments/${commentId}`
+    })
+  )
+}
