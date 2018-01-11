@@ -11,12 +11,19 @@ class NavBar extends React.Component{
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentDidMount(){
+    if (this.props.currentUser){
+      this.props.fetchUser(this.props.currentUser.id);
+    }
+  }
+
   sessionLinks(){
-    if(this.props.currentUser){
+    if(this.props.currentUser && this.props.user){
       return (
         <NavBarDropdown currentUser={this.props.currentUser}
           logout={this.props.logout}
-          history={this.props.history}/>
+          history={this.props.history}
+          user={this.props.user}/>
       )
     } else {
       return (
@@ -44,7 +51,7 @@ class NavBar extends React.Component{
       <section className="nav-bar">
         <Link to="/" className="nav-bar-home-link">
           <header className="nav-bar-logo" >
-            <img src="https://i.imgur.com/z6QvKJq.png" />
+            <img src='/images/nav-bar-logo.png' />
             <h1>Blue Prints</h1>
           </header>
         </Link>

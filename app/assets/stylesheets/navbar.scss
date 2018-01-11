@@ -102,9 +102,11 @@
   align-items: center;
   display: flex;
   img{
-    width: 20px;
-    height: 20px;
-    margin: 2px;
+    width: 30px;
+    height: 30px;
+    margin: 6px;
+    border-radius: 50%;
+    position: relative;
   }
   span{
     margin: auto;
@@ -146,7 +148,7 @@
 
 .fa-user-circle {
   position: relative;
-  top: 4px;
+  top: 0px;
   padding-right: 7px;
 }
 
@@ -154,7 +156,7 @@
   width: 150px;
   padding: 9px 0;
   position: relative;
-  top: 4px;
+  top: 0px;
   color: #777;
   &:hover {
     color: #333;

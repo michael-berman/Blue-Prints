@@ -27,7 +27,7 @@ class UserShow extends React.Component {
           </p>
             <p>
               <i className="fa fa-comments fa-lg comments-icon" aria-hidden="true"></i>
-              {user.comments_amount}<span>Comments</span>
+              {user.comments_amount}<span> Comments</span>
             </p>
             <p>
               <i className="fa fa-user-plus user-plus-icon"
