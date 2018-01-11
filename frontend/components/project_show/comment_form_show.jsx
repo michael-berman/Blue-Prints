@@ -3,7 +3,8 @@ import React from 'react';
 class CommentFormShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: "", projectId: this.props.projectId }
+    this.state = { body: "", projectId: this.props.projectId,
+                    errors: ""}
     this.updateComment = this.updateComment.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.renderComments = this.renderComments.bind(this);
@@ -43,8 +44,30 @@ class CommentFormShow extends React.Component {
   }
 
   handleCommentSubmit(e){
-    this.props.createComment(this.state).then( () =>
-      window.location.reload());
+    if (this.props.currentUser){
+      this.setState({ errors: "" })
+      this.props.createComment(this.state).then( () =>
+        window.location.reload());
+    } else {
+      this.setState({ errors: "Must be signed in to see a comment"})
+    }
+  }
+
+  renderCommentError(){
+    if (this.state.errors === ""){
+      return (
+        <div>
+          <button className="comments-form-button">Post Comment</button>
+        </div>
+      )
+    } else {
+      return (
+        <div className="comment-error-container">
+          <span>{this.state.errors}</span>
+          <button className="comments-form-button with-comment-error">Post Comment</button>
+        </div>
+      )
+    }
   }
 
   render(){
@@ -56,7 +79,7 @@ class CommentFormShow extends React.Component {
           onSubmit={() => this.handleCommentSubmit()}>
           <textarea className="comments-form-input"
             onChange={this.updateComment('body')}/><br />
-          <button className="comments-form-button">Post Comment</button>
+            <button className="comments-form-button">Post Comment</button>
         </form>
       </div>
         {this.renderComments()}

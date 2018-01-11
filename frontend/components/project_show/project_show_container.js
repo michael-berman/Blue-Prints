@@ -6,7 +6,8 @@ import { createComment } from '../../actions/comment_actions';
 
 const mapStatetoProps = (state, ownProps) => {
   return {
-    project: state.entities.projects[ownProps.match.params.projectId]
+    project: state.entities.projects[ownProps.match.params.projectId],
+    currentUser: state.session.currentUser
   };
 };
 

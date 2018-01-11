@@ -134,7 +134,8 @@ class ProjectShow extends React.Component {
           <CommentFormShow createComment={this.props.createComment}
             projectId={this.props.project.id}
             comments={this.props.project.comments}
-            history={this.props.history}/>
+            history={this.props.history}
+            currentUser={this.props.currentUser}/>
         </div>
       )
     } else {
