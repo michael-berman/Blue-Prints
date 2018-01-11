@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:create, :show, :index, :destroy, :search] do
       resources :comments, only: [:create]
     end
+    resources :comments, only: [:destroy]
     resources :steps, only: [:create, :index]
     resources :photos, only: [:create]
   end
