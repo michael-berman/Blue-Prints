@@ -12,14 +12,15 @@ class ProjectForm extends React.Component {
     this.state = {
                 title: "",
                 steps:
-                    { 0:
+                    { 1:
                       { title: "(click to edit)", body: "body",
                         images: {  }
                       }
                     },
                     amount: 1,
                     coverImage: {imageFile: null, imageURL: null},
-                    errors: ""
+                    errors: "",
+                    loading: false
                   }
     this.addStep = this.addStep.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -63,9 +64,9 @@ class ProjectForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const file = this.state.coverImage.imageFile;
-    const stepTitle = this.state.steps[0].title;
-    const stepBody = this.state.steps[0].body;
-    const stepImagesLength = Object.values(this.state.steps[0].images).length;
+    const stepTitle = this.state.steps[1].title;
+    const stepBody = this.state.steps[1].body;
+    const stepImagesLength = Object.values(this.state.steps[1].images).length;
 
     if ( stepTitle !== "(click to edit)" && stepBody !== "body" &&
           stepImagesLength > 0){
@@ -88,6 +89,9 @@ class ProjectForm extends React.Component {
 
     })
 
+    this.setState({ loading: true });
+
+    debugger
     this.props.createProject(formData).then( data =>
       this.props.history.push(`/projects/${data.project.id}`));
     } else {
@@ -158,7 +162,7 @@ class ProjectForm extends React.Component {
     let newState = merge({},
                     this.state,
                     { steps:
-                      {[this.state.amount - 1]: {
+                      {[this.state.amount]: {
                                                   title: "(click to edit)",
                                                   body: "",
                                                   images: {}
@@ -245,8 +249,8 @@ class ProjectForm extends React.Component {
 
   renderSteps(){
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
-      let step = (parseInt(stepId) === 0) ? "Intro" : `Step ${stepId}`
-      let stepNum = (parseInt(stepId) === 0) ? 0 : parseInt(stepId);
+      let step = (parseInt(stepId) === 1) ? "Intro" : `Step ${stepId}`
+      let stepNum = (parseInt(stepId) === 1) ? 1 : parseInt(stepId);
       return (
         <li key={stepNum} className='project-form-step'>
           <div className='project-form-step-images'>
@@ -331,6 +335,26 @@ class ProjectForm extends React.Component {
     }
   }
 
+  renderSpinner(){
+    debugger
+    if (this.state.loading){
+      return (
+        <div className='loading-wrapper' >
+          <div className="sk-folding-cube">
+            <div className="sk-cube1 sk-cube"></div>
+            <div className="sk-cube2 sk-cube"></div>
+            <div className="sk-cube4 sk-cube"></div>
+            <div className="sk-cube3 sk-cube"></div>
+          </div>
+        </div>
+
+
+      )
+    } else {
+      return null;
+    }
+  }
+
 
   render(){
     return (
@@ -339,6 +363,7 @@ class ProjectForm extends React.Component {
           {this.renderTitleModal()}
         </div>
         <div className="project-form-container">
+          {this.renderSpinner()}
           {this.renderFormHeader()}
           {this.renderErrors()}
           <div className="project-form-body">
