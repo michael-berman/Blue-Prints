@@ -1,18 +1,18 @@
 .loading-wrapper {
   z-index: 5;
   position: fixed;
-  background: black;
-  opacity: 0.4;
+  background: rgba(black, 0.4);
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
+  // opacity: 0.4;
 }
 
 .sk-folding-cube {
   opacity: 1;
-  z-index: 6;
+  z-index: 5;
   margin: 0 auto;
   align-self: center;
   width: 100px;
@@ -23,6 +23,7 @@
 }
 
 .sk-folding-cube .sk-cube {
+  opacity: 1;
   float: left;
   width: 50%;
   height: 50%;

@@ -347,8 +347,6 @@ class ProjectForm extends React.Component {
             <div className="sk-cube3 sk-cube"></div>
           </div>
         </div>
-
-
       )
     } else {
       return null;
@@ -358,7 +356,7 @@ class ProjectForm extends React.Component {
 
   render(){
     return (
-      <div className="project-form-wrapper" >
+      <div className="project-form-wrapper">
         <div className="project-form-modal-wrapper">
           {this.renderTitleModal()}
         </div>
