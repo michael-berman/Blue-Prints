@@ -18,10 +18,13 @@ class CommentFormShow extends React.Component {
         return (
           <li key={idx} className="comment-list-item">
             <div className='comment-list-item-header-container'>
-              <h3 className="comment-list-item-header">
-                {comment.author}
-              </h3>
-              <p className='comment-list-item-date'>{date}</p>
+              <img src={comment.profile_pic} />
+              <div className='comment-list-item-header-info'>
+                <h3 className="comment-list-item-header">
+                  {comment.author}
+                </h3>
+                <p className='comment-list-item-date'>{date}</p>
+              </div>
           </div>
             <p className="comment-list-item-body">
               {comment.body}
