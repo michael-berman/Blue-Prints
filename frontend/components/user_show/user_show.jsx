@@ -18,7 +18,8 @@ class UserShow extends React.Component {
       return (
         <div className="user-show-header">
           <span className="user-show-author">
-            {this.props.user.username}
+            <img src={this.props.user.image_url} />
+            <p>{this.props.user.username}</p>
           </span>
           <span className="user-show-info">
             <p>
