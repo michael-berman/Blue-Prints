@@ -1,6 +1,6 @@
 require 'faker'
 
-MALE__PROFILE_PICTURES = [
+PROFILE_PICTURES = [
   'https://s3.amazonaws.com/BLUE-PRINTS-DEV/photos/images/profile-picture-seeds/profile_pics/annette-keys-42075.jpg',
   'https://s3.amazonaws.com/BLUE-PRINTS-DEV/photos/images/profile-picture-seeds/profile_pics/felix-russell-saw-113844.jpg',
   'https://s3.amazonaws.com/BLUE-PRINTS-DEV/photos/images/profile-picture-seeds/profile_pics/daniele-levis-pelusi-385076.jpg',
@@ -22,12 +22,19 @@ MALE__PROFILE_PICTURES = [
 ]
 
 # TODO: add background pics to each user
-User.create!({email: 'mike@example.com', username: 'guest demo', password: 'hunter12'})
+demo = User.new({email: 'mike@example.com',
+                username: 'guest demo',
+                password: 'hunter12'})
 
-20.times do
-  User.create!({
+demo.image = open('https://s3.amazonaws.com/BLUE-PRINTS-DEV/photos/images/profile-picture-seeds/profile_pics/gary-bendig-288538.jpg')
+demo.save!
+
+PROFILE_PICTURES.each do |pro_picture|
+  user = User.new({
     username: Faker::Name.name,
     password: Faker::Name.name.split.join,
     email: Faker::Internet.email
   })
+  user.image = open(pro_picture)
+  user.save!
 end
