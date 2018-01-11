@@ -91,7 +91,7 @@ class ProjectForm extends React.Component {
 
     this.setState({ loading: true });
 
-    debugger
+    
     this.props.createProject(formData).then( data =>
       this.props.history.push(`/projects/${data.project.id}`));
     } else {
@@ -336,7 +336,7 @@ class ProjectForm extends React.Component {
   }
 
   renderSpinner(){
-    debugger
+    
     if (this.state.loading){
       return (
         <div className='loading-wrapper' >

@@ -23,7 +23,7 @@ class Api::ProjectsController < ApplicationController
 
     @projects = Project.where("title ILIKE ?", "%#{params[:query]}%").all
 
-    # @query = params[:query]
+    @query = params[:query]
   end
 
   def show

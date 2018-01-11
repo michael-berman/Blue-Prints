@@ -11,7 +11,7 @@ class ProjectSearch extends React.Component {
   }
 
   renderSteps(){
-    if (this.state.length > 0){
+    if ( typeof this.state[0] !== "string" ){
       const projects = this.state.map((project, idx) => {
         return (
           <ProjectIndexItem project={project} idx={idx} />
@@ -25,23 +25,27 @@ class ProjectSearch extends React.Component {
     } else {
       return (
         <div className="no-search-found">
-          No Blue Prints Found!
+          <Link to="/" >
+            <img src='/images/nav-bar-logo.png' />
+          </Link>
+          <div className="no-search-found-info">
+            <span>No Blue Prints Found!</span>
+            <p>Take this opportunity to <Link to="/projects/new" >Submit One!</Link>
+            </p>
+          </div>
         </div>
       )
     }
   }
-
-  handleSearch(){
-
-  }
-
+  
   renderSearchHeader(){
+    let arr = Object.values(this.state);
+    let queryString = arr[arr.length - 1];
     return (
       <div className="project-search-list-header">
-        Let's make
-        <form onClick={this.handleSearch}>
-
-        </form>
+        <h1>
+          Search Results for <span> {queryString}</span>
+        </h1>
       </div>
     )
   }
@@ -50,6 +54,7 @@ class ProjectSearch extends React.Component {
     return(
       <div className="project-search-wrapper" >
         <div className="project-search-list-container">
+          {this.renderSearchHeader()}
           {this.renderSteps()}
         </div>
       </div>

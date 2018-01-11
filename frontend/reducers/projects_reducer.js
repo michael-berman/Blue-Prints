@@ -7,9 +7,16 @@ import {
 const ProjectsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
+  let newAction = Object.assign({}, action);
+  if (newAction.projects ){
+    if (newAction.projects.query){
+      delete newAction['query'];
+    }
+  }
   switch (action.type) {
     case RECEIVE_PROJECTS:
-      newState = merge({}, action.projects)
+    
+      newState = merge({}, newAction.projects)
       return newState;
     case RECEIVE_PROJECT:
       let newProject = {[action.project.id]: action.project};

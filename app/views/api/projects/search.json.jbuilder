@@ -3,3 +3,5 @@
     json.partial! 'project', project: project
   end
 end
+
+json.query @query
