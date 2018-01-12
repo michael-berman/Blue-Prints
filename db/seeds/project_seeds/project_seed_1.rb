@@ -5,7 +5,7 @@ users = User.all
 project1 = Project.new({ title: 'building a 2 dollar bird house',
                           author_id: users.sample.id,
                           image: open('https://s3.amazonaws.com/BLUE-PRINTS-DEV/photos/birdtreehouse/background_image.jpg')})
-
+project1.save!
 step1 = Step.create!({title: 'Materials',
                 body: 'Materials
 Some good 1x6 stock, at least 5 feet per house. If using Cedar Pickets, try to find some that are not badly warped and have a uniform thickness. Remember to look for wood that you can recycle!

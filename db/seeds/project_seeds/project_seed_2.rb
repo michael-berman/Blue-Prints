@@ -5,7 +5,7 @@ users = User.all
 project1 = Project.new({ title: 'building a bird trap',
                           author_id: users.sample.id,
                           image: open('https://s3.amazonaws.com/BLUE-PRINTS-DEV/photos/bird+trap/backgroundimage.jpg')})
-
+project1.save!
 step1 = Step.create!({title: '',
                 body: 'I have been raising rabbits for nearly two years and in that time I have built several hutches.  Some of my designs for these hutches originated from the books I have read on raising rabbits and over the course of the years I have come up with different designs.  Every time I build a hutch I refine my design and incorporate the new features in future builds.  The hutch I am building now is the eighth in my series of builds.  It is designed so that I can keep 3-6 young rabbits within and move the hutch every day to new areas of grass.
 
