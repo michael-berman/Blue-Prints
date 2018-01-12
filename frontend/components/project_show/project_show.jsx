@@ -77,7 +77,7 @@ class ProjectShow extends React.Component {
               {this.renderImages(step.photos)}
             </div>
             <div className="project-show-step-body">
-              {step.body}
+              <pre>{step.body}</pre>
             </div>
           </li>
         )
