@@ -11,4 +11,6 @@ Step.destroy_all
 
 
 require_relative './seeds/user_seeding.rb'
-require_relative './seeds/projects_seeding'
+# require_relative './seeds/projects_seeding'
+require_relative './seeds/projects/project_seed_1.rb'
+require_relative './seeds/projects/project_seed_2.rb'
