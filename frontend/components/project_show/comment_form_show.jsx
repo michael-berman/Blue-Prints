@@ -73,14 +73,24 @@ class CommentFormShow extends React.Component {
     }
   }
 
+  renderProfilePic(){
+    if ( this.props.currentUser ) {
+      return (
+        <div className="comments-form-img-container">
+          <img src={this.props.currentUser.image_url} />
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+
   render(){
     return (
       <div className="comments-wrapper">
         <h1 className='project-show-step-title comment-header'>Comments</h1>
       <div className="comments-form-wrapper">
-        <div className="comments-form-img-container">
-          <img src={this.props.currentUser.image_url} />
-        </div>
+        {this.renderProfilePic()}
         <form className="comments-form-container"
           onSubmit={() => this.handleCommentSubmit()}>
           <textarea className="comments-form-input"

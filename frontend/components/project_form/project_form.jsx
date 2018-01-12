@@ -282,7 +282,7 @@ class ProjectForm extends React.Component {
           </Link>
           <button className="project-form-step-delete-btn"
             onClick={ () => this.deleteStep(stepId)} >
-            <i class="fa fa-times fa-2x close-step-icon" aria-hidden="true"></i>
+            <i className="fa fa-times fa-2x close-step-icon" aria-hidden="true"></i>
           </button>
         </li>
       )
