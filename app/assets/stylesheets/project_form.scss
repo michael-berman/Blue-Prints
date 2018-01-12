@@ -349,6 +349,28 @@
   }
 }
 
+.project-form-step-delete-btn {
+  border: none;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  top: 115px;
+  background-color: #F6F6F6;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.close-step-icon {
+  color: #F6F6F6;
+  &:hover {
+    color: red;
+  }
+}
+
 .project-form-modal-wrapper {
   margin-left: 500px;
 }

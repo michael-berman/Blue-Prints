@@ -32,6 +32,7 @@ class ProjectForm extends React.Component {
     this.previewMainImageAttachments = this.previewMainImageAttachments.bind(this);
     this.renderTitleModal = this.renderTitleModal.bind(this);
     this.updateProjectTitle = this.updateProjectTitle.bind(this);
+    this.deleteStep = this.deleteStep.bind(this);
   }
 
   componentDidMount(){
@@ -247,6 +248,20 @@ class ProjectForm extends React.Component {
     }
   }
 
+  deleteStep(stepId){
+    let oldState = Object.assign({}, this.state);
+    delete oldState.steps[stepId];
+    let steps = {};
+    Object.keys(oldState.steps).map( (step, idx) => {
+      steps[idx + 1] = oldState.steps[step];
+    });
+
+    let newState = Object.assign({}, oldState, {steps: steps})
+    newState.amount -= 1;
+
+    this.setState(newState);
+  }
+
   renderSteps(){
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
       let step = `Step ${stepId}`
@@ -265,6 +280,10 @@ class ProjectForm extends React.Component {
             className='project-form-step-link'>
             {step}: {this.state.steps[stepId].title}
           </Link>
+          <button className="project-form-step-delete-btn"
+            onClick={ () => this.deleteStep(stepId)} >
+            <i class="fa fa-times fa-2x close-step-icon" aria-hidden="true"></i>
+          </button>
         </li>
       )
     })
