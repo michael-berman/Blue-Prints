@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class ProjectFormAddDropdown extends React.Component {
   constructor(props){
@@ -6,6 +7,25 @@ class ProjectFormAddDropdown extends React.Component {
     this.state = { toggled: true }
     this.toggleMenu = this.toggleMenu.bind(this);
     this.dropdownMenu = this.dropdownMenu.bind(this);
+  }
+
+  componentDidMount(){
+    document.addEventListener('click',
+      this.handleClickOutside.bind(this), true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click',
+      this.handleClickOutside.bind(this), true);
+  }
+
+  handleClickOutside(e){
+    const domNode = ReactDOM.findDOMNode(this);
+    if (!domNode || !domNode.contains(event.target) && !this.state.toggled) {
+      this.setState({
+          toggled: true
+      });
+    }
   }
 
   toggleMenu(){
