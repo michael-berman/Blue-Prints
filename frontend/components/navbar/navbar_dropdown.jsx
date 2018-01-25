@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { Link } from 'react-router-dom';
 
@@ -10,6 +11,25 @@ class NavBarDropdown extends React.Component {
     this.dropdownMenu = this.dropdownMenu.bind(this);
     this.toggleOff = this.toggleOff.bind(this);
     this.redirectNew = this.redirectNew.bind(this);
+  }
+
+  componentDidMount(){
+    document.addEventListener('click',
+      this.handleClickOutside.bind(this), true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click',
+      this.handleClickOutside.bind(this), true);
+  }
+
+  handleClickOutside(e){
+    const domNode = ReactDOM.findDOMNode(this);
+    if (!domNode || !domNode.contains(event.target) && !this.state.toggled) {
+      this.setState({
+          toggled: true
+      });
+    }
   }
 
   toggleMenu(){
