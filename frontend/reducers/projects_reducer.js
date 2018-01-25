@@ -13,13 +13,16 @@ const ProjectsReducer = (state = {}, action) => {
       delete newAction['query'];
     }
   }
+  let project = merge({}, action.project)
   switch (action.type) {
     case RECEIVE_PROJECTS:
-    
+
       newState = merge({}, newAction.projects)
       return newState;
     case RECEIVE_PROJECT:
-      let newProject = {[action.project.id]: action.project};
+      let newProject = {[project.id]: project};
+      delete Object.values(newProject)[0]['comments'];
+      delete Object.values(newProject)[0]['steps'];
       newState = merge({}, state, newProject);
       return newState;
     case REMOVE_PROJECT:
