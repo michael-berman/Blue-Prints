@@ -4,10 +4,14 @@ class CommentFormShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { body: "", projectId: this.props.projectId,
-                    errors: ""}
+                    errors: "" }
     this.updateComment = this.updateComment.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.renderComments = this.renderComments.bind(this);
+    this.clearState = this.clearState.bind(this);
+  }
+
+  componentWillUpdate(nextProps, nextState){
   }
 
   renderComments(){
@@ -43,17 +47,29 @@ class CommentFormShow extends React.Component {
   }
 
   updateComment(field){
-    return e => this.setState({ [field]: e.target.value })
+    if (field){
+      return e => this.setState({ [field]: e.target.value })
+    }
   }
 
   handleCommentSubmit(e){
     if (this.props.currentUser){
-      this.setState({ errors: "" })
-      this.props.createComment(this.state).then( () =>
-        window.location.reload());
+      let body = this.state;
+      this.clearState();
+
+      this.props.createComment(body).then( () => {
+        this.props.fetchComments(this.props.projectId);
+      });
     } else {
       this.setState({ errors: "Must be signed in to write a comment"})
     }
+  }
+
+  clearState(){
+    console.log(this);
+    console.log(this.state);
+    this.setState({ body: "" });
+    console.log(this.state);
   }
 
   renderCommentError(){
@@ -93,7 +109,9 @@ class CommentFormShow extends React.Component {
           <form className="comments-form-container"
             onSubmit={() => this.handleCommentSubmit()}>
             <textarea className="comments-form-input"
-              onChange={this.updateComment('body')}/><br />
+              onChange={this.updateComment('body')}
+              value={this.state.body}/><br />
+
             {this.renderCommentError()}
           </form>
         </div>

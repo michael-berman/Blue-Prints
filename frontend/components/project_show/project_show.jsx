@@ -157,7 +157,8 @@ class ProjectShow extends React.Component {
             projectId={this.props.project.id}
             comments={this.props.comments}
             history={this.props.history}
-            currentUser={this.props.currentUser}/>
+            currentUser={this.props.currentUser}
+            fetchComments={this.props.fetchComments}/>
         </div>
       )
     } else {

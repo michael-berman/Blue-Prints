@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     match "/projects/search", to: "projects#search", via: [:get]
     resources :projects, only: [:create, :show, :index, :destroy, :search] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :index]
     end
     resources :comments, only: [:destroy]
     resources :steps, only: [:create, :index]

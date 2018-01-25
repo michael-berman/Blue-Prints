@@ -8,6 +8,15 @@ export const createComment = (comment, projectId) => {
   )
 }
 
+export const fetchComments = (projectId) => {
+  return (
+    $.ajax({
+      method: 'get',
+      url: `api/projects/${projectId}/comments`
+    })
+  )
+}
+
 export const deleteComment = (commentId) => {
   return (
     $.ajax({
