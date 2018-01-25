@@ -18,7 +18,6 @@ profile_pictures = [
   'https://s3.amazonaws.com/BLUE-PRINTS-DEV/photos/images/profile-picture-seeds/profile_pics/sam-manns-378189.jpg'
 ]
 
-# TODO: add background pics to each user
 demo = User.new({email: 'mike@example.com',
                 username: 'guest demo',
                 password: 'hunter12'})
