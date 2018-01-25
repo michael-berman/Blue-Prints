@@ -55,14 +55,12 @@
 }
 
 .nav-bar-search-button {
-  padding: 7px;
   color: white;
   background-color: #c8c8c8;
   border-color: #ccc;
-  position: relative;
-  right: 10px;
-  bottom: 2px;
-  height: 30px;
+  position: absolute;
+  height: 2.7em;
+  left: 38.7em;
   border-radius: 0 4px 4px 0;
   &:focus {
     outline: none;
