@@ -8,6 +8,7 @@
     "babel-preset-react": "^6.24.1",
     "lodash": "^4.17.4",
     "logger": "0.0.1",
+    "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-draft-wysiwyg": "^1.12.4",
