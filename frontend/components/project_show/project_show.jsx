@@ -64,9 +64,9 @@ class ProjectShow extends React.Component {
   }
 
   renderSteps() {
-    const allSteps = this.props.project.steps;
+    const allSteps = this.props.steps;
     if (allSteps) {
-      const renderedSteps = allSteps.map( (step, idx) => {
+      const renderedSteps = Object.values(allSteps).map( (step, idx) => {
         return (
           <li key={idx}
             className="project-show-step-container">
@@ -155,7 +155,7 @@ class ProjectShow extends React.Component {
         <div>
           <CommentFormShow createComment={this.props.createComment}
             projectId={this.props.project.id}
-            comments={this.props.project.comments}
+            comments={this.props.comments}
             history={this.props.history}
             currentUser={this.props.currentUser}/>
         </div>

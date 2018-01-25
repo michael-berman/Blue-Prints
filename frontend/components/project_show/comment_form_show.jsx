@@ -11,7 +11,7 @@ class CommentFormShow extends React.Component {
   }
 
   renderComments(){
-    const comments = this.props.comments;
+    const comments = Object.values(this.props.comments);
     if (comments && comments.length > 0) {
       const renderedComments = comments.map( (comment, idx) => {
         let date = comment.date.slice(0, 10);
@@ -85,19 +85,29 @@ class CommentFormShow extends React.Component {
     }
   }
 
+  renderCommentForm(){
+    if (this.props.currentUser){
+      return (
+        <div className="comments-form-wrapper">
+          {this.renderProfilePic()}
+          <form className="comments-form-container"
+            onSubmit={() => this.handleCommentSubmit()}>
+            <textarea className="comments-form-input"
+              onChange={this.updateComment('body')}/><br />
+            {this.renderCommentError()}
+          </form>
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+
   render(){
     return (
       <div className="comments-wrapper">
         <h1 className='project-show-step-title comment-header'>Comments</h1>
-      <div className="comments-form-wrapper">
-        {this.renderProfilePic()}
-        <form className="comments-form-container"
-          onSubmit={() => this.handleCommentSubmit()}>
-          <textarea className="comments-form-input"
-            onChange={this.updateComment('body')}/><br />
-          {this.renderCommentError()}
-        </form>
-      </div>
+        {this.renderCommentForm()}
         {this.renderComments()}
       </div>
     )

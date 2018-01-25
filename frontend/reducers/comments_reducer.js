@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_PROJECT } from '../actions/project_actions';
+import { RECEIVE_PROJECT, RECEIVE_PROJECTS }
+          from '../actions/project_actions';
 
 const CommentsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -10,6 +11,8 @@ const CommentsReducer = (state = {}, action) => {
       let newComments = action.project.comments;
       newState = merge({}, state, newComments);
       return newState;
+    case RECEIVE_PROJECTS:
+      return {};
     default:
       return state;
   }
