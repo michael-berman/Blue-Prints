@@ -8,7 +8,6 @@ const CommentsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_PROJECT:
       let newComments = action.project.comments;
-      debugger
       newState = merge({}, state, newComments);
       return newState;
     default:

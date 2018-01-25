@@ -6,9 +6,12 @@ import { createComment } from '../../actions/comment_actions';
 import { fetchUser } from '../../actions/user_actions';
 
 const mapStatetoProps = (state, ownProps) => {
+  debugger
   return {
     project: state.entities.projects[ownProps.match.params.projectId],
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    comments: state.entities.comments,
+    steps: state.entities.steps
   };
 };
 

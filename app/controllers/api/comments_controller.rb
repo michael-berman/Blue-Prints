@@ -1,5 +1,9 @@
 class Api::CommentsController < ApplicationController
 
+  def index
+
+  end
+
   def create
     @comment = Comment.new(comment_params)
     @comment.project_id = params[:project_id]
