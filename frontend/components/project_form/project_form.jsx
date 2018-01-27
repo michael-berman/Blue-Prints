@@ -300,7 +300,9 @@ class ProjectForm extends React.Component {
   }
 
   renderSpecificForm(){
-    if(this.props.location.pathname === '/projects/new'){
+    debugger
+    if(this.props.location.pathname === '/projects/new' ||
+        this.props.location.pathname === "/projects/:projectId/edit"){
       return this.renderSteps();
     } else {
       let path = this.props.location.pathname;

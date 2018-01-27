@@ -2,17 +2,32 @@ import { connect } from 'react-redux';
 
 import ProjectForm from './project_form';
 
-import { createProject } from '../../actions/project_actions';
+import { createProject,
+          fetchProject,
+          updateProject } from '../../actions/project_actions';
 
 const mapStatetoProps = (state, ownProps) => {
-  return {
-    currentUser: state.session.currentUser,
-  };
+  if (ownProps.match.path === "/projects/:projectId/edit"){
+    return {
+      currentUser: state.session.currentUser,
+      project: state.entities.projects[ownProps.match.params.projectId]
+    }
+  } else {
+    return {
+      currentUser: state.session.currentUser,
+    };
+  }
 };
 
 const mapDispatchtoProps = (dispatch, ownProps) => {
+  if (ownProps.match.path === "/project/:projectId/edit"){
+    return {
+      createProject: (project) => dispatch(createProject(project)),
+    }
+  }
   return {
-    createProject: (project) => dispatch(createProject(project))
+    updateProject: (project) => dispatch(createProject(project)),
+    fetchProject: (projectId) => dispatch(fetchProject(projectId))
   };
 };
 
