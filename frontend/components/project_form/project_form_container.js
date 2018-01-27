@@ -10,7 +10,8 @@ const mapStatetoProps = (state, ownProps) => {
   if (ownProps.match.path === "/projects/:projectId/edit"){
     return {
       currentUser: state.session.currentUser,
-      project: state.entities.projects[ownProps.match.params.projectId]
+      project: state.entities.projects[ownProps.match.params.projectId],
+      steps: state.entities.steps
     }
   } else {
     return {
@@ -20,14 +21,14 @@ const mapStatetoProps = (state, ownProps) => {
 };
 
 const mapDispatchtoProps = (dispatch, ownProps) => {
-  if (ownProps.match.path === "/project/:projectId/edit"){
+  if (ownProps.match.path === "/projects/:projectId/edit"){
     return {
-      createProject: (project) => dispatch(createProject(project)),
+      updateProject: (project) => dispatch(updateProject(project, projectId)),
+      fetchProject: (projectId) => dispatch(fetchProject(projectId))
     }
   }
   return {
-    updateProject: (project) => dispatch(createProject(project)),
-    fetchProject: (projectId) => dispatch(fetchProject(projectId))
+    createProject: (project) => dispatch(createProject(project))
   };
 };
 

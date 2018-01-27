@@ -37,10 +37,22 @@ class ProjectForm extends React.Component {
 
   componentDidMount(){
     window.addEventListener('scroll', this.handleScroll);
+    debugger
+    if (this.props.fetchProject){
+      this.props.fetchProject(parseInt(this.props.match.params.projectId));
+    }
   }
 
   componentWillMount(){
     window.scrollTo(0,0);
+  }
+
+  componentDidUpdate(){
+    this.updateEditState();
+  }
+
+  updateEditState(){
+    debugger
   }
 
   componentWillUnmount(){
@@ -300,9 +312,9 @@ class ProjectForm extends React.Component {
   }
 
   renderSpecificForm(){
-    debugger
-    if(this.props.location.pathname === '/projects/new' ||
-        this.props.location.pathname === "/projects/:projectId/edit"){
+    const path = this.props.location.pathname
+    if(path === '/projects/new' ||
+      path.slice(path.length - 4, path.length) === "edit"){
       return this.renderSteps();
     } else {
       let path = this.props.location.pathname;
