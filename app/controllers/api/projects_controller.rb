@@ -19,6 +19,18 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
+  def update
+    @project = Project.find(params[:id])
+
+    if @project.update_attributes(project_params)
+      @steps = @project.steps
+      @photos = @project.photos
+      render :show
+    else
+      render json: @project.errors.full_messages
+    end
+  end
+
   def search
 
     @projects = Project.where("title ILIKE ?", "%#{params[:query]}%").all

@@ -37,3 +37,14 @@ export const searchProject = query => {
     data: { query }
   });
 };
+
+export const updateProject = (formData, projectId) => {
+  return $.ajax({
+    method: 'patch',
+    url: `api/projects/${projectId}`,
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
+  })
+}

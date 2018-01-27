@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
     match "/projects/search", to: "projects#search", via: [:get]
-    resources :projects, only: [:create, :show, :index, :destroy, :search] do
+    resources :projects, only: [:create, :show, :index, :destroy, :search, :update] do
       resources :comments, only: [:create, :index]
     end
     resources :comments, only: [:destroy]
