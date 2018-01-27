@@ -52,11 +52,17 @@ export const createProject = (project) => dispatch => {
   }, err => (dispatch(receiveProjectErrors(err))));
 };
 
-export const deleteProject = (projectId) => dispatch => {
-  return ProjectAPIUtil.deleteProject(projectId).then((project) => {
-    return dispatch(remove.Project(projectId))
+export const updateProject = (project, projectId) => dispatch => {
+  return ProjectAPIUtil.createProject(project, projectId).then((project) => {
+    return dispatch(receiveProject(project))
   }, err => (dispatch(receiveProjectErrors(err))));
 };
+
+// export const deleteProject = (projectId) => dispatch => {
+//   return ProjectAPIUtil.deleteProject(projectId).then((project) => {
+//     return dispatch(remove.Project(projectId))
+//   }, err => (dispatch(receiveProjectErrors(err))));
+// };
 
 export const searchProject = (query) => dispatch => {
   return ProjectAPIUtil.searchProject(query).then((projects) => {
