@@ -19,8 +19,14 @@ class StepForm extends React.Component {
 
   sendSteptoProject(e){
     e.preventDefault();
+    let path;
+    if (this.props.match.path == "/projects/:projectId/edit"){
+      path = this.props.match.url;
+    } else {
+      path = '/projects/new';
+    }
     this.props.handleStep(this.props.stepId, this.state);
-    this.props.history.push('/projects/new');
+    this.props.history.push(path);
   }
 
   previewStepImages(stepId){

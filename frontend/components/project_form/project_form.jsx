@@ -37,7 +37,6 @@ class ProjectForm extends React.Component {
 
   componentDidMount(){
     window.addEventListener('scroll', this.handleScroll);
-    debugger
     if (this.props.fetchProject){
       this.props.fetchProject(parseInt(this.props.match.params.projectId));
     }
@@ -48,11 +47,27 @@ class ProjectForm extends React.Component {
   }
 
   componentDidUpdate(){
-    this.updateEditState();
+    if (this.state.amount === 1 &&
+        this.props.match.path === "/projects/:projectId/edit"){
+      this.updateEditState();
+    }
   }
 
   updateEditState(){
+    let newState = { title: "", steps: {}, amount: 0 };
+    newState.title = this.props.project.title;
+    this.props.steps.forEach( (step, i) => {
+      newState.steps[i + 1] = {
+        title: step.title, body: step.body, images: {} };
+        step.photos.forEach( (photo, j) =>{
+          newState.steps[i + 1].images[j] = photo;
+        })
+        this.state.amount += 1;
+      })
+    newState.amount = this.props.steps.length;
     debugger
+    let merged = merge({}, this.state, newState);
+    this.setState(merged);
   }
 
   componentWillUnmount(){
@@ -104,8 +119,7 @@ class ProjectForm extends React.Component {
 
     this.setState({ loading: true });
 
-
-    this.props.createProject(formData).then( data =>
+    this.props.submitProject(formData).then( data =>
       this.props.history.push(`/projects/${data.project.id}`));
     } else {
       this.setState({ errors: "Please complete at least one step" })
@@ -267,17 +281,23 @@ class ProjectForm extends React.Component {
     Object.keys(oldState.steps).map( (step, idx) => {
       steps[idx + 1] = oldState.steps[step];
     });
-
     let newState = Object.assign({}, oldState, {steps: steps})
     newState.amount -= 1;
 
     this.setState(newState);
+    debugger
   }
 
   renderSteps(){
+    let path;
+    if (this.props.match.path === "/projects/:projectId/edit"){
+      path = `/projects/${this.props.match.params.projectId}/edit/steps`
+    } else {
+      path  = '/project/new/steps/'
+    }
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
-      let step = `Step ${stepId}`
-      let stepNum = (parseInt(stepId) === 1) ? 1 : parseInt(stepId);
+    let step = `Step ${stepId}`;
+    let stepNum = (parseInt(stepId) === 1) ? 1 : parseInt(stepId);
       return (
         <li key={stepNum} className='project-form-step'>
           <div className='project-form-step-images'>
@@ -287,7 +307,7 @@ class ProjectForm extends React.Component {
                 onChange={this.updateFileStep}/>
             </form>
           </div>
-          <Link to={`/projects/new/steps/${stepNum}`}
+          <Link to={`${path}${stepNum}`}
             onClick={this.scrollUp}
             className='project-form-step-link'>
             {step}: {this.state.steps[stepId].title}
@@ -312,7 +332,7 @@ class ProjectForm extends React.Component {
   }
 
   renderSpecificForm(){
-    const path = this.props.location.pathname
+    const path = this.props.location.pathname;
     if(path === '/projects/new' ||
       path.slice(path.length - 4, path.length) === "edit"){
       return this.renderSteps();
@@ -335,22 +355,26 @@ class ProjectForm extends React.Component {
   renderTitleModal(){
     let modalBackground = document.querySelector('.modal-background');
     let modal = document.querySelector('.project-form-modal-container');
-    if (this.state.title === "") {
-      return (
-        <ProjectFormModal
-          updateProjectTitle={this.updateProjectTitle} />
-      )
-    } else if (modalBackground){
+    if (this.props.fetchProject === undefined){
+      if (this.state.title === "") {
+        return (
+          <ProjectFormModal
+            updateProjectTitle={this.updateProjectTitle} />
+        )
+      } else if (modalBackground){
 
-      modal.classList.remove("slideInDown");
-      modal.classList.add("fadeOutUp");
-      modalBackground.classList.remove('faded-background');
+        modal.classList.remove("slideInDown");
+        modal.classList.add("fadeOutUp");
+        modalBackground.classList.remove('faded-background');
 
-      return (
-        <ProjectFormModal
-          updateProjectTitle={this.updateProjectTitle} />
-      )
+        return (
+          <ProjectFormModal
+            updateProjectTitle={this.updateProjectTitle} />
+        )
 
+      } else {
+        return null;
+      }
     } else {
       return null;
     }
