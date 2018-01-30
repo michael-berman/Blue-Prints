@@ -59,13 +59,17 @@ class ProjectForm extends React.Component {
     this.props.steps.forEach( (step, i) => {
       newState.steps[i + 1] = {
         title: step.title, body: step.body, images: {} };
-        step.photos.forEach( (photo, j) =>{
-          newState.steps[i + 1].images[j] = photo;
-        })
-        this.state.amount += 1;
+      step.photos.forEach( (photo, j) =>{
+        let reader  = new FileReader();
+        newState.steps[i + 1].images[j] = { imageURL: null, imageFile: null}
+        newState.steps[i + 1].images[j].imageURL = photo.image_url;
+
       })
-    newState.amount = this.props.steps.length;
-    debugger
+      newState.amount += 1;
+    })
+    newState.projectId = this.props.project.id;
+    newState.coverImage = {imageURL: null};
+    newState.coverImage.imageURL = this.props.project.image_url;
     let merged = merge({}, this.state, newState);
     this.setState(merged);
   }
@@ -98,29 +102,34 @@ class ProjectForm extends React.Component {
 
     if ( stepTitle !== "(click to edit)" && stepBody !== "body" &&
           stepImagesLength > 0){
-    const formData = new FormData();
-    formData.append("project[title]", this.state.title)
-    if (file) {
-      formData.append("project[image]", file);
-    }
+      const formData = new FormData();
+      formData.append("project[title]", this.state.title)
+      if (file) {
+        formData.append("project[image]", file);
+      }
 
-    const steps = Object.values(this.state.steps);
-    steps.forEach( step => {
+      const steps = Object.values(this.state.steps);
+      steps.forEach( step => {
 
-      formData.append("project[steps_attributes][][title]", step.title);
-      formData.append("project[steps_attributes][][body]", step.body);
+        formData.append("project[steps_attributes][][title]", step.title);
+        formData.append("project[steps_attributes][][body]", step.body);
 
-      Object.values(step.images).forEach( photo => {
+        Object.values(step.images).forEach( photo => {
+          if (photo.imageFile){
+            formData.append("project[steps_attributes][][photos_attributes][][image]", photo.imageFile)
+          }
+        })
 
-        formData.append("project[steps_attributes][][photos_attributes][][image]", photo.imageFile)
       })
 
-    })
-
-    this.setState({ loading: true });
-
-    this.props.submitProject(formData).then( data =>
-      this.props.history.push(`/projects/${data.project.id}`));
+      this.setState({ loading: true });
+      if (this.props.fetchProject){
+        this.props.submitProject(formData, this.state.projectId).then( data =>
+          this.props.history.push(`/projects/${this.state.projectId}`));
+      } else {
+        this.props.submitProject(formData).then( data =>
+          this.props.history.push(`/projects/${data.project.id}`));
+      }
     } else {
       this.setState({ errors: "Please complete at least one step" })
     }
@@ -285,7 +294,6 @@ class ProjectForm extends React.Component {
     newState.amount -= 1;
 
     this.setState(newState);
-    debugger
   }
 
   renderSteps(){
@@ -293,7 +301,7 @@ class ProjectForm extends React.Component {
     if (this.props.match.path === "/projects/:projectId/edit"){
       path = `/projects/${this.props.match.params.projectId}/edit/steps`
     } else {
-      path  = '/project/new/steps/'
+      path  = '/projects/new/steps'
     }
     const stepButtons = Object.keys(this.state.steps).map( (stepId) => {
     let step = `Step ${stepId}`;
@@ -307,7 +315,7 @@ class ProjectForm extends React.Component {
                 onChange={this.updateFileStep}/>
             </form>
           </div>
-          <Link to={`${path}${stepNum}`}
+          <Link to={`${path}/${stepNum}`}
             onClick={this.scrollUp}
             className='project-form-step-link'>
             {step}: {this.state.steps[stepId].title}
@@ -424,7 +432,8 @@ class ProjectForm extends React.Component {
           <div className="project-form-body">
             {this.renderSpecificForm()}
           </div>
-          <Route path="/projects/new/steps/:stepId" />
+          <Route path="/projects/new/steps/:stepId"/>
+          <Route path="/projects/:projectId/edit/steps/:stepId" />
         </div>
       </div>
     )

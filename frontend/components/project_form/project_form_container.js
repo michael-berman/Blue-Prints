@@ -23,7 +23,7 @@ const mapStatetoProps = (state, ownProps) => {
 const mapDispatchtoProps = (dispatch, ownProps) => {
   if (ownProps.match.path === "/projects/:projectId/edit"){
     return {
-      submitProject: (project) => dispatch(updateProject(project, projectId)),
+      submitProject: (project, projectId) => dispatch(updateProject(project, projectId)),
       fetchProject: (projectId) => dispatch(fetchProject(projectId))
     }
   }

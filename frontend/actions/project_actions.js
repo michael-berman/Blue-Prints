@@ -54,7 +54,7 @@ export const createProject = (project) => dispatch => {
 };
 
 export const updateProject = (project, projectId) => dispatch => {
-  return ProjectAPIUtil.createProject(project, projectId).then((project) => {
+  return ProjectAPIUtil.updateProject(project, projectId).then((project) => {
     return dispatch(receiveProject(project))
   }, err => (dispatch(receiveProjectErrors(err))));
 };
