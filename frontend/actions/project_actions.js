@@ -28,7 +28,6 @@ export const removeProject = projectId => {
 };
 
 export const receiveProjectErrors = errors => {
-  debugger
   return {
     type: RECEIVE_PROJECT_ERRORS,
     errors: errors.responseJSON

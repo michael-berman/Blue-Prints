@@ -39,7 +39,6 @@ export const searchProject = query => {
 };
 
 export const updateProject = (formData, projectId) => {
-  debugger
   return $.ajax({
     method: 'patch',
     url: `api/projects/${projectId}`,

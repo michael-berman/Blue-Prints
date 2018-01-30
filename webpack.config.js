@@ -1,10 +1,10 @@
-var path = require("path");
-var webpack = require("webpack");
+const path = require("path");
+const webpack = require("webpack");
 
-var plugins = []; // if using any plugins for both dev and production
-var devPlugins = []; // if using any plugins for development
+const plugins = [];
+const devPlugins = [];
 
-var prodPlugins = [
+const prodPlugins = [
   new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
@@ -28,6 +28,7 @@ module.exports = {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
+  plugins: plugins,
   module: {
     loaders: [
       {

@@ -66,10 +66,7 @@ class CommentFormShow extends React.Component {
   }
 
   clearState(){
-    console.log(this);
-    console.log(this.state);
     this.setState({ body: "" });
-    console.log(this.state);
   }
 
   renderCommentError(){
