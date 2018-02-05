@@ -54,11 +54,11 @@
 }
 
 .step-form-body {
-  width: 750px;
+  width: 770px;
+  height: 200px;
   min-height: 370px;
-  margin: 10px 15px;
-  padding: 10px 10px;
-  border: 1px solid #b8b8b8;
+  margin: 10px 15px 55px 15px;
+  padding: 10px 2px;
   font-size: 15px;
   color: #555;
   white-space: pre;
@@ -67,18 +67,15 @@
   }
 }
 
-// .ql-clipboard {
-//   display: none;
-// }
-//
-// .ql-hidden {
-//   display: none;
-// }
+.ql-editor {
+  background: white;
+}
 
 .step-form-back-button {
   border-radius: 4px;
   font-size: 14px;
   color: black;
+  margin-bottom: 15px;
   background-color: transparent;
   border: 1px solid #cccccc;
   padding: 12px 17px;

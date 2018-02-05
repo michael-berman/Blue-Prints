@@ -32,8 +32,7 @@ class StepForm extends React.Component {
     return e => this.setState({[field]: e.target.value})
   }
 
-  updateStepBody(){
-    debugger
+  updateStepBody(content, delta, source, editor){
   }
 
   sendSteptoProject(e){
@@ -89,6 +88,7 @@ class StepForm extends React.Component {
             modules={quillModules}
             formats={quillFormats}
             theme="snow"
+            className='step-form-body'
             />
           <button onClick={this.sendSteptoProject}
             className='step-form-back-button'>
