@@ -90,19 +90,4 @@ class StepForm extends React.Component {
   }
 }
 
-// <form className="step-form-container">
-//   <input type='text' value={this.state.title}
-//     onChange={this.updateStep('title')}
-//     className='step-form-title'
-//     placeholder={`Step ${this.props.stepId}: Type your title ...`}/>
-//   <br/>
-//   <textarea value={this.state.body}
-//     onChange={this.updateStep('body')}
-//     className='step-form-body'
-//     /><br />
-  // <button onClick={this.sendSteptoProject}
-  //   className='step-form-back-button'>
-  //   Back to Steps
-  // </button>
-// </form>
 export default withRouter(StepForm);
