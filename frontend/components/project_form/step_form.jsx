@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import { quillModules, quillFormats } from '../../util/quill_toolbar_config';
-// import 'react-quill/dist/quill.snow.css';
 
 class StepForm extends React.Component {
   constructor(props){
@@ -15,17 +14,6 @@ class StepForm extends React.Component {
     this.updateStepTitle = this.updateStepTitle.bind(this);
     this.updateStepBody = this.updateStepBody.bind(this);
     this.sendSteptoProject = this.sendSteptoProject.bind(this);
-    this.CustomToolbar = (
-      <div id="toolbar">
-        <select className="ql-header">
-          <option value="1"></option>
-          <option value="2"></option>
-          <option selected></option>
-        </select>
-        <button className="ql-bold"></button>
-        <button className="ql-italic"></button>
-      </div>
-    )
   }
 
   updateStepTitle(field){
@@ -33,9 +21,11 @@ class StepForm extends React.Component {
   }
 
   updateStepBody(content, delta, source, editor){
+    this.setState({ body: content })
   }
 
   sendSteptoProject(e){
+    debugger
     e.preventDefault();
     let path;
     if (this.props.match.path == "/projects/:projectId/edit"){
@@ -83,7 +73,7 @@ class StepForm extends React.Component {
           <br/>
           <ReactQuill
             id="quill"
-            onChange={this.updateStepBody()}
+            onChange={this.updateStepBody}
             value={this.state.body}
             modules={quillModules}
             formats={quillFormats}
