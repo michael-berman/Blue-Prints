@@ -12,7 +12,8 @@ class StepForm extends React.Component {
     } else {
       this.state = this.props.step;
     }
-    this.updateStep = this.updateStep.bind(this);
+    this.updateStepTitle = this.updateStepTitle.bind(this);
+    this.updateStepBody = this.updateStepBody.bind(this);
     this.sendSteptoProject = this.sendSteptoProject.bind(this);
     this.CustomToolbar = (
       <div id="toolbar">
@@ -27,8 +28,12 @@ class StepForm extends React.Component {
     )
   }
 
-  updateStep(field){
+  updateStepTitle(field){
     return e => this.setState({[field]: e.target.value})
+  }
+
+  updateStepBody(){
+    debugger
   }
 
   sendSteptoProject(e){
@@ -73,12 +78,13 @@ class StepForm extends React.Component {
         </div>
         <form className="step-form-container">
           <input type='text' value={this.state.title}
-            onChange={this.updateStep('title')}
+            onChange={this.updateStepTitle('title')}
             className='step-form-title'
             placeholder={`Step ${this.props.stepId}: Type your title ...`}/>
           <br/>
           <ReactQuill
-            onchange={this.updateStep('body')}
+            id="quill"
+            onChange={this.updateStepBody()}
             value={this.state.body}
             modules={quillModules}
             formats={quillFormats}
