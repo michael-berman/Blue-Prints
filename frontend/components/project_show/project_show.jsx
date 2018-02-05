@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentFormShow from './comment_form_show';
+import ReactHtmlParser from 'react-html-parser';
 
 class ProjectShow extends React.Component {
   constructor(props) {
@@ -67,6 +68,8 @@ class ProjectShow extends React.Component {
     const allSteps = this.props.steps;
     if (allSteps) {
       const renderedSteps = Object.values(allSteps).map( (step, idx) => {
+        let stepBody = (step.body[0] === '<') ?
+          ReactHtmlParser(step.body) : step.body;
         return (
           <li key={idx}
             className="project-show-step-container">
@@ -77,7 +80,7 @@ class ProjectShow extends React.Component {
               {this.renderImages(step.photos)}
             </div>
             <div className="project-show-step-body">
-              <pre>{step.body}</pre>
+              <pre>{stepBody}</pre>
             </div>
           </li>
         )
