@@ -70,24 +70,25 @@ class StepForm extends React.Component {
       <div className='step-form-wrapper'>
         <div className='step-form-attachments'>
           {this.previewStepImages()}
-          <form className="step-form-container">
-            <input type='text' value={this.state.title}
-              onChange={this.updateStep('title')}
-              className='step-form-title'
-              placeholder={`Step ${this.props.stepId}: Type your title ...`}/>
-            <br/>
-            <ReactQuill
-              onchange={this.updateStep('body')}
-              value={this.state.body}
-              modules={quillModules}
-              formats={quillFormats}
-              />
-            <button onClick={this.sendSteptoProject}
-              className='step-form-back-button'>
-              Back to Steps
-            </button>
-          </form>
         </div>
+        <form className="step-form-container">
+          <input type='text' value={this.state.title}
+            onChange={this.updateStep('title')}
+            className='step-form-title'
+            placeholder={`Step ${this.props.stepId}: Type your title ...`}/>
+          <br/>
+          <ReactQuill
+            onchange={this.updateStep('body')}
+            value={this.state.body}
+            modules={quillModules}
+            formats={quillFormats}
+            theme="snow"
+            />
+          <button onClick={this.sendSteptoProject}
+            className='step-form-back-button'>
+            Back to Steps
+          </button>
+        </form>
     </div>
     )
   }
