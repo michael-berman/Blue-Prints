@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; 
+// import 'react-quill/dist/quill.snow.css';
 
 class StepForm extends React.Component {
   constructor(props){
@@ -58,25 +58,28 @@ class StepForm extends React.Component {
       <div className='step-form-wrapper'>
         <div className='step-form-attachments'>
           {this.previewStepImages()}
+          <ReactQuill>
+            <div className="my-editing-area"/>
+          </ReactQuill>
         </div>
-        <form className="step-form-container">
-          <input type='text' value={this.state.title}
-            onChange={this.updateStep('title')}
-            className='step-form-title'
-            placeholder={`Step ${this.props.stepId}: Type your title ...`}/>
-          <br/>
-          <textarea value={this.state.body}
-            onChange={this.updateStep('body')}
-            className='step-form-body'
-            /><br />
-          <button onClick={this.sendSteptoProject}
-            className='step-form-back-button'>
-            Back to Steps
-          </button>
-        </form>
     </div>
     )
   }
 }
 
+// <form className="step-form-container">
+//   <input type='text' value={this.state.title}
+//     onChange={this.updateStep('title')}
+//     className='step-form-title'
+//     placeholder={`Step ${this.props.stepId}: Type your title ...`}/>
+//   <br/>
+//   <textarea value={this.state.body}
+//     onChange={this.updateStep('body')}
+//     className='step-form-body'
+//     /><br />
+//   <button onClick={this.sendSteptoProject}
+//     className='step-form-back-button'>
+//     Back to Steps
+//   </button>
+// </form>
 export default withRouter(StepForm);
