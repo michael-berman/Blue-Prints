@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ReactQuill from 'react-quill';
+import { quillModules, quillFormats } from '../../util/quill_toolbar_config';
 // import 'react-quill/dist/quill.snow.css';
 
 class StepForm extends React.Component {
@@ -13,6 +14,17 @@ class StepForm extends React.Component {
     }
     this.updateStep = this.updateStep.bind(this);
     this.sendSteptoProject = this.sendSteptoProject.bind(this);
+    this.CustomToolbar = (
+      <div id="toolbar">
+        <select className="ql-header">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option selected></option>
+        </select>
+        <button className="ql-bold"></button>
+        <button className="ql-italic"></button>
+      </div>
+    )
   }
 
   updateStep(field){
@@ -58,9 +70,23 @@ class StepForm extends React.Component {
       <div className='step-form-wrapper'>
         <div className='step-form-attachments'>
           {this.previewStepImages()}
-          <ReactQuill>
-            <div className="my-editing-area"/>
-          </ReactQuill>
+          <form className="step-form-container">
+            <input type='text' value={this.state.title}
+              onChange={this.updateStep('title')}
+              className='step-form-title'
+              placeholder={`Step ${this.props.stepId}: Type your title ...`}/>
+            <br/>
+            <ReactQuill
+              onchange={this.updateStep('body')}
+              value={this.state.body}
+              modules={quillModules}
+              formats={quillFormats}
+              />
+            <button onClick={this.sendSteptoProject}
+              className='step-form-back-button'>
+              Back to Steps
+            </button>
+          </form>
         </div>
     </div>
     )
@@ -77,9 +103,9 @@ class StepForm extends React.Component {
 //     onChange={this.updateStep('body')}
 //     className='step-form-body'
 //     /><br />
-//   <button onClick={this.sendSteptoProject}
-//     className='step-form-back-button'>
-//     Back to Steps
-//   </button>
+  // <button onClick={this.sendSteptoProject}
+  //   className='step-form-back-button'>
+  //   Back to Steps
+  // </button>
 // </form>
 export default withRouter(StepForm);
