@@ -75,10 +75,8 @@ controller.
 * React Quill
 
 # Future Features
-* Able to edit a project
 * Able to follow a project
 * Slideshow on the main page
-* Toolbar for creating a step
 * Drag and drop pictures when creating a project
 * Add categories for projects
 * Add features project page
