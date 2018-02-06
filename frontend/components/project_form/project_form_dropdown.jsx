@@ -43,7 +43,7 @@ class ProjectFormAddDropdown extends React.Component {
       return (
         <ul className="dropdown-list-add">
           <li className='drop-list-add-steps'
-            onClick={this.props.addStep}>
+            onClick={() => { this.props.addStep(); this.toggleMenu(); }}>
             <i className="fa fa-clone clone-icon" aria-hidden="true"></i>
             Step
           </li>
@@ -52,7 +52,7 @@ class ProjectFormAddDropdown extends React.Component {
             <span className="drop-list-add-photos">
               <i className="fa fa-camera-retro camera-icon" aria-hidden="true"></i>
               Photos</span>
-            <input type="file" />
+            <input type="file" onClick={this.toggleMenu}/>
           </form></li>
         </ul>
       )
