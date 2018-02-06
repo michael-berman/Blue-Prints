@@ -120,12 +120,14 @@ pre {
 
 .project-show-sidebar-wrapper {
   width: 29%;
-  min-height: 197px;
+  height: 219px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  position: absolute;
-  top: 3%;
-  left: 69%;
+  position: relative;
+  top: 36px;
+  // position: absolute;
+  // top: 3%;
+  // left: 69%;
 }
 
 .project-show-favorite-btn {
