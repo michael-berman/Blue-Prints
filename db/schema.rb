@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206174745) do
+ActiveRecord::Schema.define(version: 20180206191433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20180206174745) do
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id", "project_id"], name: "index_favorites_on_author_id_and_project_id", unique: true
     t.index ["author_id"], name: "index_favorites_on_author_id"
-    t.index ["author_id"], name: "index_favorites_on_author_id_and_author_id", unique: true
     t.index ["project_id"], name: "index_favorites_on_project_id"
   end
 
