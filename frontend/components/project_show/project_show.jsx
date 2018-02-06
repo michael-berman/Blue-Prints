@@ -6,7 +6,6 @@ import ReactHtmlParser from 'react-html-parser';
 class ProjectShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { toggled: false }
     this.handleScroll = this.handleScroll.bind(this);
     this.toggleFollow = this.toggleFollow.bind(this);
   }
@@ -105,6 +104,8 @@ class ProjectShow extends React.Component {
   }
 
   renderSidebar(){
+    let favoriteButton = document.querySelector(".favorite-heart");
+    const colorStyle = (this.props.favorites.favorite) ? "red" : "lightgrey";
     if (this.props.project) {
       let date = this.props.project.created_at.slice(0, 10);
       return (
@@ -122,8 +123,10 @@ class ProjectShow extends React.Component {
                 </div>
               </div>
               <div className="project-show-favorite-btn">
-                <i className="fa fa-heart fa-2x favorite-heart" onClick={this.toggleFollow}></i>
-                {this.props.favorites.length}
+                <i className="fa fa-heart fa-2x favorite-heart"
+                  style={{color: colorStyle}}
+                  onClick={this.toggleFollow}></i>
+                <p>{this.props.favorites.length}</p>
               </div>
             </div>
         </div>
@@ -132,14 +135,9 @@ class ProjectShow extends React.Component {
   }
 
   toggleFollow(){
-    let favoriteButton = document.querySelector(".favorite-heart");
-    if (this.state.toggled){
-      favoriteButton.setAttribute("style", "color: lightgrey");
-      this.setState({toggled: false });
+    if (this.props.favorites.favorite){
       this.props.deleteFavorite(this.props.favorites.favorite.id);
     } else {
-      favoriteButton.setAttribute("style", "color: red");
-      this.setState({toggled: true });
       this.props.createFavorite(this.props.project.id);
     }
   }
