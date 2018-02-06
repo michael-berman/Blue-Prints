@@ -7,17 +7,20 @@ import { RECEIVE_FAVORITE, REMOVE_FAVORITE } from
 const FavoritesReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
+  let favorite;
   switch (action.type) {
     case RECEIVE_PROJECT:
-      let favorite = {favorite: action.project.favorite, length: action.project.favoriteLength };
+      favorite = {favorite: action.project.favorite, length: action.project.favoriteLength };
       newState = merge({}, state, favorite);
       return newState;
     case RECEIVE_FAVORITE:
-      debugger
-      return {};
+      favorite = {favorite: action.favorite.favorite, length: action.favorite.favoriteLength };
+      newState = merge({}, state, favorite);
+      return newState;
     case REMOVE_FAVORITE:
-      debugger
-      return {};
+      favorite = {favorite: null, length: action.favorite.favoriteLength };
+      newState = merge({}, state, favorite);
+      return newState;
     default:
       return {};
   }

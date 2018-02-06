@@ -10,20 +10,21 @@ export const receiveFavorite = favorite => {
   }
 }
 
-export const removeFavorite = () => {
+export const removeFavorite = favorite => {
   return {
-    type: REMOVE_FAVORITE
+    type: REMOVE_FAVORITE,
+    favorite
   }
 }
 
-export const createFavorite = projectId = dispatch => {
+export const createFavorite = projectId => dispatch => {
   return FavoriteAPIUtil.createFavorite(projectId).then( (favorite) => {
     return dispatch(receiveFavorite(favorite))
   })
 }
 
-export const deleteFavorite = projectId = dispatch => {
-  return FavoriteAPIUtil.deleteFavorite(projectId).then( () => {
-    return dispatch(removeFavorite());
+export const deleteFavorite = favoriteId => dispatch => {
+  return FavoriteAPIUtil.deleteFavorite(favoriteId).then( (favorite) => {
+    return dispatch(removeFavorite(favorite));
   })
 }

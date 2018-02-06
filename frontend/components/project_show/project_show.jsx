@@ -136,7 +136,7 @@ class ProjectShow extends React.Component {
     if (this.state.toggled){
       favoriteButton.setAttribute("style", "color: lightgrey");
       this.setState({toggled: false });
-      this.props.deleteFavorite(this.props.project.id);
+      this.props.deleteFavorite(this.props.favorites.favorite.id);
     } else {
       favoriteButton.setAttribute("style", "color: red");
       this.setState({toggled: true });

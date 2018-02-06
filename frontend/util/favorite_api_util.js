@@ -8,11 +8,11 @@ export const createFavorite = (project_id) => {
   )
 }
 
-export const deleteFavorite = (projectId) => {
+export const deleteFavorite = (favoriteId) => {
   return (
     $.ajax({
       method: 'delete',
-      url: `api/favorites/${projectId}`
+      url: `api/favorites/${favoriteId}`
     })
   )
 }
