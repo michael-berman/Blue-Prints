@@ -128,15 +128,15 @@ pre {
   left: 69%;
 }
 
-// .project-show-sidebar-container {
-// }
-
 .project-show-favorite-btn {
   display: flex;
   justify-content: space-evenly;
   margin: 15px 70px 5px 70px;
   i {
-    color: red;
+    color: lightgrey;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

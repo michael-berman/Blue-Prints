@@ -6,7 +6,9 @@ import ReactHtmlParser from 'react-html-parser';
 class ProjectShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { toggled: false }
     this.handleScroll = this.handleScroll.bind(this);
+    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
@@ -130,7 +132,17 @@ class ProjectShow extends React.Component {
   }
 
   toggleFollow(){
-    debugger
+    let favoriteButton = document.querySelector(".favorite-heart");
+    if (this.state.toggled){
+      favoriteButton.setAttribute("style", "color: lightgrey");
+      this.setState({toggled: false });
+      this.props.createFavorite(this.props.project.id);
+    } else {
+      favoriteButton.setAttribute("style", "color: red");
+      this.setState({toggled: true });
+      this.props.deleteFavorite(this.props.project.id);
+    }
+    // TODO: dispatch favorite actions
   }
 
   renderBody() {
