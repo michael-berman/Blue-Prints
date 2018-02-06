@@ -72,6 +72,7 @@ controller.
 * Rails
 * Babel
 * Postgresql
+* React Quill
 
 # Future Features
 * Able to edit a project

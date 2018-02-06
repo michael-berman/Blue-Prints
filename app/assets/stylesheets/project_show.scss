@@ -248,7 +248,7 @@ pre {
 .comment-list-item-header-info {
   display: flex;
   justify-content: space-between;
-  width: 534px;
+  width: 100%;
   position: relative;
   right: 27px;
   top: 3px;
@@ -269,11 +269,11 @@ pre {
 }
 
 .comment-list-item-body {
-  margin-left: 120px;
+  margin-left: 117px;
   margin-bottom: 15px;
   word-wrap: break-word;
   line-height: 22px;
-  width: 484px;
+  width: 77%;
 }
 
 .comment-error-container {
