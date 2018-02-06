@@ -2,16 +2,18 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string
-#  password_digest :string
-#  session_token   :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  email           :string
+#  id                 :integer          not null, primary key
+#  username           :string
+#  password_digest    :string
+#  session_token      :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  email              :string
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
 #
-
-
 
 class User < ApplicationRecord
   validates :username, :password_digest, :session_token, presence: true
@@ -35,6 +37,9 @@ class User < ApplicationRecord
     class_name: 'Comment',
     foreign_key: :author_id
 
+  has_many :favorites,
+    class_name: 'Favorite',
+    foreign_key: :author_id
 
   attr_reader :password
   def self.find_by_credentials(username, password)

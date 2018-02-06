@@ -32,6 +32,8 @@ class Project < ApplicationRecord
     through: :steps,
     source: :photos
 
+  has_many :favorites
+
   has_many :comments
 
   accepts_nested_attributes_for :steps
