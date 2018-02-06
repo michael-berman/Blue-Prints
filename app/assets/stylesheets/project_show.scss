@@ -120,7 +120,7 @@ pre {
 
 .project-show-sidebar-wrapper {
   width: 29%;
-  height: 200px;
+  min-height: 197px;
   border: 1px solid #ddd;
   border-radius: 5px;
   position: absolute;
@@ -128,7 +128,16 @@ pre {
   left: 69%;
 }
 
-.project-show-sidebar-container {
+// .project-show-sidebar-container {
+// }
+
+.project-show-favorite-btn {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 15px 70px 5px 70px;
+  i {
+    color: red;
+  }
 }
 
 .project-show-sidebar-header {
@@ -141,15 +150,19 @@ pre {
 
 .project-show-sidebar-info {
   background-color: #F9F9F9;
-  display: flex;
+  // display: flex;
   font-size: 14px;
-  padding: 23px 15px;
+  padding: 9px 15px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   img {
     width: 42%;
     border-radius: 50%;
   }
+}
+
+.project-show-sidebar-first {
+  display: flex;
 }
 
 .project-show-sidebar-writing {

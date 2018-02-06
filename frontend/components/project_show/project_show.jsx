@@ -110,17 +110,20 @@ class ProjectShow extends React.Component {
           <div className="project-show-sidebar-header">
             About this Blue Print
           </div>
-          <div>
             <div className="project-show-sidebar-info" >
-              <img src={this.props.project.profile_pic} />
-              <div className="project-show-sidebar-writing">
-                <p><span>Posted:</span> <i>{date}</i></ p><br />
-                <p><span>Created by:</span>
-                  <i>{` ${this.props.project.author.username}`}</i></p>
+              <div className="project-show-sidebar-first">
+                <img src={this.props.project.profile_pic} />
+                <div className="project-show-sidebar-writing">
+                  <p><span>Posted:</span> <i>{date}</i></ p><br />
+                  <p><span>Created by:</span>
+                    <i>{` ${this.props.project.author.username}`}</i></p>
+                </div>
+              </div>
+              <div className="project-show-favorite-btn">
+                <i className="fa fa-heart fa-2x favorite-heart" onClick={this.toggleFollow}></i>
+                0
               </div>
             </div>
-            <i class="far fa-heart" onClick={this.toggleFollow}></i>
-          </div>
         </div>
       )
     }
