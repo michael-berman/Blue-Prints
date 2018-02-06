@@ -123,7 +123,7 @@ class ProjectShow extends React.Component {
               </div>
               <div className="project-show-favorite-btn">
                 <i className="fa fa-heart fa-2x favorite-heart" onClick={this.toggleFollow}></i>
-                0
+                {this.props.favorites.length}
               </div>
             </div>
         </div>
@@ -133,7 +133,6 @@ class ProjectShow extends React.Component {
 
   toggleFollow(){
     let favoriteButton = document.querySelector(".favorite-heart");
-    debugger
     if (this.state.toggled){
       favoriteButton.setAttribute("style", "color: lightgrey");
       this.setState({toggled: false });
@@ -143,7 +142,6 @@ class ProjectShow extends React.Component {
       this.setState({toggled: true });
       this.props.createFavorite(this.props.project.id);
     }
-    // TODO: dispatch favorite actions
   }
 
   renderBody() {

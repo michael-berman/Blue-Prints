@@ -12,7 +12,8 @@ const mapStatetoProps = (state, ownProps) => {
     project: state.entities.projects[ownProps.match.params.projectId],
     currentUser: state.session.currentUser,
     comments: state.entities.comments,
-    steps: state.entities.steps
+    steps: state.entities.steps,
+    favorites: state.entities.favorites
   };
 };
 
