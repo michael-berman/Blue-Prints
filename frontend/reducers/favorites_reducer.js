@@ -6,10 +6,10 @@ const FavoritesReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
   switch (action.type) {
-    // case RECEIVE_PROJECT:
-    //   let favorites = action.project.favorites;
-    //   newState = merge({}, state, newComments);
-    //   return newState;
+    case RECEIVE_PROJECT:
+      let favorite = {favorite: action.project.favorite, length: action.project.favoriteLength };
+      newState = merge({}, state, favorite);
+      return newState;
     default:
       return {};
   }
