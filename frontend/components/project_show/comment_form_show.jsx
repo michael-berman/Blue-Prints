@@ -53,20 +53,22 @@ class CommentFormShow extends React.Component {
   }
 
   handleCommentSubmit(e){
-    if (this.props.currentUser){
+    if (this.props.currentUser && this.state.body !== "" ){
       let body = this.state;
       this.clearState();
 
       this.props.createComment(body).then( () => {
         this.props.fetchComments(this.props.projectId);
       });
+    } else if (this.state.body === "") {
+      this.setState({ errors: "Cannot submit blank comment"})
     } else {
       this.setState({ errors: "Must be signed in to write a comment"})
     }
   }
 
   clearState(){
-    this.setState({ body: "" });
+    this.setState({ body: "", errors: "" });
   }
 
   renderCommentError(){
