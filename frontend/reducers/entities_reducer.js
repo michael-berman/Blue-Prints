@@ -5,6 +5,7 @@ import users from './users_reducer';
 import search from './search_reducer';
 import comments from './comments_reducer';
 import steps from './steps_reducer';
+import favorites from './favorites_reducer';
 
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   steps,
   comments,
   users,
+  favorites,
   search
 });
