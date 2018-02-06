@@ -1,9 +1,9 @@
-export const createFavorite = (projectId) => {
+export const createFavorite = (project_id) => {
   return (
     $.ajax({
       method: 'post',
       url: `api/favorites`,
-      data: { projectId }
+      data: { project_id }
     })
   )
 }

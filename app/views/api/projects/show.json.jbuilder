@@ -16,3 +16,7 @@ if @comments
     json.profile_pic asset_path(comment.author.image.url(:avatar))
   end
 end
+
+json.favoriteLength @favorites_length
+
+json.favorite @favorite[0]

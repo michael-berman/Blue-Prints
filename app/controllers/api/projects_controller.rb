@@ -43,6 +43,9 @@ class Api::ProjectsController < ApplicationController
     @steps = @project.steps
     @photos = @project.photos
     @comments = @project.comments
+    @favorites_length = Favorite.find_by(project_id: @project.id)
+    @favorite = Favorite.where(project_id: @project.id).where(author_id: current_user.id)
+    debugger
   end
 
   def destroy

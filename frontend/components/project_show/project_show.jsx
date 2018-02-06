@@ -133,14 +133,15 @@ class ProjectShow extends React.Component {
 
   toggleFollow(){
     let favoriteButton = document.querySelector(".favorite-heart");
+    debugger
     if (this.state.toggled){
       favoriteButton.setAttribute("style", "color: lightgrey");
       this.setState({toggled: false });
-      this.props.createFavorite(this.props.project.id);
+      this.props.deleteFavorite(this.props.project.id);
     } else {
       favoriteButton.setAttribute("style", "color: red");
       this.setState({toggled: true });
-      this.props.deleteFavorite(this.props.project.id);
+      this.props.createFavorite(this.props.project.id);
     }
     // TODO: dispatch favorite actions
   }
