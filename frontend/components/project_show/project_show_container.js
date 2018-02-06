@@ -5,6 +5,7 @@ import  { fetchProject } from '../../actions/project_actions';
 import { createComment, fetchComments }
         from '../../actions/comment_actions';
 import { fetchUser } from '../../actions/user_actions';
+import { createFavorite, deleteFavorite } from '../../actions/favorite_actions';
 
 const mapStatetoProps = (state, ownProps) => {
   return {
@@ -19,7 +20,9 @@ const mapDispatchtoProps = (dispatch) => {
   return {
     fetchProject: (projectId) => dispatch(fetchProject(projectId)),
     createComment: (comment) =>  dispatch(createComment(comment)),
-    fetchComments: (projectId) => dispatch(fetchComments(projectId))
+    fetchComments: (projectId) => dispatch(fetchComments(projectId)),
+    createFavorite: (projectId) => dispatch(createFavorite(projectId)),
+    deleteFavorite: (projectId) => dispatch(deleteFavorite(projectId))
   };
 };
 
