@@ -99,6 +99,7 @@
   border-radius: 5px;
   font-size: 14px;
   padding: 3px;
+  list-style: none;
   li {
     border: none;
     padding-left: 10px;
@@ -387,9 +388,10 @@
   overflow: hidden;
   box-shadow: 1px 3px 7px rgba(0,0,0,0.3);
   transition: opacity .3s linear,top .3s ease-out;
-  position: fixed;
+  position: absolute;
   z-index: 2500;
   top: 20%;
+  left: 36%;
   img {
     width: 100%;
   }
